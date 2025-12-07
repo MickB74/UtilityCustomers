@@ -43,8 +43,8 @@ st.sidebar.header("Filters")
 
 # Reset Button
 def reset_filters():
-    st.session_state.filter_hub = 'All'
-    st.session_state.filter_type = 'All'
+    st.session_state.filter_hub = []
+    st.session_state.filter_type = []
     st.session_state.filter_county = []
     st.session_state.filter_city = []
     st.session_state.filter_status = ["Operational", "Development / Queue", "Aggregate Estimate"]
@@ -54,19 +54,23 @@ def reset_filters():
 st.sidebar.button("Reset Filters", on_click=reset_filters, type="primary")
 
 # Hub Filter
-hubs = ['All'] + sorted(list(df['hub'].unique()))
-selected_hub = st.sidebar.selectbox("ERCOT Hub", hubs, key="filter_hub")
+hubs = sorted(list(df['hub'].unique()))
+selected_hub = st.sidebar.multiselect("ERCOT Hub", hubs, key="filter_hub")
 
 # Type Filter
-types = ['All'] + sorted(list(df['type'].unique()))
-selected_type = st.sidebar.selectbox("Facility Type", types, key="filter_type")
+types = sorted(list(df['type'].unique()))
+selected_type = st.sidebar.multiselect("Facility Type", types, key="filter_type")
 
 # County Filter
 counties = sorted(list(df['county'].unique()))
 selected_counties = st.sidebar.multiselect("County", counties, key="filter_county")
 
 # City Filter
-cities = sorted(list(df['city'].unique()))
+if selected_counties:
+    cities = sorted(list(df[df['county'].isin(selected_counties)]['city'].unique()))
+else:
+    cities = sorted(list(df['city'].unique()))
+
 selected_cities = st.sidebar.multiselect("City", cities, key="filter_city")
 
 # Status Filter
@@ -82,10 +86,10 @@ search_term = st.sidebar.text_input("Search Name/Notes/Source", key="filter_sear
 
 # Apply Filters
 filtered_df = df.copy()
-if selected_hub != 'All':
-    filtered_df = filtered_df[filtered_df['hub'] == selected_hub]
-if selected_type != 'All':
-    filtered_df = filtered_df[filtered_df['type'] == selected_type]
+if selected_hub:
+    filtered_df = filtered_df[filtered_df['hub'].isin(selected_hub)]
+if selected_type:
+    filtered_df = filtered_df[filtered_df['type'].isin(selected_type)]
 if selected_counties:
     filtered_df = filtered_df[filtered_df['county'].isin(selected_counties)]
 if selected_cities:

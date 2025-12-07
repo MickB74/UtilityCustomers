@@ -607,6 +607,32 @@ def get_residential_aggregates():
     
     return aggs
 
+def get_tdsp_whales():
+    # Specific "Whale" customers identified by TDSP analysis
+    whales = [
+        # CenterPoint (Heavy Petrochem)
+        ErcotCustomer("LyondellBasell Channelview", "Chemicals", "Houston", 120, "Major Petrochemical Complex", "Public Records / TDSP Analysis", "Operational"),
+        ErcotCustomer("Chevron Phillips (Sweeny)", "Chemicals", "Sweeny", 150, "Major Petrochemical Complex", "Public Records / TDSP Analysis", "Operational"),
+        ErcotCustomer("Chevron Phillips (Cedar Bayou)", "Chemicals", "Baytown", 100, "Major Petrochemical Complex", "Public Records / TDSP Analysis", "Operational"),
+        
+        # AEP Texas (South/West)
+        ErcotCustomer("Scanio/Sinton Steel (Steel Dynamics)", "Steel", "Sinton", 120, "New EAF Steel Mill", "Public Records", "Operational"),
+        ErcotCustomer("Permian Basin Electrification (Occidental)", "Industrial", "Midland", 150, "Aggregated Oil Field Electrification", "Company Reports", "Operational"),
+        ErcotCustomer("Permian Basin Electrification (ConocoPhillips)", "Industrial", "Midland", 100, "Aggregated Oil Field Electrification", "Company Reports", "Operational"),
+        ErcotCustomer("Permian Basin Electrification (Pioneer/Exxon)", "Industrial", "Midland", 120, "Aggregated Oil Field Electrification", "Company Reports", "Operational"),
+        
+        # TNMP
+        ErcotCustomer("Dow Texas City", "Chemicals", "Texas City", 180, "Major Chemical Complex", "Public Records", "Operational"),
+        ErcotCustomer("Riot Platforms (Sanderson)", "Crypto Mining", "Sanderson", 100, "West Texas Mining Facility", "Press Release", "Development / Queue"),
+        
+        # CPS Energy
+        ErcotCustomer("NSA Texas Data Center", "Government", "San Antonio", 85, "National Security Data Center", "Public Records", "Operational"),
+        
+        # Austin Energy
+        ErcotCustomer("State of Texas Capitol Complex", "Government", "Austin", 25, "Capitol Complex Aggregate", "Public Records", "Operational")
+    ]
+    return whales
+
 def get_confidential_loads():
     # Representing the large volume of "Interconnection Queue" demand not publicly named
     # Mix of Crypto, Hydrogen, Data Center, Industrial
@@ -661,7 +687,9 @@ def generate_all_customers():
         get_major_developments() + # Added specific large projects
         get_public_datacenters() + # Added Public Record Data Centers (User Request)
         get_commercial_aggregates() + # Added Medium Commercial fillers
+        get_commercial_aggregates() + # Added Medium Commercial fillers
         get_residential_aggregates() + # Added User REQUEST (42GW)
+        get_tdsp_whales() + # Added specific TDSP Whales (User Request)
         get_confidential_loads() # Added top-tier fillers
     )
     
