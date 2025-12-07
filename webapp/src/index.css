@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-slate: #0f172a;
+  --bg-panel: #1e293b;
+  --border-panel: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-slate);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-slate);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-panel);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.dashboard-panel {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.table-row {
+  transition: background-color 0.15s ease;
+}
+
+.table-row:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.th-sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.th-sortable:hover {
+  color: var(--text-primary);
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.badge-green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge-purple {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.badge-orange {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.badge-gray {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
