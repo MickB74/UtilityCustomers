@@ -200,12 +200,34 @@ def generate_confidential_queue():
 
     return projects
 
+def get_existing_fleet():
+    # Aggregate entries to represent the wider ERCOT fleet (Coal excluded per user)
+    # Target: ~85GW Peak -> ~100GW+ Installed Capacity
+    fleet = [
+        # Nuclear (Base Load)
+        GenerationProject("Comanche Peak Nuclear", "Nuclear", 2400, "Somervell", "Glen Rose", "Operational", 1990, "Vistra", "Base Load"),
+        GenerationProject("South Texas Project", "Nuclear", 2700, "Matagorda", "Bay City", "Operational", 1988, "NRG/CPS/Austin", "Base Load"),
+        
+        # Aggregate Gas Fleets (Peakers + CCGTs not individually listed)
+        GenerationProject("Aggregate Gas Fleet (North)", "Gas", 22000, "Various", "North Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
+        GenerationProject("Aggregate Gas Fleet (Houston)", "Gas", 14000, "Various", "Houston Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
+        GenerationProject("Aggregate Gas Fleet (South)", "Gas", 10000, "Various", "South Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
+        GenerationProject("Aggregate Gas Fleet (West)", "Gas", 4000, "Various", "West Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
+        
+        # Aggregate Renewables (Legacy / Smaller Projects)
+        GenerationProject("Aggregate Wind Fleet (West)", "Wind", 12000, "Various", "West Hub", "Operational", 2015, "Various", "Aggregated Legacy Wind"),
+        GenerationProject("Aggregate Wind Fleet (South)", "Wind", 4000, "Various", "South Hub", "Operational", 2015, "Various", "Aggregated Coastal Wind"),
+        GenerationProject("Aggregate Solar Fleet (Distributed)", "Solar", 5000, "Various", "System Wide", "Operational", 2020, "Various", "Aggregated Distributed Solar"),
+    ]
+    return fleet
+
 def generate_all_projects():
     all_projects = []
     all_projects.extend(get_solar_projects())
     all_projects.extend(get_wind_projects())
     all_projects.extend(get_battery_projects())
     all_projects.extend(get_gas_projects())
+    all_projects.extend(get_existing_fleet())
     all_projects.extend(generate_confidential_queue())
     
     return sorted(all_projects, key=lambda x: x.mw, reverse=True)
