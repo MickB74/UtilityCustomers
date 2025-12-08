@@ -178,6 +178,9 @@ display_df = filtered_df[[
 # Format MWh as string with commas to avoid Streamlit/sprintf issues
 display_df['Est. Annual MWh'] = display_df['Est. Annual MWh'].apply(lambda x: f"{x:,.0f} MWh")
 
+# Start index at 1
+display_df.index = range(1, len(display_df) + 1)
+
 # Display Interactive Table
 st.dataframe(
     display_df,
