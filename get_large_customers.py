@@ -635,6 +635,53 @@ def get_tdsp_whales():
     ]
     return whales
 
+
+def get_manufacturing_giants():
+    # Specific known large manufacturing additions
+    return [
+        ErcotCustomer("Tesla Giga Texas (Full)", "Manufacturing", "Austin", 100, "EV Manufacturing (Expanded)", "Press Release", "Operational"),
+        ErcotCustomer("Samsung Taylor (Construction)", "Manufacturing", "Taylor", 50, "Semiconductor Fab (Construction Power)", "Press Release", "Operational"),
+        ErcotCustomer("Samsung Austin (Full)", "Manufacturing", "Austin", 150, "Semiconductor Fab", "Press Release", "Operational"),
+        ErcotCustomer("Toyota Motor Mfg (SA)", "Manufacturing", "San Antonio", 45, "Auto Assembly", "Company Reports", "Operational"),
+        ErcotCustomer("Texas Instruments (Sherman)", "Manufacturing", "Sherman", 60, "300mm Wafer Fab Construction", "Company Reports", "Operational"),
+    ]
+
+def get_lng_and_refineries():
+    # Major Coastal Infrastructure
+    return [
+        ErcotCustomer("Freeport LNG (Train 1-3)", "LNG", "Freeport", 650, "Liquefaction Trains", "Company Reports", "Operational"),
+        ErcotCustomer("Corpus Christi LNG (Train 1-3)", "LNG", "Corpus Christi", 450, "Liquefaction Trains", "Company Reports", "Operational"),
+        ErcotCustomer("Cheniere Pass (Train 5)", "LNG", "Corpus Christi", 150, "Expansion", "Company Reports", "Operational"),
+        ErcotCustomer("Valero Corpus Christi East", "Refining", "Corpus Christi", 120, "Refinery Complex", "Public Records", "Operational"),
+        ErcotCustomer("Citgo Corpus Christi", "Refining", "Corpus Christi", 90, "Refinery", "Public Records", "Operational"),
+        ErcotCustomer("Flint Hills Resources (Corpus)", "Refining", "Corpus Christi", 130, "Refinery Complex", "Public Records", "Operational"),
+        ErcotCustomer("Motiva Port Arthur (Partial)", "Refining", "Port Arthur", 150, "Largest Refinery in NA", "Public Records", "Operational"),
+        ErcotCustomer("ExxonMobil Beaumont (Expansion)", "Refining", "Beaumont", 160, "Refinery Expansion", "Public Records", "Operational"),
+    ]
+
+def get_universities_and_bases():
+    # Large Institutional Campuses
+    return [
+        ErcotCustomer("UT Austin (Main Campus)", "Education", "Austin", 70, "University Campus", "Energy Stewardship Report", "Operational"),
+        ErcotCustomer("Texas A&M (Main Campus)", "Education", "College Station", 75, "University Campus", "Utilities Report", "Operational"),
+        ErcotCustomer("Texas Tech (Main Campus)", "Education", "Lubbock", 25, "University Campus", "Public Records", "Operational"),
+        ErcotCustomer("University of Houston", "Education", "Houston", 35, "University Campus", "Public Records", "Operational"),
+        ErcotCustomer("Fort Cavazos (Main Post)", "Military", "Killeen", 60, "Army Base", "Public Records", "Operational"),
+        ErcotCustomer("JBSA Lackland (Cyber)", "Military", "San Antonio", 65, "Air Force Base / Cyber Command", "Public Records", "Operational"),
+        ErcotCustomer("Fort Bliss (Main)", "Military", "El Paso", 55, "Army Base", "Public Records", "Operational"),
+        ErcotCustomer("NAS Corpus Christi", "Military", "Corpus Christi", 30, "Naval Air Station", "Public Records", "Operational"),
+    ]
+
+def get_more_crypto():
+    # Additional identified crypto loads
+    return [
+        ErcotCustomer("Marathon Digital (Granbury)", "Crypto Mining", "Granbury", 300, "Behind the meter generation", "Press Release", "Operational"),
+        ErcotCustomer("Cipher Mining (Odessa)", "Crypto Mining", "Odessa", 207, "Data Center", "Press Release", "Operational"),
+        ErcotCustomer("Rhodium Enterprises (Temple)", "Crypto Mining", "Temple", 100, "Bitcoin Mining", "Press Release", "Operational"),
+        ErcotCustomer("Bitdeer (Garden City)", "Crypto Mining", "Garden City", 100, "Mining Facility", "Press Release", "Operational"),
+        ErcotCustomer("Lancium (Fort Stockton)", "Crypto Mining", "Fort Stockton", 100, "Compute Campus", "Press Release", "Development / Queue"),
+    ]
+
 def get_confidential_loads():
     # Representing the large volume of "Interconnection Queue" demand not publicly named
     # Mix of Crypto, Hydrogen, Data Center, Industrial
@@ -692,6 +739,10 @@ def generate_all_customers():
         get_commercial_aggregates() + # Added Medium Commercial fillers
         get_residential_aggregates() + # Added User REQUEST (42GW)
         get_tdsp_whales() + # Added specific TDSP Whales (User Request)
+        get_manufacturing_giants() +
+        get_lng_and_refineries() +
+        get_universities_and_bases() +
+        get_more_crypto() +
         get_confidential_loads() # Added top-tier fillers
     )
     
