@@ -53,29 +53,49 @@ def reset_filters():
 
 st.sidebar.button("Reset Filters", on_click=reset_filters, type="primary")
 
+# Helper: Get valid options based on other filters
+def get_valid_options(target_col, filters):
+    temp_df = df.copy()
+    # Apply all filters EXCEPT the one we are generating options for
+    for col, values in filters.items():
+        if col != target_col and values:
+             temp_df = temp_df[temp_df[col].isin(values)]
+    return sorted(list(temp_df[target_col].unique()))
+
+# Capture Current Selections from Session State (for dynamic filtering)
+# We use st.session_state directly because the widgets haven't run yet this rerun
+current_selection = {
+    'hub': st.session_state.get('filter_hub', []),
+    'type': st.session_state.get('filter_type', []),
+    'county': st.session_state.get('filter_county', []),
+    'city': st.session_state.get('filter_city', []),
+    'status': st.session_state.get('filter_status', [])
+}
+
 # Hub Filter
-hubs = sorted(list(df['hub'].unique()))
-selected_hub = st.sidebar.multiselect("ERCOT Hub", hubs, key="filter_hub")
+valid_hubs = get_valid_options('hub', current_selection)
+selected_hub = st.sidebar.multiselect("ERCOT Hub", valid_hubs, key="filter_hub")
 
 # Type Filter
-types = sorted(list(df['type'].unique()))
-selected_type = st.sidebar.multiselect("Facility Type", types, key="filter_type")
+valid_types = get_valid_options('type', current_selection)
+selected_type = st.sidebar.multiselect("Facility Type", valid_types, key="filter_type")
 
 # County Filter
-counties = sorted(list(df['county'].unique()))
-selected_counties = st.sidebar.multiselect("County", counties, key="filter_county")
+valid_counties = get_valid_options('county', current_selection)
+selected_counties = st.sidebar.multiselect("County", valid_counties, key="filter_county")
 
 # City Filter
-if selected_counties:
-    cities = sorted(list(df[df['county'].isin(selected_counties)]['city'].unique()))
-else:
-    cities = sorted(list(df['city'].unique()))
-
-selected_cities = st.sidebar.multiselect("City", cities, key="filter_city")
+valid_cities = get_valid_options('city', current_selection)
+selected_cities = st.sidebar.multiselect("City", valid_cities, key="filter_city")
 
 # Status Filter
-statuses = sorted(list(df['status'].unique()))
-selected_status = st.sidebar.multiselect("Status", statuses, default=["Operational", "Development / Queue", "Aggregate Estimate"], key="filter_status")
+valid_statuses = get_valid_options('status', current_selection)
+# Default needs to be handled carefully if options change, but multiselect handles invalid defaults by ignoring them or erroring.
+# To be safe, we only set default if the widget is freshly initialized (not in session state).
+if 'filter_status' not in st.session_state:
+    st.session_state.filter_status = ["Operational", "Development / Queue", "Aggregate Estimate"]
+
+selected_status = st.sidebar.multiselect("Status", valid_statuses, key="filter_status")
 
 # MW Range
 min_mw, max_mw = int(df['mw'].min()), int(df['mw'].max())
@@ -113,20 +133,24 @@ if search_term:
 # --- Key Metrics (Refined) ---
 st.markdown("###") # Spacer
 
+# Helper for status classification
+def is_operational(status):
+    return status in ['Operational', 'Aggregate Estimate']
+
 # Split into Active vs Future
-operational_df = filtered_df[filtered_df['status'] == 'Operational']
-dev_df = filtered_df[filtered_df['status'] != 'Operational']
+operational_df = filtered_df[filtered_df['status'].apply(is_operational)]
+dev_df = filtered_df[~filtered_df['status'].apply(is_operational)]
 
 m1, m2, m3, m4 = st.columns(4)
 
 # Col 1: Active Facilities
-m1.metric("Active Facilities", f"{len(operational_df):,}", help="Count of facilities currently marked as 'Operational'")
+m1.metric("Active Facilities", f"{len(operational_df):,}", help="Count of Operational + Aggregate Estimate facilities")
 
 # Col 2: Active Peak Load
-m2.metric("Active Peak Load (MW)", f"{int(operational_df['mw'].sum()):,}", help="Sum of Peak MW for Operational facilities")
+m2.metric("Active Peak Load (MW)", f"{int(operational_df['mw'].sum()):,}", help="Sum of Peak MW for Operational + Aggregate Estimate")
 
 # Col 3: Future / Queue Load
-m3.metric("Future / Queue Load (MW)", f"{int(dev_df['mw'].sum()):,}", help="Sum of Peak MW for Development, Queue, or Estimate facilities")
+m3.metric("Future / Queue Load (MW)", f"{int(dev_df['mw'].sum()):,}", help="Sum of Peak MW for Development / Queue")
 
 # Col 4: Total Pipeline Count
 m4.metric("Total Pipeline Count", f"{len(filtered_df):,}", help="Total including Operational and Development")
@@ -181,11 +205,17 @@ HUB_PEAKS = {
     'West': 10000     # West + Far West (~12% of system)
 }
 
-# Group filtered data by Hub for dynamic analysis
-filtered_hub_mws = filtered_df.groupby('hub')['mw'].sum().to_dict()
+# Group data by Hub for STATIC context analysis (Total System)
+# We use 'df' (unfiltered) instead of 'filtered_df' so these totals don't change
+context_op_df = df[df['status'].apply(is_operational)]
+context_dev_df = df[~df['status'].apply(is_operational)]
 
-# 1. Total ERCOT System (Dynamic based on filter)
-total_filtered_mw = filtered_df['mw'].sum()
+total_hub_active = context_op_df.groupby('hub')['mw'].sum().to_dict()
+total_hub_queue = context_dev_df.groupby('hub')['mw'].sum().to_dict()
+
+# 1. Total ERCOT System (Static)
+total_active_mw = context_op_df['mw'].sum()
+total_queue_mw = context_dev_df['mw'].sum()
 ERCOT_PEAK = 85500 # Aug 2023 Record
 
 cols = st.columns(5)
@@ -193,7 +223,13 @@ with cols[0]:
     st.metric(
         label="Total ERCOT System",
         value=f"{ERCOT_PEAK:,.0f} MW",
-        delta=f"{total_filtered_mw:,.0f} MW (Filtered) ({(total_filtered_mw/ERCOT_PEAK):.1%})"
+        delta=f"{total_active_mw:,.0f} MW (Active) ({(total_active_mw/ERCOT_PEAK):.1%})"
+    )
+    st.metric(
+        label="Total Queue / Planned",
+        value=f"{total_queue_mw:,.0f} MW",
+        delta="Future Load",
+        delta_color="off"
     )
 
 # 2. Hub Specific Metrics
@@ -202,18 +238,26 @@ st.markdown("##### Zonal Breakdown")
 for idx, hub_name in enumerate(HUB_PEAKS.keys()):
     est_peak = HUB_PEAKS[hub_name]
     
-    # Get MW for this hub from filtered data, default to 0 if none
-    list_mw = filtered_hub_mws.get(hub_name, 0)
-    coverage = list_mw / est_peak
+    # Get Total MW for this hub (Static)
+    active_mw = total_hub_active.get(hub_name, 0)
+    queue_mw = total_hub_queue.get(hub_name, 0)
+    
+    coverage = active_mw / est_peak
     
     # Map Hub to column index (1-4)
     with cols[idx + 1]:
         st.metric(
-            label=f"{hub_name} Hub Peak (Est.)",
+            label=f"{hub_name} Peak (Est.)",
             value=f"{est_peak:,.0f} MW",
-            delta=f"{list_mw:,.0f} MW (Filtered List) ({coverage:.1%})"
+            delta=f"{active_mw:,.0f} MW (Active) ({coverage:.1%})"
+        )
+        st.metric(
+            label=f"{hub_name} Queue",
+            value=f"{queue_mw:,.0f} MW",
+            delta="Future / Planned",
+            delta_color="off"
         )
         st.progress(
             min(1.0, coverage), 
-            text=f"Captured Load: {coverage:.0%}"
+            text=f"Active Load: {coverage:.0%}"
         )
