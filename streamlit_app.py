@@ -110,14 +110,27 @@ if search_term:
         filtered_df['source'].str.lower().str.contains(search_term)
     ]
 
-# --- Key Metrics (Dynamic based on Filter) ---
+# --- Key Metrics (Refined) ---
 st.markdown("###") # Spacer
+
+# Split into Active vs Future
+operational_df = filtered_df[filtered_df['status'] == 'Operational']
+dev_df = filtered_df[filtered_df['status'] != 'Operational']
+
 m1, m2, m3, m4 = st.columns(4)
-m1.metric("Total Facilities", f"{len(filtered_df):,}")
-m2.metric("Total Peak Load (MW)", f"{int(filtered_df['mw'].sum()):,}")
-m3.metric("Est. Annual Energy (TWh)", f"{filtered_df['Est. Annual MWh'].sum() / 1_000_000:,.1f}")
-avg_lf = filtered_df['Load Factor'].mean() if not filtered_df.empty else 0
-m4.metric("Avg Load Factor", f"{avg_lf:.1%}")
+
+# Col 1: Active Facilities
+m1.metric("Active Facilities", f"{len(operational_df):,}", help="Count of facilities currently marked as 'Operational'")
+
+# Col 2: Active Peak Load
+m2.metric("Active Peak Load (MW)", f"{int(operational_df['mw'].sum()):,}", help="Sum of Peak MW for Operational facilities")
+
+# Col 3: Future / Queue Load
+m3.metric("Future / Queue Load (MW)", f"{int(dev_df['mw'].sum()):,}", help="Sum of Peak MW for Development, Queue, or Estimate facilities")
+
+# Col 4: Total Pipeline Count
+m4.metric("Total Pipeline Count", f"{len(filtered_df):,}", help="Total including Operational and Development")
+
 st.markdown("---")
 
 # Main Data Table
