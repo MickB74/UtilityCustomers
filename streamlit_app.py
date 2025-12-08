@@ -273,151 +273,54 @@ elif view == "Market Resources":
     st.header("⚡ Market Resources")
     st.markdown("Real-time data and official reports from ERCOT and EIA.")
     
-    # --- 1. Real-Time Grid Conditions (Live API) ---
-    st.subheader("🟢 Real-Time Grid Conditions")
+    col1, col2, col3 = st.columns([2, 1, 1])
     
-    @st.cache_data(ttl=300) # Cache for 5 minutes
-    def get_ercot_conditions():
-        try:
-            url = "https://www.ercot.com/api/1/services/read/dashboards/supply-demand.json"
-            r = requests.get(url, timeout=5)
-            data = r.json()
-            
-            # Find the "current" or most recent interval
-            # The API returns 'data' list. We need the last entry that has a timestamp <= now? 
-            # Actually, usually the API returns 'current' data for today.
-            # Let's just grab the entry matching current text or closest to now.
-            # Simplification: Grab the entry where "timestamp" is closest to now.
-            
-            # For this simple implementation, let's grab the first entry of the current hour
-            # Or easier: The API usually provides a "lastUpdated" field and the data array
-            # Let's assume the API returns forward looking data too.
-            # We will parse the 'lastUpdated' to valid data.
-            
-            # SAFE FALLBACK: Just grab the entry that represents "now" from the list
-            now = datetime.datetime.now(pytz.timezone('US/Central'))
-            
-            # Filter for current hour
-            current_data = data['data'][0] # Default to first if search fails
-            
-            for entry in data['data']:
-                # entry['timestamp'] format: 2025-12-07 20:30:00-0600
-                # Parsing specific format might be brittle.
-                # Let's look for the one matching the current hour ending?
-                pass
-            
-            # Actually, usually the first item in the future list is "right now" or next hour.
-            # Let's allow Streamlit to just display the latest available ACTUAL data point.
-            # Ideally we'd parse timestamps, but for MVP, let's grab the item corresponding to "current" time.
-            
-            # Better Approach: Just display the first element of 'data' which is usually the current interval start
-            current_cond = data['data'][0]
-            
-            return {
-                "demand": current_cond['forecastedDemand'],
-                "capacity": current_cond['availCapGen'],
-                "status": "Normal" # Placeholder, actual status needs another API
-            }
-        except Exception as e:
-            return None
-
-    conditions = get_ercot_conditions()
-    
-    if conditions:
-        c1, c2, c3 = st.columns(3)
-        
-        demand = conditions['demand']
-        capacity = conditions['capacity']
-        reserves = capacity - demand
-        
-        c1.metric("Current Demand", f"{demand:,.0f} MW", border=True)
-        c2.metric("Available Capacity", f"{capacity:,.0f} MW", border=True)
-        c3.metric("Reserve Margin", f"{reserves:,.0f} MW", delta=f"{(reserves/demand):.1%}", border=True)
-    else:
-        st.warning("Could not fetch real-time grid data. Please check ERCOT.com")
-
-    st.markdown("---")
-
-    # --- 2. Real-Time LMP & Gas ---
-    col_gas, col_lmp = st.columns([1, 1])
-    
-    with col_gas:
-        st.subheader("🔥 Natural Gas (Henry Hub)")
-        # TradingView Widget for Henry Hub
-        st.components.v1.html(
-            """
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container">
-              <div id="tradingview_123"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-              <script type="text/javascript">
-              new TradingView.widget(
-              {
-              "width": "100%",
-              "height": 400,
-              "symbol": "TVC:USOIL",
-              "interval": "D",
-              "timezone": "America/Chicago",
-              "theme": "light",
-              "style": "2",
-              "locale": "en",
-              "enable_publishing": false,
-              "hide_top_toolbar": true,
-              "save_image": false,
-              "container_id": "tradingview_123",
-              "symbol": "TVC:NG1!" 
-              }
-              );
-              </script>
-            </div>
-            <!-- TradingView Widget END -->
-            """,
-            height=410
-        )
-        st.caption("Source: TradingView (Henry Hub Futures)")
-
-    with col_lmp:
-        st.subheader("💰 Real-Time LMPs")
-        # Embed the Official ERCOT LMP Map
-        # It's a bit heavy, but requested "Real Time LMP in each zone"
-        # The Map is the best way to show "Zone" data visually.
-        st.markdown(
-            """
-            <iframe src="https://www.ercot.com/content/cdr/html/real_time_lmp_map.html" width="100%" height="400" style="border:none; border-radius: 10px;"></iframe>
-            """, 
-            unsafe_allow_html=True
-        )
-        st.caption("Source: ERCOT.com")
-
-    st.markdown("---")
-
-    # --- 3. Reference Links (Keep existing) ---
-    st.subheader("📚 Key Resources")
-    
-    l1, l2, l3 = st.columns(3)
-    
-    with l1:
-        st.markdown("**operations**")
-        st.markdown("- [Supply & Demand](https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand)")
-        st.markdown("- [Outage Scheduler](https://www.ercot.com/gridmktinfo/dashboards/outagescheduler)")
-    
-    with l2:
-        st.markdown("**prices**")
-        st.markdown("- [LMP Map](https://www.ercot.com/content/cdr/html/real_time_lmp_map.html)")
-        st.markdown("- [DAM Prices](https://www.ercot.com/mktinfo/dam)")
-    
-    with l3: 
-        st.markdown("**regulatory**")
-        st.markdown("- [PUCT Interchange](https://interchange.puc.texas.gov/)")
-        st.markdown("- [Potomac Price (IMM)](https://www.potomaceconomics.com/markets/ercot/)")
-    
-    st.markdown("---")
-    
-    # --- 4. Deep Dive: EIA Data ---
-    with st.expander("Expand for EIA Texas Electricity Profile (Deep Dive)"):
+    with col1:
+        st.subheader("EIA Texas Electricity Profile")
+        # Embed EIA State Electricity Profile
         st.markdown(
             """
             <iframe src="https://www.eia.gov/state/?sid=TX" width="100%" height="800" style="border:none;"></iframe>
             """, 
             unsafe_allow_html=True
         )
+        
+    with col2:
+        st.subheader("Official ERCOT Dashboards")
+        st.info("Direct links to key operational data.")
+        
+        st.markdown("""
+        ### 🟢 Real-Time Operations
+        - [**Grid Conditions (Supply & Demand)**](https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand)
+        - [**System Frequency**](https://www.ercot.com/gridmktinfo/dashboards/frequency)
+        - [**Outage Scheduler**](https://www.ercot.com/gridmktinfo/dashboards/outagescheduler)
+        
+        ### 💰 Market Prices
+        - [**Real-Time LMPs (Map)**](https://www.ercot.com/content/cdr/html/real_time_lmp_map.html)
+        - [**DAM Clearing Prices**](https://www.ercot.com/mktinfo/dam)
+        - [**Ancillary Services Capacity**](https://www.ercot.com/gridmktinfo/dashboards/ancillaryservices)
+        
+        ### 📅 Planning & Reports
+        - [**Seasonal Assessment of Resource Adequacy (SARA)**](https://www.ercot.com/gridinfo/resource)
+        - [**Generation Interconnection Status (GIS)**](https://www.ercot.com/gridinfo/resource)
+        """)
+        
+    with col3:
+        st.subheader("Fuel & Regulatory")
+        st.warning("Drivers of Load & Price")
+        
+        st.markdown("""
+        ### 🔥 Natural Gas (Fuel)
+        - [**EIA Natural Gas Weekly**](https://www.eia.gov/naturalgas/weekly/)
+        - [**Waha Hub Spot Prices**](https://www.eia.gov/dnav/ng/hist/rngwhhdm.htm)
+        
+        ### 🌦️ Weather (Demand)
+        - [**NOAA 6-10 Day Outlook**](https://www.cpc.ncep.noaa.gov/products/predictions/610day/)
+        - [**ERCOT Weather Forecast**](https://www.ercot.com/gridmktinfo/dashboards/weatherforecast)
+        
+        ### 🏛️ Regulatory / IMM
+        - [**PUCT Interchange (Filings)**](https://interchange.puc.texas.gov/)
+        - [**Independent Market Monitor (IMM)**](https://www.potomaceconomics.com/markets/ercot/)
+        """)
+        
+        st.warning("Note: External links open in a new tab.")
