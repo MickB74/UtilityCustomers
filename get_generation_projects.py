@@ -214,6 +214,10 @@ def get_existing_fleet():
         GenerationProject("Aggregate Gas Fleet (South)", "Gas", 10000, "Various", "South Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
         GenerationProject("Aggregate Gas Fleet (West)", "Gas", 4000, "Various", "West Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
         
+        # Aggregate Coal Fleet (As requested)
+        GenerationProject("Aggregate Coal Fleet (North)", "Coal", 7000, "Various", "North Hub", "Operational", 1980, "Various", "Martin Lake, Sandy Creek, etc."),
+        GenerationProject("Aggregate Coal Fleet (South)", "Coal", 3000, "Various", "South Hub", "Operational", 1980, "Various", "Fayette, Oak Grove"),
+
         # Aggregate Renewables (Legacy / Smaller Projects)
         GenerationProject("Aggregate Wind Fleet (West)", "Wind", 12000, "Various", "West Hub", "Operational", 2015, "Various", "Aggregated Legacy Wind"),
         GenerationProject("Aggregate Wind Fleet (South)", "Wind", 4000, "Various", "South Hub", "Operational", 2015, "Various", "Aggregated Coastal Wind"),
