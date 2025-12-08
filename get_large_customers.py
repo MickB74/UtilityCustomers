@@ -71,25 +71,14 @@ class ErcotCustomer:
         self.facility_type = facility_type
         self.city = city
         self.county = CITY_TO_COUNTY.get(city.lower(), "Texas")
-        self.hub = self.assign_hub(city)
+        self.hub = self.assign_hub(self.county)
         self.peak_load_mw = peak_load_mw
         self.description = description
         self.source = source
         self.status = status
 
-    def assign_hub(self, loc):
-        loc = loc.lower()
-        # Houston Hub
-        if any(x in loc for x in ['houston', 'baytown', 'pasadena', 'deer park', 'texas city', 'galveston', 'sugar land', 'katy', 'freeport', 'brazoria', 'angleton', 'alvin', 'pearland', 'league city', 'chocolate bayou', 'quintana', 'bolivar', 'webster', 'friendswood', 'conroe', 'spring', 'woodlands', 'kingwood', 'humble', 'rosenberg', 'bay city', 'wharton', 'sweeny']):
-            return "Houston"
-        # South Hub
-        if any(x in loc for x in ['san antonio', 'corpus christi', 'austin', 'taylor', 'round rock', 'san marcos', 'new braunfels', 'seguin', 'victoria', 'laredo', 'mcallen', 'brownsville', 'harlingen', 'edinburg', 'pharr', 'mission', 'weslaco', 'kingsville', 'point comfort', 'port lavaca', 'kerrville', 'fredericksburg', 'buda', 'kyle', 'georgetown', 'leander', 'cedar park', 'pflugerville', 'bastrop', 'luling', 'schertz', 'cibolo', 'boerne', 'eagle pass', 'del rio', 'uvalde', 'beeville', 'alice', 'portland', 'rockport', 'aransas', 'ingleside']):
-            return "South"
-        # West Hub
-        if any(x in loc for x in ['odessa', 'midland', 'abilene', 'san angelo', 'big spring', 'sweetwater', 'lubbock', 'amarillo', 'plainview', 'levelland', 'snyder', 'childress', 'fort stockton', 'pecos', 'monahans', 'andrews', 'seminole', 'lamesa', 'brownfield', 'hereford', 'canyon', 'dumas', 'pampa', 'borger', 'dalhart', 'perryton', 'wink', 'mentone', 'pyote', 'garden city', 'upton', 'reagan', 'crockett', 'val verde', 'edwards', 'kimble', 'mason', 'mcculloch', 'concho', 'menard', 'schleicher', 'sutton', 'terrell', 'brewster', 'presidio', 'jeff davis', 'culberson', 'hudspeth', 'el paso']):
-            return "West"
-        # North Hub (Default for DFW/North East)
-        return "North"
+    def assign_hub(self, county):
+        return get_hub_from_county(county)
 
     def to_dict(self):
         return {
@@ -103,6 +92,36 @@ class ErcotCustomer:
             "source": self.source,
             "status": self.status
         }
+
+def get_hub_from_county(county):
+    # Approximate ERCOT Hub/Zone Mapping
+    west_counties = [
+        "Pecos", "Reeves", "Andrews", "Upton", "Scurry", "Sterling", "Nolan", "Taylor", "Jones", "Concho", 
+        "Crane", "Ector", "Midland", "Ward", "Winkler", "Loving", "Crockett", "Tom Green", "Howard",
+        "Lubbock", "Sutton", "Schleicher", "Menard", "Kimble", "Mason", "McCulloch", "San Saba", "Terrell", "Val Verde"
+    ]
+    
+    south_counties = [
+        # Valley & Coast
+        "Cameron", "Hidalgo", "Starr", "Webb", "Kenedy", "Willacy", "Bee", "Wharton", "Matagorda", "Nueces", 
+        "San Patricio", "Kleberg", "Brooks", "Zapata", "Duval", "Jim Wells", "Live Oak", "Jim Hogg", 
+        "Aransas", "Refugio", "Goliad", "Victoria", "Calhoun", "Jackson",
+        # San Antonio Area
+        "Bexar", "Comal", "Guadalupe", "Wilson", "Atascosa", "Medina", "Bandera", "Kendall", "Kerr",
+        # Austin Area (LZ_SOUTH)
+        "Travis", "Hays", "Caldwell", "Bastrop", "Fayette", "Lee", "Williamson", "Burnet", "Llano", "Gillespie"
+    ]
+    
+    houston_counties = [
+        "Harris", "Fort Bend", "Brazoria", "Chambers", "Galveston", "Liberty", "Orange", "Montgomery", "Waller", "Austin", "Colorado"
+    ]
+    
+    if county in west_counties: return "West"
+    if county in south_counties: return "South"
+    if county in houston_counties: return "Houston"
+    
+    # Default everything else to North (DFW, East, Central, North Central)
+    return "North"
 
 def get_crypto_mines():
     return [
