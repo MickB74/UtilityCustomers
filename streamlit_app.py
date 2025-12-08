@@ -273,9 +273,6 @@ elif view == "Market Resources":
     st.header("⚡ Market Resources")
     st.markdown("Real-time data and official reports from ERCOT and EIA.")
     
-elif view == "Market Resources":
-    st.header("⚡ Market Resources")
-    
     # --- 1. Real-Time Grid Conditions (Live API) ---
     st.subheader("🟢 Real-Time Grid Conditions")
     
