@@ -42,9 +42,9 @@ df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 st.title("⚡ ERCOT Large Load Analytics")
 
 # Navigation
-view = st.radio("Navigation", ["Customer Map", "Market Resources"], horizontal=True, label_visibility="collapsed")
+view = st.sidebar.radio("Navigation", ["Dashboard", "Generation Projects", "Market Resources"])
 
-if view == "Customer Map":
+if view == "Dashboard":
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
 
@@ -269,9 +269,201 @@ if view == "Customer Map":
                 text=f"Active Load: {coverage:.0%}"
             )
 
+elif view == "Generation Projects":
+    # Load Generation Data
+    @st.cache_data
+    def load_gen_data():
+        with open('webapp/public/generation_data.json', 'r') as f:
+            data = json.load(f)
+        return pd.DataFrame(data)
+
+    gen_df = load_gen_data()
+    
+    # --- Sidebar Filters for Generation ---
+    st.sidebar.header("Generation Filters")
+    
+    # Reset Button for Gen
+    if st.sidebar.button("Reset Gen Filters"):
+        st.session_state.gen_tech = []
+        st.session_state.gen_status = []
+        st.session_state.gen_county = []
+        st.session_state.gen_hub = []
+        st.session_state.gen_search = ""
+    
+    # Tech Filter
+    tech_opts = sorted(gen_df['technology'].unique())
+    sel_tech = st.sidebar.multiselect("Technology", tech_opts, key="gen_tech")
+    
+    # Status Filter
+    status_opts = sorted(gen_df['status'].unique())
+    sel_status = st.sidebar.multiselect("Status", status_opts, key="gen_status")
+    
+    # Hub Filter
+    hub_opts = sorted(gen_df['hub'].unique()) if 'hub' in gen_df.columns else []
+    sel_hub = st.sidebar.multiselect("ERCOT Hub", hub_opts, key="gen_hub")
+
+    # County Filter
+    county_opts = sorted(gen_df['county'].unique())
+    sel_county = st.sidebar.multiselect("County", county_opts, key="gen_county")
+
+    # Search Box
+    gen_search = st.sidebar.text_input("Search Project/Dev/Loc", key="gen_search")
+    
+    # Apply Filters
+    filtered_gen = gen_df.copy()
+    if sel_tech:
+        filtered_gen = filtered_gen[filtered_gen['technology'].isin(sel_tech)]
+    if sel_status:
+        filtered_gen = filtered_gen[filtered_gen['status'].isin(sel_status)]
+    if sel_hub:
+        filtered_gen = filtered_gen[filtered_gen['hub'].isin(sel_hub)]
+    if sel_county:
+        filtered_gen = filtered_gen[filtered_gen['county'].isin(sel_county)]
+    
+    if gen_search:
+        s = gen_search.lower()
+        filtered_gen = filtered_gen[
+            filtered_gen['project_name'].str.lower().str.contains(s) |
+            filtered_gen['developer'].str.lower().str.contains(s) |
+            filtered_gen['county'].str.lower().str.contains(s) |
+            filtered_gen['city'].str.lower().str.contains(s)
+        ]
+        
+    # --- Dashboard Content ---
+    st.header("⚡ Generation Projects")
+    
+    # Metrics
+    m1, m2, m3, m4 = st.columns(4)
+    
+    total_mw = filtered_gen['capacity_mw'].sum()
+    op_mw = filtered_gen[filtered_gen['status'] == 'Operational']['capacity_mw'].sum()
+    queue_mw = filtered_gen[filtered_gen['status'] != 'Operational']['capacity_mw'].sum()
+    count = len(filtered_gen)
+    
+    m1.metric("Total Capacity", f"{total_mw:,.0f} MW")
+    m2.metric("Operational", f"{op_mw:,.0f} MW")
+    m3.metric("Queue / Planned", f"{queue_mw:,.0f} MW")
+    m4.metric("Project Count", f"{count}")
+    
+    st.markdown("---")
+    
+    # Main Table
+    st.subheader(f"Project List ({count})")
+    
+    # Display Config
+    st.dataframe(
+        filtered_gen[['project_name', 'technology', 'capacity_mw', 'hub', 'city', 'county', 'status', 'cod_year', 'developer', 'notes']],
+        use_container_width=True,
+        column_config={
+            "capacity_mw": st.column_config.NumberColumn("Capacity (MW)", format="%.0f MW"),
+            "cod_year": st.column_config.NumberColumn("COD Year", format="%d"),
+            "project_name": "Project Name",
+            "technology": "Technology",
+            "hub": "Hub",
+            "city": "City",
+            "county": "County",
+            "status": "Status",
+            "developer": "Developer",
+            "notes": "Notes"
+        },
+        height=600,
+        hide_index=True
+    )
+
+    # Generation Mix Section (Totals on Bottom)
+    st.markdown("---")
+    st.subheader("📊 Generation Context")
+    
+    # 1. Hub Breakdown (Requested focus for Renewables)
+    st.markdown("##### Capacity by ERCOT Hub")
+    if not filtered_gen.empty:
+        hub_stats = filtered_gen.groupby('hub')['capacity_mw'].sum().sort_values(ascending=False)
+        # Use a dynamic number of columns based on Hub count (usually 5-6)
+        h_cols = st.columns(min(len(hub_stats), 6))
+        
+        for idx, (hub, total_mw) in enumerate(hub_stats.items()):
+            if idx < len(h_cols):
+                # Breakdown op/queue for this hub
+                h_op = filtered_gen[(filtered_gen['hub'] == hub) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
+                h_queue = filtered_gen[(filtered_gen['hub'] == hub) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
+                
+                with h_cols[idx]:
+                    st.metric(
+                        label=f"{hub}",
+                        value=f"{total_mw:,.0f} MW",
+                        delta=f"{h_op:,.0f} MW (Op) / {h_queue:,.0f} MW (Q)",
+                        delta_color="off"
+                    )
+
+    # 2. Technology Mix
+    st.markdown("##### Technology Breakdown")
+    tech_stats = filtered_gen.groupby(['technology', 'status'])['capacity_mw'].sum().unstack(fill_value=0)
+    for col in ['Operational', 'Queue']:
+        if col not in tech_stats.columns:
+            tech_stats[col] = 0
+            
+    active_techs = sorted(filtered_gen['technology'].unique())
+    if active_techs:
+        cols = st.columns(len(active_techs))
+        for idx, tech in enumerate(active_techs):
+            t_op = filtered_gen[(filtered_gen['technology'] == tech) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
+            t_queue = filtered_gen[(filtered_gen['technology'] == tech) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
+            t_total = t_op + t_queue
+            
+            with cols[idx]:
+                st.metric(
+                    label=f"{tech}",
+                    value=f"{t_total:,.0f} MW",
+                    delta=f"{t_op:,.0f} MW (Op) / {t_queue:,.0f} MW (Q)",
+                    delta_color="off"
+                )
+    
+    # 3. Top Counties
+    st.markdown("##### Top 5 Counties")
+    if not filtered_gen.empty:
+        county_stats = filtered_gen.groupby('county')['capacity_mw'].sum().sort_values(ascending=False).head(5)
+        c_cols = st.columns(5)
+        for idx, (county, total_mw) in enumerate(county_stats.items()):
+            # Breakdown op/queue for this county
+            c_op = filtered_gen[(filtered_gen['county'] == county) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
+            c_queue = filtered_gen[(filtered_gen['county'] == county) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
+            
+            with c_cols[idx]:
+                st.metric(
+                    label=f"{county} County",
+                    value=f"{total_mw:,.0f} MW",
+                    delta=f"{c_op:,.0f} MW (Op) / {c_queue:,.0f} MW (Q)",
+                    delta_color="off"
+                )
+    
+    # 4. Top Cities
+    st.markdown("##### Top 5 Cities")
+    if not filtered_gen.empty:
+        city_stats = filtered_gen.groupby('city')['capacity_mw'].sum().sort_values(ascending=False).head(5)
+        city_cols = st.columns(5)
+        for idx, (city, total_mw) in enumerate(city_stats.items()):
+            # Breakdown op/queue for this city
+            c_op = filtered_gen[(filtered_gen['city'] == city) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
+            c_queue = filtered_gen[(filtered_gen['city'] == city) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
+            
+            with city_cols[idx]:
+                st.metric(
+                    label=f"{city}",
+                    value=f"{total_mw:,.0f} MW",
+                    delta=f"{c_op:,.0f} MW (Op) / {c_queue:,.0f} MW (Q)",
+                    delta_color="off"
+                )
+    else:
+        st.info("No data selected.")
+
 elif view == "Market Resources":
     st.header("⚡ Market Resources")
-    st.markdown("Real-time data and official reports from ERCOT and EIA.")
+    
+    # Requested Embed: ERCOT Dashboards
+    st.subheader("ERCOT Grid Dashboards")
+    st.components.v1.iframe("https://www.ercot.com/gridmktinfo/dashboards", height=800, scrolling=True)
+    
+    st.markdown("---")
     
     col1, col2, col3 = st.columns([2, 1, 1])
     
@@ -291,18 +483,18 @@ elif view == "Market Resources":
         
         st.markdown("""
         ### 🟢 Real-Time Operations
-        - [**Grid Conditions (Supply & Demand)**](https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand)
+        - [**Supply and Demand**](https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand)
         - [**System Frequency**](https://www.ercot.com/gridmktinfo/dashboards/frequency)
-        - [**Outage Scheduler**](https://www.ercot.com/gridmktinfo/dashboards/outagescheduler)
+        - [**Generation Outages**](https://www.ercot.com/gridmktinfo/dashboards/systemoutages)
         
         ### 💰 Market Prices
-        - [**Real-Time LMPs (Map)**](https://www.ercot.com/content/cdr/html/real_time_lmp_map.html)
+        - [**LMP Contour Map**](https://www.ercot.com/gridmktinfo/dashboards/lmpcontourmap)
         - [**DAM Clearing Prices**](https://www.ercot.com/mktinfo/dam)
-        - [**Ancillary Services Capacity**](https://www.ercot.com/gridmktinfo/dashboards/ancillaryservices)
+        - [**AS Capacity Monitor**](https://www.ercot.com/gridmktinfo/dashboards/ascapmonitor)
         
         ### 📅 Planning & Reports
-        - [**Seasonal Assessment of Resource Adequacy (SARA)**](https://www.ercot.com/gridinfo/resource)
-        - [**Generation Interconnection Status (GIS)**](https://www.ercot.com/gridinfo/resource)
+        - [**Resource Adequacy (MORA)**](https://www.ercot.com/gridinfo/resource)
+        - [**Interconnection (GIS) Status**](https://www.ercot.com/gridinfo/resource)
         """)
         
     with col3:
