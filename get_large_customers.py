@@ -196,7 +196,6 @@ def get_industrial():
         ErcotCustomer("CMC Steel Seguin", "Steel", "Seguin", 80, "EAF"),
         ErcotCustomer("Nucor Steel Jewett", "Steel", "Jewett", 70, "EAF"),
         ErcotCustomer("Gerdau Midlothian", "Steel", "Midlothian", 60, "Steel"),
-        ErcotCustomer("Vistra Mines", "Mining", "Various", 40, "Lignite"),
         ErcotCustomer("Martin Marietta", "Mining", "Various", 30, "Aggregates"),
         ErcotCustomer("Vulcan Materials", "Mining", "Various", 30, "Aggregates"),
     ]
