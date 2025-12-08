@@ -47,25 +47,33 @@ def get_hub_from_county(county):
     # Approximate ERCOT Hub/Zone Mapping
     west_counties = [
         "Pecos", "Reeves", "Andrews", "Upton", "Scurry", "Sterling", "Nolan", "Taylor", "Jones", "Concho", 
-        "Crane", "Ector", "Midland", "Ward", "Winkler", "Loving", "Crockett", "Tom Green", "Howard", "Lubbock"
+        "Crane", "Ector", "Midland", "Ward", "Winkler", "Loving", "Crockett", "Tom Green", "Howard",
+        "Lubbock", "Sutton", "Schleicher", "Menard", "Kimble", "Mason", "McCulloch", "San Saba", "Terrell", "Val Verde"
     ]
-    north_counties = [
-        "Young", "Hood", "Tarrant", "Dallas", "Kaufman", "Rusk", "Lamar", "Red River", "Harrison", "Denton", "Collin", "Ellis", "Johnson"
-    ]
+    # Removed Panhandle counties (SPP)
+    
     south_counties = [
+        # Valley & Coast
         "Cameron", "Hidalgo", "Starr", "Webb", "Kenedy", "Willacy", "Bee", "Wharton", "Matagorda", "Nueces", 
-        "San Patricio", "Kleberg", "Brooks", "Zapata", "Duval", "Jim Wells"
-    ]
-    houston_counties = [
-        "Harris", "Fort Bend", "Brazoria", "Chambers", "Galveston", "Liberty", "Orange", "Montgomery", "Waller"
+        "San Patricio", "Kleberg", "Brooks", "Zapata", "Duval", "Jim Wells", "Live Oak", "Jim Hogg", 
+        "Aransas", "Refugio", "Goliad", "Victoria", "Calhoun", "Jackson",
+        # San Antonio Area
+        "Bexar", "Comal", "Guadalupe", "Wilson", "Atascosa", "Medina", "Bandera", "Kendall", "Kerr",
+        # Austin Area (LZ_SOUTH)
+        "Travis", "Hays", "Caldwell", "Bastrop", "Fayette", "Lee", "Williamson", "Burnet", "Llano", "Gillespie"
     ]
     
+    houston_counties = [
+        "Harris", "Fort Bend", "Brazoria", "Chambers", "Galveston", "Liberty", "Orange", "Montgomery", "Waller", "Austin", "Colorado"
+    ]
+    
+    # Logic
     if county in west_counties: return "West"
-    if county in north_counties: return "North"
     if county in south_counties: return "South"
     if county in houston_counties: return "Houston"
     
-    return "South/Central" # Default for others like Milam, Travis
+    # Default everything else to North (DFW, East, Central, North Central)
+    return "North"
 
 def get_solar_projects():
     # Major Solar Projects (Operational & Queue)

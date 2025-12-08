@@ -204,12 +204,12 @@ if view == "Dashboard":
     st.markdown("---")
     st.subheader("📊 Hub Context")
 
-    # Estimated Peak Loads (Based on 2023/2024 ERCOT Zonal Data)
+    # Estimated Peak Loads (Reflective of new strict Hub mapping)
     HUB_PEAKS = {
-        'North': 32000,   # DFW + North Central (~38% of system)
-        'Houston': 22500, # Coast Zone (~26% of system)
-        'South': 17000,   # South + South Central (~20% of system)
-        'West': 10000     # West + Far West (~12% of system)
+        'North': 30000,   # DFW, East, North Central (Waco/Temple)
+        'Houston': 23000, # Coast Zone
+        'South': 24000,   # Austin, San Antonio, Valley, Corpus
+        'West': 12000     # Permian, Far West, Lubbock
     }
 
     # Group data by Hub for STATIC context analysis (Total System)
