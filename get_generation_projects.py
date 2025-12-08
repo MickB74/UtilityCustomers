@@ -201,27 +201,39 @@ def generate_confidential_queue():
     return projects
 
 def get_existing_fleet():
-    # Aggregate entries to represent the wider ERCOT fleet (Coal excluded per user)
-    # Target: ~85GW Peak -> ~100GW+ Installed Capacity
+    # Aggregate entries to represent the wider ERCOT fleet (Matching User Targets)
+    # Target: Gas ~56GW, Wind ~41GW, Solar ~37GW, Coal ~13GW, Battery ~14GW, Nuclear ~5GW
     fleet = [
-        # Nuclear (Base Load)
+        # Nuclear (~5.1 GW)
         GenerationProject("Comanche Peak Nuclear", "Nuclear", 2400, "Somervell", "Glen Rose", "Operational", 1990, "Vistra", "Base Load"),
         GenerationProject("South Texas Project", "Nuclear", 2700, "Matagorda", "Bay City", "Operational", 1988, "NRG/CPS/Austin", "Base Load"),
         
-        # Aggregate Gas Fleets (Peakers + CCGTs not individually listed)
+        # Aggregate Gas Fleets (~50 GW + Individual Projects = ~56 GW)
         GenerationProject("Aggregate Gas Fleet (North)", "Gas", 22000, "Various", "North Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
         GenerationProject("Aggregate Gas Fleet (Houston)", "Gas", 14000, "Various", "Houston Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
         GenerationProject("Aggregate Gas Fleet (South)", "Gas", 10000, "Various", "South Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
         GenerationProject("Aggregate Gas Fleet (West)", "Gas", 4000, "Various", "West Hub", "Operational", 2000, "Various", "Aggregated Fleet Capacity"),
         
-        # Aggregate Coal Fleet (As requested)
-        GenerationProject("Aggregate Coal Fleet (North)", "Coal", 7000, "Various", "North Hub", "Operational", 1980, "Various", "Martin Lake, Sandy Creek, etc."),
-        GenerationProject("Aggregate Coal Fleet (South)", "Coal", 3000, "Various", "South Hub", "Operational", 1980, "Various", "Fayette, Oak Grove"),
+        # Aggregate Coal Fleet (~13 GW Target)
+        GenerationProject("Aggregate Coal Fleet (North)", "Coal", 8500, "Various", "North Hub", "Operational", 1980, "Various", "Martin Lake, Monticello, etc."),
+        GenerationProject("Aggregate Coal Fleet (South)", "Coal", 4500, "Various", "South Hub", "Operational", 1980, "Various", "Fayette, Oak Grove"),
 
-        # Aggregate Renewables (Legacy / Smaller Projects)
-        GenerationProject("Aggregate Wind Fleet (West)", "Wind", 12000, "Various", "West Hub", "Operational", 2015, "Various", "Aggregated Legacy Wind"),
-        GenerationProject("Aggregate Wind Fleet (South)", "Wind", 4000, "Various", "South Hub", "Operational", 2015, "Various", "Aggregated Coastal Wind"),
-        GenerationProject("Aggregate Solar Fleet (Distributed)", "Solar", 5000, "Various", "System Wide", "Operational", 2020, "Various", "Aggregated Distributed Solar"),
+        # Aggregate Wind Fleet (~41 GW Target - requires huge boost)
+        GenerationProject("Aggregate Wind Fleet (West)", "Wind", 25000, "Various", "West Hub", "Operational", 2015, "Various", "Aggregated West Texas Wind"),
+        GenerationProject("Aggregate Wind Fleet (South)", "Wind", 10000, "Various", "South Hub", "Operational", 2015, "Various", "Aggregated Coastal Wind"),
+        GenerationProject("Aggregate Wind Fleet (North)", "Wind", 4000, "Various", "North Hub", "Operational", 2015, "Various", "Aggregated North Wind"),
+
+        # Aggregate Solar Fleet (~37 GW Target - requires huge boost)
+        GenerationProject("Aggregate Solar Fleet (West)", "Solar", 15000, "Various", "West Hub", "Operational", 2022, "Various", "Aggregated Solar Farms"),
+        GenerationProject("Aggregate Solar Fleet (South)", "Solar", 10000, "Various", "South Hub", "Operational", 2022, "Various", "Aggregated Solar Farms"),
+        GenerationProject("Aggregate Solar Fleet (North)", "Solar", 5000, "Various", "North Hub", "Operational", 2022, "Various", "Aggregated Solar Farms"),
+        GenerationProject("Aggregate Solar Fleet (Distributed)", "Solar", 5000, "Various", "System Wide", "Operational", 2022, "Various", "Aggregated Distributed/Rooftop"),
+
+        # Aggregate Battery Fleet (~14 GW Target)
+        GenerationProject("Aggregate Battery Fleet (West)", "Battery", 5000, "Various", "West Hub", "Operational", 2023, "Various", "Aggregated BESS"),
+        GenerationProject("Aggregate Battery Fleet (South)", "Battery", 4000, "Various", "South Hub", "Operational", 2023, "Various", "Aggregated BESS"),
+        GenerationProject("Aggregate Battery Fleet (North)", "Battery", 3000, "Various", "North Hub", "Operational", 2023, "Various", "Aggregated BESS"),
+        GenerationProject("Aggregate Battery Fleet (Houston)", "Battery", 1500, "Various", "Houston Hub", "Operational", 2023, "Various", "Aggregated BESS"),
     ]
     return fleet
 
