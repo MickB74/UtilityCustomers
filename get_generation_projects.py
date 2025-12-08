@@ -47,10 +47,7 @@ def get_hub_from_county(county):
     # Approximate ERCOT Hub/Zone Mapping
     west_counties = [
         "Pecos", "Reeves", "Andrews", "Upton", "Scurry", "Sterling", "Nolan", "Taylor", "Jones", "Concho", 
-        "Crane", "Ector", "Midland", "Ward", "Winkler", "Loving", "Crockett", "Tom Green", "Howard"
-    ]
-    panhandle_north = [ # Panhandle projects often flow to North or West, but administratively North
-        "Hansford", "Swisher", "Moore", "Potter", "Sherman", "Carson", "Gray", "Deaf Smith", "Armstrong"
+        "Crane", "Ector", "Midland", "Ward", "Winkler", "Loving", "Crockett", "Tom Green", "Howard", "Lubbock"
     ]
     north_counties = [
         "Young", "Hood", "Tarrant", "Dallas", "Kaufman", "Rusk", "Lamar", "Red River", "Harrison", "Denton", "Collin", "Ellis", "Johnson"
@@ -64,7 +61,6 @@ def get_hub_from_county(county):
     ]
     
     if county in west_counties: return "West"
-    if county in panhandle_north: return "North (Panhandle)"
     if county in north_counties: return "North"
     if county in south_counties: return "South"
     if county in houston_counties: return "Houston"
@@ -76,7 +72,6 @@ def get_solar_projects():
     projects = [
         # Operational (Recent Large)
         GenerationProject("Danish Fields Solar", "Solar", 720, "Matagorda", "Blessing", "Operational", 2024, "TotalEnergies", "Paired with Battery"),
-        GenerationProject("Hornet Solar", "Solar", 600, "Swisher", "Tulia", "Operational", 2025, "Vesper Energy", "Large scale solar"),
         GenerationProject("Roadrunner Solar", "Solar", 497, "Upton", "McCamey", "Operational", 2020, "Enel Green Power", "Solar + Storage"),
         GenerationProject("Permian Energy Center", "Solar", 460, "Andrews", "Andrews", "Operational", 2021, "Orsted", "Solar + Storage"),
         GenerationProject("Roscoe Solar", "Solar", 330, "Nolan", "Roscoe", "Operational", 2022, "RWE", "Co-located with wind"),
@@ -98,7 +93,6 @@ def get_wind_projects():
     # Major Wind Projects
     projects = [
         # Operational
-        GenerationProject("Great Prairie Wind", "Wind", 1027, "Hansford", "Spearman", "Operational", 2024, "NextEra", "Largest in Texas"),
         GenerationProject("Los Vientos Wind", "Wind", 912, "Starr", "Rio Grande City", "Operational", 2016, "Duke Energy", "Multi-phase"),
         GenerationProject("Roscoe Wind Farm", "Wind", 781, "Nolan", "Roscoe", "Operational", 2009, "RWE", "historical giant"),
         GenerationProject("Horse Hollow Wind", "Wind", 735, "Taylor", "Abilene", "Operational", 2006, "NextEra", "historical giant"),
@@ -117,7 +111,6 @@ def get_battery_projects():
     # Battery Storage (Booming)
     projects = [
         # Queue / Planned (Major)
-        GenerationProject("Zeus Armstrong BESS", "Battery", 1043, "Armstrong", "Claude", "Queue", 2027, "Zeus Energy", "Potential Largest"),
         GenerationProject("Gemini Energy Storage", "Battery", 600, "Harrison", "Marshall", "Queue", 2026, "Quinbrook", "East Texas"),
         GenerationProject("Blackjack Creek BESS", "Battery", 500, "Bee", "Beeville", "Queue", 2026, "LS Power", "South Texas"),
         GenerationProject("Helios Energy Storage", "Battery", 450, "Nueces", "Corpus Christi", "Queue", 2026, "Plus Power", "Coastal"),
@@ -158,7 +151,7 @@ def generate_confidential_queue():
     
     counties = [
         "Pecos", "Reeves", "Andrews", "Wharton", "Matagorda", "Fort Bend", "Dallas", "Tarrant", "Harris", 
-        "Hidalgo", "Starr", "Webb", "Nueces", "Lamar", "Red River", "Moore", "Hansford", "Potter"
+        "Hidalgo", "Starr", "Webb", "Nueces", "Lamar", "Red River"
     ]
     
     # Simple city map approximation for confidential projects
@@ -166,8 +159,7 @@ def generate_confidential_queue():
         "Pecos": "Fort Stockton", "Reeves": "Pecos", "Andrews": "Andrews", "Wharton": "Wharton", 
         "Matagorda": "Bay City", "Fort Bend": "Rosenberg", "Dallas": "Dallas", "Tarrant": "Fort Worth", 
         "Harris": "Houston", "Hidalgo": "McAllen", "Starr": "Rio Grande City", "Webb": "Laredo", 
-        "Nueces": "Corpus Christi", "Lamar": "Paris", "Red River": "Clarksville", "Moore": "Dumas", 
-        "Hansford": "Spearman", "Potter": "Amarillo"
+        "Nueces": "Corpus Christi", "Lamar": "Paris", "Red River": "Clarksville"
     }
 
     # Solar Queue (Lots of 100-300MW projects)
