@@ -271,7 +271,7 @@ if view == "Dashboard":
 
 elif view == "Generation Projects":
     # Load Generation Data
-    @st.cache_data
+    # @st.cache_data  <-- Commented out to ensure fresh load
     def load_gen_data():
         with open('webapp/public/generation_data.json', 'r') as f:
             data = json.load(f)
