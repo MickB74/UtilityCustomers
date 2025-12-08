@@ -461,7 +461,8 @@ elif view == "Market Resources":
     
     # Requested Embed: ERCOT Dashboards
     st.subheader("ERCOT Grid Dashboards")
-    st.components.v1.iframe("https://www.ercot.com/gridmktinfo/dashboards", height=800, scrolling=True)
+    st.info("The official ERCOT dashboards cannot be embedded directly. Please view them here:")
+    st.link_button("Open ERCOT Dashboards", "https://www.ercot.com/gridmktinfo/dashboards", type="primary")
     
     st.markdown("---")
     
