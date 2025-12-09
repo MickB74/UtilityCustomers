@@ -488,7 +488,7 @@ elif view == "Market Resources":
         ### 💰 Market Prices
         - [**LMP Contour Map**](https://www.ercot.com/content/cdr/contours/rtmLmp.html)
         - [**DAM Clearing Prices**](https://www.ercot.com/mktinfo/dam)
-        - [**AS Capacity Monitor**](https://www.ercot.com/gridmktinfo/dashboards/ascapmonitor)
+        - [**AS Capacity Monitor**](https://www.ercot.com/content/cdr/html/as_capacity_monitor.html)
         
         ### 📅 Planning & Reports
         - [**Resource Adequacy (MORA)**](https://www.ercot.com/gridinfo/resource)
