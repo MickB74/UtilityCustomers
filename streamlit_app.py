@@ -716,12 +716,18 @@ elif view == "Historical Analysis":
                          
                          line_load = base.mark_line(color='#1f77b4').encode(
                              y=alt.Y(load_col, title='Load (MW)', axis=alt.Axis(titleColor='#1f77b4')),
-                             tooltip=[time_col, load_col]
+                             tooltip=[
+                                 alt.Tooltip(time_col, title='Time', format='%Y-%m-%d %H:%M'),
+                                 alt.Tooltip(load_col, title='Load (MW)', format=',.2f')
+                             ]
                          )
                          
                          line_price = base.mark_line(color='#ff7f0e').encode(
                              y=alt.Y(price_col, title='Price ($/MWh)', axis=alt.Axis(titleColor='#ff7f0e')),
-                             tooltip=[time_col, price_col]
+                             tooltip=[
+                                 alt.Tooltip(time_col, title='Time', format='%Y-%m-%d %H:%M'),
+                                 alt.Tooltip(price_col, title='Price ($/MWh)', format=',.2f')
+                             ]
                          )
                          
                          c = alt.layer(line_load, line_price).resolve_scale(
