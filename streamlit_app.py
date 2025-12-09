@@ -565,7 +565,7 @@ elif view == "Historical Analysis":
                 if selected_years:
                     filtered_hist = df_hist[df_hist['Year'].isin(selected_years)]
                     
-                    # 1. Key Metrics
+                    # 1. Key Metrics (Calculate on raw hourly data for accuracy)
                     st.subheader("Key Metrics")
                     cols = st.columns(4)
                     
@@ -598,30 +598,36 @@ elif view == "Historical Analysis":
                     
                     st.markdown("---")
                     
-                    # 2. Charts
-                    st.subheader("Price & Load Trends")
+                    # Resampling Controls
+                    st.subheader("Trends")
+                    freq_map = {'Hourly': 'h', 'Daily': 'D', 'Weekly': 'W', 'Monthly': 'M'}
+                    # Default to Monthly if multiple years, else Weekly or Daily
+                    default_ix = 2 if len(selected_years) > 1 else 1 # Weekly vs Daily
+                    selected_freq = st.radio("Resolution", list(freq_map.keys()), index=default_ix, horizontal=True)
+                    
+                    # Resample Data for Charts
+                    chart_data = filtered_hist.set_index(time_col).resample(freq_map[selected_freq]).mean().reset_index()
+                    
+                    # 2. Price & Load Chart
+                    st.write("### Price & Load")
                     
                     if price_col and load_col:
-                         # normalize or dual axis? Streamlit line_chart is simple.
-                         # If price is 0, don't plot it
-                         if filtered_hist[price_col].sum() > 1:
-                            st.line_chart(filtered_hist[[time_col, price_col, load_col]].set_index(time_col))
+                         # Normalize or use dual axis? Streamlit native line_chart is simple.
+                         # Let's clean it up.
+                         if chart_data[price_col].sum() > 1:
+                            st.line_chart(chart_data, x=time_col, y=[price_col, load_col])
                          else:
-                            st.line_chart(filtered_hist[[time_col, load_col]].set_index(time_col))
-                    elif price_col and filtered_hist[price_col].sum() > 1:
-                        st.line_chart(filtered_hist[[time_col, price_col]].set_index(time_col))
+                            st.line_chart(chart_data, x=time_col, y=[load_col])
+                    elif price_col and chart_data[price_col].sum() > 1:
+                        st.line_chart(chart_data, x=time_col, y=[price_col])
                     
                     # 3. Generation Mix (if columns exist)
-                    st.subheader("Generation Mix")
+                    st.write("### Generation Mix")
                     gen_cols = []
                     potential_gens = ['wind', 'solar', 'gas', 'coal', 'nuclear', 'hydro', 'biomass', 'other']
                     for g in potential_gens:
-                         # exact matches in our CSV are capitalized
-                         # get_col does fuzzy match
-                         # We prefer exact match if possible
                          matches = [c for c in filtered_hist.columns if g.lower() in c.lower()]
                          if matches:
-                             # Exclude 'Price' if it matches 'Gas Price' etc
                              valid_matches = [m for m in matches if 'price' not in m.lower()]
                              if valid_matches:
                                  gen_cols.extend(valid_matches)
@@ -630,7 +636,7 @@ elif view == "Historical Analysis":
                     gen_cols = list(set(gen_cols))
                     
                     if gen_cols:
-                        st.area_chart(filtered_hist[[time_col] + gen_cols].set_index(time_col))
+                        st.area_chart(chart_data, x=time_col, y=gen_cols)
                     else:
                         st.info("Could not identify specific generation columns (Wind, Solar, Gas, etc.) automatically.")
                         
