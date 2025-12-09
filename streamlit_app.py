@@ -711,7 +711,7 @@ elif view == "Historical Analysis":
                     if price_col and load_col and chart_data[price_col].sum() > 1:
                          # Dual Axis Chart using Altair
                          base = alt.Chart(chart_data).encode(
-                             x=alt.X(time_col, title='Time')
+                             x=alt.X(time_col, title='Time', axis=alt.Axis(format='%b\n%Y', labelOverlap=False))
                          )
                          
                          line_load = base.mark_line(color='#1f77b4').encode(
