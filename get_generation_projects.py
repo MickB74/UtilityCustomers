@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+    #!/usr/bin/env python3
 """
 ERCOT Generation Project Data Generator
 
@@ -109,6 +109,11 @@ def get_wind_projects():
         GenerationProject("Peñascal Wind", "Wind", 605, "Kenedy", "Sarita", "Operational", 2010, "Avangrid", "Coastal"),
         
         # Queue / Repowering
+        GenerationProject("Great Prairie Wind", "Wind", 1027, "Hansford", "Spearman", "Operational", 2024, "NextEra", "Largest in Americas"),
+        GenerationProject("South Plains Wind", "Wind", 500, "Floyd", "Lockney", "Operational", 2016, "First Wind", "Panhandle"),
+        GenerationProject("Aviator Wind", "Wind", 525, "Coke", "Robert Lee", "Operational", 2020, "CMS Energy", "Facebook Offtaker"),
+        GenerationProject("Santa Rita East", "Wind", 300, "Reagan", "Big Lake", "Operational", 2019, "Invenergy", "West Texas"),
+        GenerationProject("Torrecillas Wind", "Wind", 300, "Webb", "Laredo", "Operational", 2019, "Avangrid", "South Texas"),
         GenerationProject("Gulf Wind Repower", "Wind", 250, "Kenedy", "Armstrong", "Queue", 2026, "Pattern Energy", "Repowering"),
         GenerationProject("Coyote Wind", "Wind", 200, "Scurry", "Snyder", "Queue", 2026, "Invenergy", "New Build"),
         GenerationProject("Maverick Wind", "Wind", 300, "Young", "Graham", "Queue", 2027, "Apex Clean Energy", "North Texas"),
@@ -143,12 +148,33 @@ def get_gas_projects():
         GenerationProject("Colorado Bend II", "Gas", 1100, "Wharton", "Wharton", "Operational", 2024, "Calpine", "New CCGT"),
         GenerationProject("Barney Davis", "Gas", 925, "Nueces", "Corpus Christi", "Operational", 2002, "Talen Energy", "Coastal"),
         GenerationProject("Tenaska Gateway", "Gas", 845, "Rusk", "Henderson", "Operational", 2000, "Tenaska", "East Texas"),
+        GenerationProject("Odessa Ector", "Gas", 1000, "Ector", "Odessa", "Operational", 2001, "Invenergy", "Permian"),
+        GenerationProject("Stryker Creek", "Gas", 1175, "Cherokee", "Jacksonville", "Operational", 1958, "Luminant", "Legacy Gas"),
+        GenerationProject("Graham Power", "Gas", 630, "Young", "Graham", "Operational", 2008, "Luminant", "Combined Cycle"),
+        GenerationProject("Sim Gideon", "Gas", 600, "Bastrop", "Bastrop", "Operational", 1972, "LCRA", "Legacy Gas"),
         
         # Queue / Construction
+        GenerationProject("CPV Basin Ranch", "Gas", 1350, "Ward", "Monahans", "Queue", 2028, "CPV", "Dispatchable"),
         GenerationProject("Cedar Bayou 4 (New)", "Gas", 721, "Chambers", "Baytown", "Queue", 2028, "NRG", "Peaker/CCGT"),
         GenerationProject("Orange County Adv Power", "Gas", 1200, "Orange", "Orange", "Queue", 2027, "Entergy", "Proposed CCGT"),
         GenerationProject("Sandow Lakes Gas", "Gas", 800, "Milam", "Rockdale", "Queue", 2027, "WattBridge", "Peaker"),
         GenerationProject("PHR Peaker", "Gas", 400, "Harris", "Pasadena", "Queue", 2026, "WattBridge", "Peaker"),
+    ]
+    return projects
+
+def get_coal_projects():
+    # Major Coal Fleet (Operational)
+    projects = [
+        GenerationProject("WA Parish", "Coal", 3690, "Fort Bend", "Thompsons", "Operational", 1977, "NRG", "Largest Coal Plant"),
+        GenerationProject("Martin Lake", "Coal", 2250, "Rusk", "Tatum", "Operational", 1977, "Luminant", "East Texas"),
+        GenerationProject("Oak Grove", "Coal", 1600, "Robertson", "Franklin", "Operational", 2010, "Luminant", "Modern Lignite"),
+        GenerationProject("Limestone", "Coal", 1570, "Limestone", "Jewett", "Operational", 1985, "NRG", "Lignite"),
+        GenerationProject("Fayette Power", "Coal", 1600, "Fayette", "La Grange", "Operational", 1979, "LCRA/Austin", "Colorado River"),
+        GenerationProject("JK Spruce", "Coal", 1300, "Bexar", "San Antonio", "Operational", 1992, "CPS Energy", "San Antonio"),
+        GenerationProject("Tolk Station", "Coal", 1060, "Lamb", "Muleshoe", "Operational", 1982, "Xcel", "West Texas Panhandle"),
+        GenerationProject("Welsh Station", "Coal", 1000, "Titus", "Pittsburg", "Operational", 1977, "AEP", "East Texas"),
+        GenerationProject("Harrington", "Coal", 1000, "Potter", "Amarillo", "Operational", 1976, "Xcel", "Panhandle"),
+        GenerationProject("Sandy Creek", "Coal", 900, "McLennan", "Riesel", "Operational", 2013, "Sandy Creek Services", "Modern Coal"),
     ]
     return projects
 
@@ -306,6 +332,7 @@ def generate_all_projects():
     all_projects.extend(get_wind_projects())
     all_projects.extend(get_battery_projects())
     all_projects.extend(get_gas_projects())
+    all_projects.extend(get_coal_projects())
     all_projects.extend(get_existing_fleet())
     all_projects.extend(generate_confidential_queue())
     
