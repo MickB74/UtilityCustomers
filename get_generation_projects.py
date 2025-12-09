@@ -10,14 +10,13 @@ Data Sources:
 - Public Press Releases (2023-2025)
 - ERCOT GIS Reports (General Volume)
 - Major Developer Announcements
+- Interconnection Queue (CSV Source)
 """
 
 import json
 import os
-import random
 import csv
 import datetime
-import re
 
 class GenerationProject:
     def __init__(self, name, technology, mw, county, city, status, cod_year, developer="Unknown", notes=""):
