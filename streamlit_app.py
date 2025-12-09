@@ -521,10 +521,9 @@ elif view == "Market Resources":
 elif view == "Historical Analysis":
     st.header("📈 Historical Analysis (2020-2024)")
     
-    st.info("Upload hourly historical data to visualize Trends in Price, Load, Emissions, and Generation.")
-    
-    # File Uploader
-    uploaded_file = st.file_uploader("Upload Historical CSV", type=['csv'])
+    # File Uploader (Hidden by default)
+    with st.expander("Upload Custom CSV (Optional)"):
+        uploaded_file = st.file_uploader("Upload Historical CSV", type=['csv'])
     
     # Check for default local file
     default_file = 'historical_gen_load_emissions_2020_2024.csv'
@@ -537,10 +536,10 @@ elif view == "Historical Analysis":
         except Exception as e:
             st.error(f"Error reading uploaded file: {e}")
     elif os.path.exists(default_file):
-        st.info(f"Using pre-loaded ERCOT Fuel Mix data (2020-2024). Upload a file to override.")
+        # st.info(f"Using pre-loaded ERCOT Fuel Mix data (2020-2024).") # Removed per user request
         df_hist = pd.read_csv(default_file)
     else:
-        st.info("Please upload a CSV file to begin.")
+        st.warning("Data not found. Please upload a CSV file.")
 
     if df_hist is not None:
         try:
