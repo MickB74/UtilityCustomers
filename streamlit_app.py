@@ -39,7 +39,7 @@ df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 st.title("⚡ ERCOT Large Load Analytics")
 
 # Navigation
-view = st.sidebar.radio("Navigation", ["Dashboard", "Generation Projects", "Market Resources"])
+view = st.sidebar.radio("Navigation", ["Dashboard", "Generation Projects", "Market Resources", "Historical Analysis"])
 
 if view == "Dashboard":
     # --- Sidebar Filters ---
@@ -514,3 +514,105 @@ elif view == "Market Resources":
         """)
         
         st.warning("Note: External links open in a new tab.")
+
+elif view == "Historical Analysis":
+    st.header("📈 Historical Analysis (2020-2024)")
+    
+    st.info("Upload hourly historical data to visualize Trends in Price, Load, Emissions, and Generation.")
+    
+    # File Uploader
+    uploaded_file = st.file_uploader("Upload Historical CSV", type=['csv'])
+    
+    if uploaded_file is not None:
+        try:
+            # Cache the data load for performance
+            @st.cache_data
+            def load_history(file):
+                df = pd.read_csv(file)
+                # Try to parse timestamp
+                # Common column names: 'Timestamp', 'Date', 'Time', 'OperDay'
+                time_col = None
+                for col in df.columns:
+                    if 'time' in col.lower() or 'date' in col.lower():
+                        time_col = col
+                        break
+                
+                if time_col:
+                    df[time_col] = pd.to_datetime(df[time_col])
+                    df = df.sort_values(by=time_col)
+                return df, time_col
+
+            df_hist, time_col = load_history(uploaded_file)
+            
+            st.success(f"Loaded {len(df_hist):,} rows.")
+            
+            if time_col:
+                # Add Year/Month columns for filtering if they don't exist
+                if 'Year' not in df_hist.columns:
+                    df_hist['Year'] = df_hist[time_col].dt.year
+                
+                # Filter by Year
+                years = sorted(df_hist['Year'].unique())
+                selected_years = st.multiselect("Select Years", years, default=years)
+                
+                if selected_years:
+                    filtered_hist = df_hist[df_hist['Year'].isin(selected_years)]
+                    
+                    # 1. Key Metrics
+                    st.subheader("Key Metrics")
+                    cols = st.columns(4)
+                    
+                    # Try to find standard columns loosely
+                    def get_col(keywords):
+                        for c in filtered_hist.columns:
+                            if any(k in c.lower() for k in keywords):
+                                return c
+                        return None
+                    
+                    price_col = get_col(['price', 'lmp', 'settlement'])
+                    load_col = get_col(['load', 'demand'])
+                    emis_col = get_col(['emission', 'co2', 'carbon'])
+                    wind_col = get_col(['wind'])
+                    
+                    if price_col:
+                        avg_price = filtered_hist[price_col].mean()
+                        cols[0].metric("Avg Price", f"${avg_price:.2f}")
+                    if load_col:
+                        max_load = filtered_hist[load_col].max()
+                        cols[1].metric("Peak Load", f"{max_load:,.0f} MW")
+                    if emis_col:
+                        total_emis = filtered_hist[emis_col].sum()
+                        cols[2].metric("Total Emissions", f"{total_emis:,.0f} tons") # assuming units
+                    
+                    st.markdown("---")
+                    
+                    # 2. Charts
+                    st.subheader("Price & Load Trends")
+                    
+                    if price_col and load_col:
+                        st.line_chart(filtered_hist[[time_col, price_col, load_col]].set_index(time_col))
+                    elif price_col:
+                        st.line_chart(filtered_hist[[time_col, price_col]].set_index(time_col))
+                    
+                    # 3. Generation Mix (if columns exist)
+                    st.subheader("Generation Mix")
+                    gen_cols = []
+                    potential_gens = ['wind', 'solar', 'gas', 'coal', 'nuclear', 'hydro']
+                    for g in potential_gens:
+                        f_col = get_col([g])
+                        if f_col and f_col != price_col: # Avoid confusion if 'wind price' exists
+                            gen_cols.append(f_col)
+                    
+                    if gen_cols:
+                        st.area_chart(filtered_hist[[time_col] + gen_cols].set_index(time_col))
+                    else:
+                        st.info("Could not identify specific generation columns (Wind, Solar, Gas, etc.) automatically.")
+                        
+                else:
+                    st.warning("Please select at least one year.")
+            else:
+                st.error("Could not identify a Timestamp/Date column. Please ensure the CSV has a date column.")
+                st.write("Preview:", df_hist.head())
+                
+        except Exception as e:
+            st.error(f"Error processing file: {e}")
