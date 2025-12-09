@@ -744,7 +744,8 @@ elif view == "Historical Analysis":
                     for g in potential_gens:
                          matches = [c for c in filtered_hist.columns if g.lower() in c.lower()]
                          if matches:
-                             valid_matches = [m for m in matches if 'price' not in m.lower()]
+                             # Exclude Price and Emissions columns
+                             valid_matches = [m for m in matches if 'price' not in m.lower() and 'emissions' not in m.lower()]
                              if valid_matches:
                                  gen_cols.extend(valid_matches)
                     
@@ -752,17 +753,30 @@ elif view == "Historical Analysis":
                     gen_cols = list(set(gen_cols))
                     
                     if gen_cols:
-                        # Use Plotly for interactive legend (Click to remove)
+                        # Calculate Total Generation for the line
+                        chart_data['Total Gen'] = chart_data[gen_cols].sum(axis=1)
+
+                        # Use Plotly for interactive legend
                         # Melt to long format
                         melted_gen = chart_data.melt(id_vars=[time_col], value_vars=gen_cols, var_name='Fuel', value_name='MW')
                         
                         fig = px.area(melted_gen, x=time_col, y='MW', color='Fuel',
                                       title="Generation by Fuel Type",
                                       labels={'MW': 'Generation (MW)', 'Timestamp': 'Time'},
-                                      color_discrete_sequence=px.colors.qualitative.Bold) # Use distinct colors
+                                      color_discrete_sequence=px.colors.qualitative.Bold)
+                        
+                        # Add Total Generation Line
+                        import plotly.graph_objects as go
+                        fig.add_trace(go.Scatter(
+                            x=chart_data[time_col], 
+                            y=chart_data['Total Gen'],
+                            mode='lines',
+                            name='Total Generation',
+                            line=dict(color='white', width=2, dash='dot')
+                        ))
                         
                         # Fix layout
-                        fig.update_layout(legend_title_text='Fuel Type')
+                        fig.update_layout(legend_title_text='Fuel Type', xaxis_tickformat='%b %Y')
                         st.plotly_chart(fig, use_container_width=True)
                     else:
                         st.info("Could not identify specific generation columns (Wind, Solar, Gas, etc.) automatically.")
