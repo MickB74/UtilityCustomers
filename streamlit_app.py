@@ -558,20 +558,40 @@ elif view == "Historical Analysis":
             # Add Year/Month columns for filtering if they don't exist
             if 'Year' not in df_hist.columns and time_col:
                 df_hist['Year'] = df_hist[time_col].dt.year
+            if 'Month_Num' not in df_hist.columns and time_col:
+                df_hist['Month_Num'] = df_hist[time_col].dt.month
             
-            # Filter by Year
+            # Filter by Year and Month
             if time_col and 'Year' in df_hist.columns:
+                # Year Selection
                 years = sorted(df_hist['Year'].unique())
-                st.write("Select Years:")
-                cols = st.columns(len(years))
+                st.write("**Select Years**")
+                cols_y = st.columns(len(years))
                 selected_years = []
                 for i, year in enumerate(years):
-                    with cols[i]:
+                    with cols_y[i]:
                         if st.checkbox(str(year), value=True, key=f"year_{year}"):
                             selected_years.append(year)
+
+                # Month Selection
+                st.write("**Select Months**")
+                import calendar
+                month_names = list(calendar.month_name)[1:] # ['January', 'February', ...]
+                cols_m = st.columns(6) # 2 rows of 6
+                selected_months = []
                 
-                if selected_years:
-                    filtered_hist = df_hist[df_hist['Year'].isin(selected_years)]
+                for i, m_name in enumerate(month_names):
+                    month_num = i + 1
+                    col_idx = i % 6
+                    with cols_m[col_idx]:
+                        if st.checkbox(m_name, value=True, key=f"month_{month_num}"):
+                            selected_months.append(month_num)
+
+                if selected_years and selected_months:
+                    filtered_hist = df_hist[
+                        (df_hist['Year'].isin(selected_years)) & 
+                        (df_hist['Month_Num'].isin(selected_months))
+                    ]
                     
                     # 1. Key Metrics (Calculate on raw hourly data for accuracy)
                     st.subheader("Key Metrics")
