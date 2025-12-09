@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import altair as alt
 
 # Set Page Layout to Wide
 st.set_page_config(layout="wide", page_title="ERCOT Large Loads")
@@ -617,13 +618,32 @@ elif view == "Historical Analysis":
                     # 2. Price & Load Chart
                     st.write("### Price & Load")
                     
-                    if price_col and load_col:
-                         # Normalize or use dual axis? Streamlit native line_chart is simple.
-                         # Let's clean it up.
-                         if chart_data[price_col].sum() > 1:
-                            st.line_chart(chart_data, x=time_col, y=[price_col, load_col])
-                         else:
-                            st.line_chart(chart_data, x=time_col, y=[load_col])
+                    if price_col and load_col and chart_data[price_col].sum() > 1:
+                         # Dual Axis Chart using Altair
+                         base = alt.Chart(chart_data).encode(
+                             x=alt.X(time_col, title='Time')
+                         )
+                         
+                         line_load = base.mark_line(color='#1f77b4').encode(
+                             y=alt.Y(load_col, title='Load (MW)', axis=alt.Axis(titleColor='#1f77b4')),
+                             tooltip=[time_col, load_col]
+                         )
+                         
+                         line_price = base.mark_line(color='#ff7f0e').encode(
+                             y=alt.Y(price_col, title='Price ($/MWh)', axis=alt.Axis(titleColor='#ff7f0e')),
+                             tooltip=[time_col, price_col]
+                         )
+                         
+                         c = alt.layer(line_load, line_price).resolve_scale(
+                             y='independent'
+                         ).interactive()
+                         
+                         st.altair_chart(c, use_container_width=True)
+                         
+                    elif price_col and load_col:
+                         # Just Load if Price is 0
+                         st.line_chart(chart_data, x=time_col, y=[load_col])
+                         
                     elif price_col and chart_data[price_col].sum() > 1:
                         st.line_chart(chart_data, x=time_col, y=[price_col])
                     
