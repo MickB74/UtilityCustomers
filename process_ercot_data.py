@@ -130,13 +130,14 @@ hourly['Load'] = hourly.sum(axis=1)
 hourly['Emissions'] = 0.0
 for fuel, factor in EMISSION_FACTORS.items():
     # Match fuzzy fuel names
-    # E.g. "Gas" matches "Natural Gas", "Combined Cycle", "Gas Steam"??
-    # From inspection, Fuel is just "Biomass", "Coal", "Gas", "Hydro", "Nuclear", "Other", "Solar", "Wind" usually.
-    # We will map standard names.
-    # Check columns
     for col in hourly.columns:
+        # Skip if already an emissions column or Load/Price
+        if 'Emissions' in col or col in ['Load', 'Price']: continue
+        
         if fuel.lower() in col.lower():
-            hourly['Emissions'] += hourly[col] * factor
+            emis_col_name = f"Emissions_{col}"
+            hourly[emis_col_name] = hourly[col] * factor
+            hourly['Emissions'] += hourly[emis_col_name]
 
 # Price is missing. Set to NaN
 hourly['Price'] = 0.0 # Placeholder
