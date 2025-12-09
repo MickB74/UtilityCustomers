@@ -482,11 +482,11 @@ elif view == "Market Resources":
         st.markdown("""
         ### 🟢 Real-Time Operations
         - [**Supply and Demand**](https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand)
-        - [**System Frequency**](https://www.ercot.com/gridmktinfo/dashboards/frequency)
-        - [**Generation Outages**](https://www.ercot.com/gridmktinfo/dashboards/systemoutages)
+        - [**System Frequency**](https://www.ercot.com/gridmktinfo/dashboards/systemfrequency)
+        - [**Generation Outages**](https://www.ercot.com/gridmktinfo/dashboards/generationoutages)
         
         ### 💰 Market Prices
-        - [**LMP Contour Map**](https://www.ercot.com/gridmktinfo/dashboards/lmpcontourmap)
+        - [**LMP Contour Map**](https://www.ercot.com/content/cdr/contours/rtmLmp.html)
         - [**DAM Clearing Prices**](https://www.ercot.com/mktinfo/dam)
         - [**AS Capacity Monitor**](https://www.ercot.com/gridmktinfo/dashboards/ascapmonitor)
         
