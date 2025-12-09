@@ -502,6 +502,7 @@ elif view == "Market Resources":
         st.markdown("""
         ### 🔥 Natural Gas (Fuel)
         - [**EIA Natural Gas Weekly (incl. Waha)**](https://www.eia.gov/naturalgas/weekly/)
+        - [**CME Henry Hub Futures**](https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.settlements.html)
         
         ### 🌦️ Weather (Demand)
         - [**NOAA 6-10 Day Outlook**](https://www.cpc.ncep.noaa.gov/products/predictions/610day/)
