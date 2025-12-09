@@ -566,17 +566,41 @@ elif view == "Historical Analysis":
                 # Year Selection
                 years = sorted(df_hist['Year'].unique())
                 st.write("**Select Years**")
+                
+                # Year Actions
+                col_y_act1, col_y_act2, _ = st.columns([1,1,4])
+                if col_y_act1.button("Select All Years"):
+                    for y in years:
+                        st.session_state[f"year_{y}"] = True
+                if col_y_act2.button("Clear All Years"):
+                    for y in years:
+                        st.session_state[f"year_{y}"] = False
+                
                 cols_y = st.columns(len(years))
                 selected_years = []
                 for i, year in enumerate(years):
                     with cols_y[i]:
-                        if st.checkbox(str(year), value=True, key=f"year_{year}"):
+                        # Default True if not in state
+                        key = f"year_{year}"
+                        if key not in st.session_state:
+                            st.session_state[key] = True
+                        if st.checkbox(str(year), key=key):
                             selected_years.append(year)
 
                 # Month Selection
                 st.write("**Select Months**")
                 import calendar
                 month_names = list(calendar.month_name)[1:] # ['January', 'February', ...]
+                
+                # Month Actions
+                col_m_act1, col_m_act2, _ = st.columns([1,1,4])
+                if col_m_act1.button("Select All Months"):
+                    for i in range(1, 13):
+                        st.session_state[f"month_{i}"] = True
+                if col_m_act2.button("Clear All Months"):
+                    for i in range(1, 13):
+                        st.session_state[f"month_{i}"] = False
+                
                 cols_m = st.columns(6) # 2 rows of 6
                 selected_months = []
                 
@@ -584,7 +608,10 @@ elif view == "Historical Analysis":
                     month_num = i + 1
                     col_idx = i % 6
                     with cols_m[col_idx]:
-                        if st.checkbox(m_name, value=True, key=f"month_{month_num}"):
+                        key = f"month_{month_num}"
+                        if key not in st.session_state:
+                            st.session_state[key] = True
+                        if st.checkbox(m_name, key=key):
                             selected_months.append(month_num)
 
                 if selected_years and selected_months:
