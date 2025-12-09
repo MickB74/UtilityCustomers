@@ -562,7 +562,13 @@ elif view == "Historical Analysis":
             # Filter by Year
             if time_col and 'Year' in df_hist.columns:
                 years = sorted(df_hist['Year'].unique())
-                selected_years = st.multiselect("Select Years", years, default=years)
+                st.write("Select Years:")
+                cols = st.columns(len(years))
+                selected_years = []
+                for i, year in enumerate(years):
+                    with cols[i]:
+                        if st.checkbox(str(year), value=True, key=f"year_{year}"):
+                            selected_years.append(year)
                 
                 if selected_years:
                     filtered_hist = df_hist[df_hist['Year'].isin(selected_years)]
