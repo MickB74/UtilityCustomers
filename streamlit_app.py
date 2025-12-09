@@ -772,10 +772,12 @@ elif view == "Historical Analysis":
                             y=chart_data['Total Gen'],
                             mode='lines',
                             name='Total Generation',
-                            line=dict(color='white', width=2, dash='dot')
+                            line=dict(color='white', width=2, dash='dot'),
+                            hovertemplate='%{y:,.2f} MW<extra>Total Generation</extra>'
                         ))
                         
-                        # Fix layout
+                        # Fix layout and tooltips
+                        fig.update_traces(selector=dict(type='area'), hovertemplate='%{y:,.2f} MW')
                         fig.update_layout(legend_title_text='Fuel Type', xaxis_tickformat='%b %Y')
                         st.plotly_chart(fig, use_container_width=True)
                     else:
