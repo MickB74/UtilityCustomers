@@ -523,35 +523,41 @@ elif view == "Historical Analysis":
     # File Uploader
     uploaded_file = st.file_uploader("Upload Historical CSV", type=['csv'])
     
+    # Check for default local file
+    default_file = 'historical_gen_load_emissions_2020_2024.csv'
+    df_hist = None
+    time_col = None
+    
     if uploaded_file is not None:
         try:
-            # Cache the data load for performance
-            @st.cache_data
-            def load_history(file):
-                df = pd.read_csv(file)
-                # Try to parse timestamp
-                # Common column names: 'Timestamp', 'Date', 'Time', 'OperDay'
-                time_col = None
-                for col in df.columns:
-                    if 'time' in col.lower() or 'date' in col.lower():
-                        time_col = col
-                        break
-                
-                if time_col:
-                    df[time_col] = pd.to_datetime(df[time_col])
-                    df = df.sort_values(by=time_col)
-                return df, time_col
+            df_hist = pd.read_csv(uploaded_file)
+        except Exception as e:
+            st.error(f"Error reading uploaded file: {e}")
+    elif os.path.exists(default_file):
+        st.info(f"Using pre-loaded ERCOT Fuel Mix data (2020-2024). Upload a file to override.")
+        df_hist = pd.read_csv(default_file)
+    else:
+        st.info("Please upload a CSV file to begin.")
 
-            df_hist, time_col = load_history(uploaded_file)
-            
-            st.success(f"Loaded {len(df_hist):,} rows.")
+    if df_hist is not None:
+        try:
+            # Try to parse timestamp
+            # Common column names: 'Timestamp', 'Date', 'Time', 'OperDay'
+            for col in df_hist.columns:
+                if 'time' in col.lower() or 'date' in col.lower():
+                    time_col = col
+                    break
             
             if time_col:
-                # Add Year/Month columns for filtering if they don't exist
-                if 'Year' not in df_hist.columns:
-                    df_hist['Year'] = df_hist[time_col].dt.year
-                
-                # Filter by Year
+                df_hist[time_col] = pd.to_datetime(df_hist[time_col])
+                df_hist = df_hist.sort_values(by=time_col)
+            
+            # Add Year/Month columns for filtering if they don't exist
+            if 'Year' not in df_hist.columns and time_col:
+                df_hist['Year'] = df_hist[time_col].dt.year
+            
+            # Filter by Year
+            if time_col and 'Year' in df_hist.columns:
                 years = sorted(df_hist['Year'].unique())
                 selected_years = st.multiselect("Select Years", years, default=years)
                 
@@ -576,13 +582,18 @@ elif view == "Historical Analysis":
                     
                     if price_col:
                         avg_price = filtered_hist[price_col].mean()
-                        cols[0].metric("Avg Price", f"${avg_price:.2f}")
+                        # Check if price is real (not just 0s)
+                        if avg_price > 0.01:
+                            cols[0].metric("Avg Price", f"${avg_price:.2f}")
+                        else:
+                            cols[0].metric("Avg Price", "N/A")
+                            st.warning("Price data appears to be missing (all zeros).")
                     if load_col:
                         max_load = filtered_hist[load_col].max()
                         cols[1].metric("Peak Load", f"{max_load:,.0f} MW")
                     if emis_col:
                         total_emis = filtered_hist[emis_col].sum()
-                        cols[2].metric("Total Emissions", f"{total_emis:,.0f} tons") # assuming units
+                        cols[2].metric("Total Emissions", f"{total_emis:,.0f} tons")
                     
                     st.markdown("---")
                     
@@ -590,18 +601,32 @@ elif view == "Historical Analysis":
                     st.subheader("Price & Load Trends")
                     
                     if price_col and load_col:
-                        st.line_chart(filtered_hist[[time_col, price_col, load_col]].set_index(time_col))
-                    elif price_col:
+                         # normalize or dual axis? Streamlit line_chart is simple.
+                         # If price is 0, don't plot it
+                         if filtered_hist[price_col].sum() > 1:
+                            st.line_chart(filtered_hist[[time_col, price_col, load_col]].set_index(time_col))
+                         else:
+                            st.line_chart(filtered_hist[[time_col, load_col]].set_index(time_col))
+                    elif price_col and filtered_hist[price_col].sum() > 1:
                         st.line_chart(filtered_hist[[time_col, price_col]].set_index(time_col))
                     
                     # 3. Generation Mix (if columns exist)
                     st.subheader("Generation Mix")
                     gen_cols = []
-                    potential_gens = ['wind', 'solar', 'gas', 'coal', 'nuclear', 'hydro']
+                    potential_gens = ['wind', 'solar', 'gas', 'coal', 'nuclear', 'hydro', 'biomass', 'other']
                     for g in potential_gens:
-                        f_col = get_col([g])
-                        if f_col and f_col != price_col: # Avoid confusion if 'wind price' exists
-                            gen_cols.append(f_col)
+                         # exact matches in our CSV are capitalized
+                         # get_col does fuzzy match
+                         # We prefer exact match if possible
+                         matches = [c for c in filtered_hist.columns if g.lower() in c.lower()]
+                         if matches:
+                             # Exclude 'Price' if it matches 'Gas Price' etc
+                             valid_matches = [m for m in matches if 'price' not in m.lower()]
+                             if valid_matches:
+                                 gen_cols.extend(valid_matches)
+                    
+                    # Remove duplicates
+                    gen_cols = list(set(gen_cols))
                     
                     if gen_cols:
                         st.area_chart(filtered_hist[[time_col] + gen_cols].set_index(time_col))
@@ -611,8 +636,9 @@ elif view == "Historical Analysis":
                 else:
                     st.warning("Please select at least one year.")
             else:
-                st.error("Could not identify a Timestamp/Date column. Please ensure the CSV has a date column.")
-                st.write("Preview:", df_hist.head())
-                
+                 if df_hist is not None:
+                    st.error("Could not identify a Timestamp/Date column.")
+                    st.write("Preview:", df_hist.head())
+
         except Exception as e:
-            st.error(f"Error processing file: {e}")
+            st.error(f"Error processing data: {e}")
