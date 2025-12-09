@@ -630,7 +630,16 @@ elif view == "Historical Analysis":
                             monthly_stats = monthly_stats.drop(columns=['Month_Num'])
                             monthly_stats = monthly_stats.rename(columns=col_renames)
                             
-                            st.dataframe(monthly_stats, hide_index=True, use_container_width=True)
+                            # Format columns
+                            format_dict = {}
+                            if price_col:
+                                format_dict['Avg Price ($/MWh)'] = "${:,.2f}"
+                            if load_col:
+                                format_dict['Peak Load (MW)'] = "{:,.0f}"
+                            if emis_col:
+                                format_dict['Total Emissions (tons)'] = "{:,.0f}"
+                                
+                            st.dataframe(monthly_stats.style.format(format_dict), hide_index=True, use_container_width=True)
                     
                     st.markdown("---")
                     
