@@ -665,6 +665,20 @@ elif view == "Historical Analysis":
                         st.area_chart(chart_data, x=time_col, y=gen_cols)
                     else:
                         st.info("Could not identify specific generation columns (Wind, Solar, Gas, etc.) automatically.")
+                    
+                    st.markdown("---")
+                    
+                    # 4. Data Preview & Download
+                    st.write("### Data Preview")
+                    st.dataframe(filtered_hist.head(100), use_container_width=True)
+                    
+                    csv = filtered_hist.to_csv(index=False).encode('utf-8')
+                    st.download_button(
+                        label="Download Filtered Data (CSV)",
+                        data=csv,
+                        file_name='ercot_historical_data.csv',
+                        mime='text/csv',
+                    )
                         
                 else:
                     st.warning("Please select at least one year.")
