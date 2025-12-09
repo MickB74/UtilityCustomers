@@ -15,6 +15,9 @@ Data Sources:
 import json
 import os
 import random
+import csv
+import datetime
+import re
 
 class GenerationProject:
     def __init__(self, name, technology, mw, county, city, status, cod_year, developer="Unknown", notes=""):
@@ -48,7 +51,8 @@ def get_hub_from_county(county):
     west_counties = [
         "Pecos", "Reeves", "Andrews", "Upton", "Scurry", "Sterling", "Nolan", "Taylor", "Jones", "Concho", 
         "Crane", "Ector", "Midland", "Ward", "Winkler", "Loving", "Crockett", "Tom Green", "Howard",
-        "Lubbock", "Sutton", "Schleicher", "Menard", "Kimble", "Mason", "McCulloch", "San Saba", "Terrell", "Val Verde"
+        "Lubbock", "Sutton", "Schleicher", "Menard", "Kimble", "Mason", "McCulloch", "San Saba", "Terrell", "Val Verde",
+        "Glasscock"
     ]
     # Removed Panhandle counties (SPP)
     
@@ -86,14 +90,6 @@ def get_solar_projects():
         GenerationProject("Samson Solar Energy Center", "Solar", 250, "Lamar", "Paris", "Operational", 2023, "Invenergy", "Part of 1.3GW complex"),
         GenerationProject("Galloway Solar", "Solar", 200, "Concho", "Paint Rock", "Operational", 2022, "8minute", "Solar"),
         GenerationProject("Anson Solar", "Solar", 200, "Jones", "Anson", "Operational", 2021, "Engie", "Solar"),
-        
-        # Queue / Under Construction
-        GenerationProject("Aktina Solar (Exp)", "Solar", 500, "Wharton", "El Campo", "Queue", 2025, "Tokyo Gas", "Expansion"),
-        GenerationProject("Mockingbird Solar", "Solar", 471, "Lamar", "Paris", "Queue", 2025, "Orsted", "Construction"),
-        GenerationProject("Fighting Jays Solar", "Solar", 350, "Fort Bend", "Needville", "Queue", 2026, "AP Solar", "Near Houston"),
-        GenerationProject("Greasewood Solar", "Solar", 300, "Pecos", "Fort Stockton", "Queue", 2026, "Copenhagen IP", "West Texas"),
-        GenerationProject("Sparta Solar", "Solar", 250, "Bee", "Beeville", "Queue", 2026, "Avangrid", "South Texas"),
-        GenerationProject("Bluebell Solar II", "Solar", 200, "Milam", "Rockdale", "Queue", 2026, "NextEra", "Central Texas"),
     ]
     return projects
 
@@ -114,23 +110,12 @@ def get_wind_projects():
         GenerationProject("Aviator Wind", "Wind", 525, "Coke", "Robert Lee", "Operational", 2020, "CMS Energy", "Facebook Offtaker"),
         GenerationProject("Santa Rita East", "Wind", 300, "Reagan", "Big Lake", "Operational", 2019, "Invenergy", "West Texas"),
         GenerationProject("Torrecillas Wind", "Wind", 300, "Webb", "Laredo", "Operational", 2019, "Avangrid", "South Texas"),
-        GenerationProject("Gulf Wind Repower", "Wind", 250, "Kenedy", "Armstrong", "Queue", 2026, "Pattern Energy", "Repowering"),
-        GenerationProject("Coyote Wind", "Wind", 200, "Scurry", "Snyder", "Queue", 2026, "Invenergy", "New Build"),
-        GenerationProject("Maverick Wind", "Wind", 300, "Young", "Graham", "Queue", 2027, "Apex Clean Energy", "North Texas"),
     ]
     return projects
 
 def get_battery_projects():
     # Battery Storage (Booming)
     projects = [
-        # Queue / Planned (Major)
-        GenerationProject("Gemini Energy Storage", "Battery", 600, "Harrison", "Marshall", "Queue", 2026, "Quinbrook", "East Texas"),
-        GenerationProject("Blackjack Creek BESS", "Battery", 500, "Bee", "Beeville", "Queue", 2026, "LS Power", "South Texas"),
-        GenerationProject("Helios Energy Storage", "Battery", 450, "Nueces", "Corpus Christi", "Queue", 2026, "Plus Power", "Coastal"),
-        GenerationProject("Permian Energy Storage", "Battery", 400, "Andrews", "Andrews", "Queue", 2027, "Intersect Power", "West Texas"),
-        GenerationProject("Wildfire Energy BESS", "Battery", 350, "Brazos", "Bryan", "Queue", 2026, "Jupiter Power", "ERCOT South"),
-        GenerationProject("Maverick BESS", "Battery", 300, "Young", "Graham", "Queue", 2027, "NextEra", "North Texas"),
-        
         # Operational
         GenerationProject("DeCordova Energy Storage", "Battery", 260, "Hood", "Granbury", "Operational", 2022, "Vistra", "Near Granbury"),
         GenerationProject("Sierrita BESS", "Battery", 200, "Pecos", "Fort Stockton", "Operational", 2023, "RWE", "West Texas"),
@@ -152,13 +137,6 @@ def get_gas_projects():
         GenerationProject("Stryker Creek", "Gas", 1175, "Cherokee", "Jacksonville", "Operational", 1958, "Luminant", "Legacy Gas"),
         GenerationProject("Graham Power", "Gas", 630, "Young", "Graham", "Operational", 2008, "Luminant", "Combined Cycle"),
         GenerationProject("Sim Gideon", "Gas", 600, "Bastrop", "Bastrop", "Operational", 1972, "LCRA", "Legacy Gas"),
-        
-        # Queue / Construction
-        GenerationProject("CPV Basin Ranch", "Gas", 1350, "Ward", "Monahans", "Queue", 2028, "CPV", "Dispatchable"),
-        GenerationProject("Cedar Bayou 4 (New)", "Gas", 721, "Chambers", "Baytown", "Queue", 2028, "NRG", "Peaker/CCGT"),
-        GenerationProject("Orange County Adv Power", "Gas", 1200, "Orange", "Orange", "Queue", 2027, "Entergy", "Proposed CCGT"),
-        GenerationProject("Sandow Lakes Gas", "Gas", 800, "Milam", "Rockdale", "Queue", 2027, "WattBridge", "Peaker"),
-        GenerationProject("PHR Peaker", "Gas", 400, "Harris", "Pasadena", "Queue", 2026, "WattBridge", "Peaker"),
     ]
     return projects
 
@@ -178,52 +156,83 @@ def get_coal_projects():
     ]
     return projects
 
-def generate_confidential_queue():
-    # Simulate the massive interconnection queue (1000+ projects)
-    # We will generate ~300 entries to represent the "Long Tail" of the queue
+def load_queue_from_csv(file_path):
     projects = []
     
-    counties = [
-        "Pecos", "Reeves", "Andrews", "Wharton", "Matagorda", "Fort Bend", "Dallas", "Tarrant", "Harris", 
-        "Hidalgo", "Starr", "Webb", "Nueces", "Lamar", "Red River"
-    ]
-    
-    # Simple city map approximation for confidential projects
-    city_map = {
-        "Pecos": "Fort Stockton", "Reeves": "Pecos", "Andrews": "Andrews", "Wharton": "Wharton", 
-        "Matagorda": "Bay City", "Fort Bend": "Rosenberg", "Dallas": "Dallas", "Tarrant": "Fort Worth", 
-        "Harris": "Houston", "Hidalgo": "McAllen", "Starr": "Rio Grande City", "Webb": "Laredo", 
-        "Nueces": "Corpus Christi", "Lamar": "Paris", "Red River": "Clarksville"
+    # Technology Mapping
+    tech_map = {
+        'WIN': 'Wind',
+        'SOL': 'Solar',
+        'BAT': 'Battery',
+        'GAS': 'Gas',
+        'COA': 'Coal',
+        'NUC': 'Nuclear'
     }
 
-    # Solar Queue (Lots of 100-300MW projects)
-    for i in range(1, 101):
-        mw = random.choice([50, 100, 150, 200, 250, 300])
-        cty = random.choice(counties)
-        city = city_map.get(cty, "Unknown")
-        projects.append(GenerationProject(f"Confidential Solar {cty} {i}", "Solar", mw, cty, city, "Queue", 2026+random.randint(0,2), "Confidential", "Queue Position 2x-xxxx"))
+    if not os.path.exists(file_path):
+        print(f"Warning: {file_path} not found. Returning empty queue.")
+        return []
 
-    # Battery Queue (Booming 100-200MW)
-    for i in range(1, 121):
-        mw = random.choice([10, 50, 100, 150, 200])
-        cty = random.choice(counties)
-        city = city_map.get(cty, "Unknown")
-        projects.append(GenerationProject(f"Confidential Storage {cty} {i}", "Battery", mw, cty, city, "Queue", 2026+random.randint(0,1), "Confidential", "Queue Position 2x-xxxx"))
+    with open(file_path, 'r', encoding='utf-8-sig') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            try:
+                name = row.get('Project Name', '').strip()
+                if not name:
+                    continue
+                
+                # Tech
+                raw_fuel = row.get('Fuel', '').upper().strip()
+                technology = tech_map.get(raw_fuel, 'Other')
+                
+                # Capacity
+                try:
+                    mw = float(row.get('Capacity (MW)', 0))
+                except ValueError:
+                    mw = 0.0
+                
+                # Location
+                county = row.get('County', 'Unknown').title().strip()
+                # Try to extract city from POI or Location if available, else blank
+                city = "" # CSV doesn't have city directly, leave blank or infer? leaving blank for now.
 
-    # Wind Queue (Fewer, larger)
-    for i in range(1, 31):
-        mw = random.choice([200, 300, 400])
-        cty = random.choice(counties)
-        city = city_map.get(cty, "Unknown")
-        projects.append(GenerationProject(f"Confidential Wind {cty} {i}", "Wind", mw, cty, city, "Queue", 2027, "Confidential", "Queue Position 2x-xxxx"))
+                # Status & Year
+                # The file is "projects in queue", so status is Queue.
+                status = "Queue"
+                
+                cod_str = row.get('Projected COD', '')
+                cod_year = 2026 # Default
+                if cod_str:
+                    try:
+                        # Attempt to parse YYYY-MM-DD or MM/DD/YYYY
+                        # The snippet showed '2025-12-31 00:00:00'
+                        if '-' in cod_str:
+                             dt = datetime.datetime.strptime(cod_str.split(' ')[0], '%Y-%m-%d')
+                             cod_year = dt.year
+                        elif '/' in cod_str:
+                             dt = datetime.datetime.strptime(cod_str.split(' ')[0], '%m/%d/%Y')
+                             cod_year = dt.year
+                    except:
+                        pass
+                
+                developer = row.get('Interconnecting Entity', 'Unknown').strip()
+                notes = row.get('GIM Study Phase', '').strip()
 
-    # Gas Queue (Specific peakers)
-    for i in range(1, 21):
-        mw = random.choice([100, 200, 400])
-        cty = random.choice(counties)
-        city = city_map.get(cty, "Unknown")
-        projects.append(GenerationProject(f"Confidential Gas Peaker {cty} {i}", "Gas", mw, cty, city, "Queue", 2027, "Confidential", "Dispatchable"))
-
+                projects.append(GenerationProject(
+                    name=name,
+                    technology=technology,
+                    mw=mw,
+                    county=county,
+                    city=city,
+                    status=status,
+                    cod_year=cod_year,
+                    developer=developer,
+                    notes=notes
+                ))
+            except Exception as e:
+                print(f"Error parsing row: {row.get('Project Name')}: {e}")
+                continue
+                
     return projects
 
 def get_existing_fleet():
@@ -328,20 +337,31 @@ def get_existing_fleet():
 
 def generate_all_projects():
     all_projects = []
+    
+    # Existing / Operational
     all_projects.extend(get_solar_projects())
     all_projects.extend(get_wind_projects())
     all_projects.extend(get_battery_projects())
     all_projects.extend(get_gas_projects())
     all_projects.extend(get_coal_projects())
     all_projects.extend(get_existing_fleet())
-    all_projects.extend(generate_confidential_queue())
+    
+    # New Queue Data from CSV
+    csv_path = "projects_in_queue_all_generators.csv"
+    if os.path.exists(csv_path):
+        print(f"Loading queue from {csv_path}...")
+        queue_projects = load_queue_from_csv(csv_path)
+        print(f"Loaded {len(queue_projects)} projects from queue.")
+        all_projects.extend(queue_projects)
+    else:
+        print("CSV Source not found. Skipping queue data.")
     
     return sorted(all_projects, key=lambda x: x.mw, reverse=True)
 
 if __name__ == "__main__":
     projects = generate_all_projects()
     
-    print(f"Generated {len(projects)} generation projects.")
+    print(f"Total Generated Projects: {len(projects)}")
     
     dict_data = [p.to_dict() for p in projects]
     
