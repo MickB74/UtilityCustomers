@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import os
 import altair as alt
+import plotly.express as px
 
 # Set Page Layout to Wide
 st.set_page_config(layout="wide", page_title="ERCOT Large Loads")
@@ -662,7 +663,18 @@ elif view == "Historical Analysis":
                     gen_cols = list(set(gen_cols))
                     
                     if gen_cols:
-                        st.area_chart(chart_data, x=time_col, y=gen_cols)
+                        # Use Plotly for interactive legend (Click to remove)
+                        # Melt to long format
+                        melted_gen = chart_data.melt(id_vars=[time_col], value_vars=gen_cols, var_name='Fuel', value_name='MW')
+                        
+                        fig = px.area(melted_gen, x=time_col, y='MW', color='Fuel',
+                                      title="Generation by Fuel Type",
+                                      labels={'MW': 'Generation (MW)', 'Timestamp': 'Time'},
+                                      color_discrete_sequence=px.colors.qualitative.Bold) # Use distinct colors
+                        
+                        # Fix layout
+                        fig.update_layout(legend_title_text='Fuel Type')
+                        st.plotly_chart(fig, use_container_width=True)
                     else:
                         st.info("Could not identify specific generation columns (Wind, Solar, Gas, etc.) automatically.")
                     
