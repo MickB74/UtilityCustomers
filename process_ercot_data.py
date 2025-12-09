@@ -116,8 +116,11 @@ full_df = full_df.dropna(subset=['Timestamp'])
 full_df = full_df.set_index('Timestamp').sort_index()
 
 # Numeric cols only
-numeric_cols = full_df.select_dtypes(include=['number']).columns
-hourly = full_df[numeric_cols].resample('h').mean()
+numeric_cols = full_df.select_dtypes(include=['number'])
+    # Resample to hourly by summing (MWh/15min * 4 intervals = MWh/hour = Avg MW)
+    # If the raw data is MWh per 15 min, summing 4 intervals gives Total MWh per hour.
+    # Total MWh / 1 hour = Average MW.
+hourly = numeric_cols.resample('h').sum()
 
 # Calculate Load (Approx Total Gen)
 # Sum of all fuels
