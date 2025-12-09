@@ -604,6 +604,34 @@ elif view == "Historical Analysis":
                         total_emis = filtered_hist[emis_col].sum()
                         cols[2].metric("Total Emissions", f"{total_emis:,.0f} tons")
                     
+                    # Monthly Summary Table
+                    with st.expander("View Monthly Detailed Metrics"):
+                        st.write("### Monthly Summary")
+                        summary_df = filtered_hist.copy()
+                        summary_df['Month'] = summary_df[time_col].dt.month_name()
+                        summary_df['Month_Num'] = summary_df[time_col].dt.month
+                        
+                        agg_rules = {}
+                        col_renames = {}
+                        
+                        if price_col:
+                            agg_rules[price_col] = 'mean'
+                            col_renames[price_col] = 'Avg Price ($/MWh)'
+                        if load_col:
+                            agg_rules[load_col] = 'max'
+                            col_renames[load_col] = 'Peak Load (MW)'
+                        if emis_col:
+                            agg_rules[emis_col] = 'sum'
+                            col_renames[emis_col] = 'Total Emissions (tons)'
+                            
+                        if agg_rules:
+                            monthly_stats = summary_df.groupby(['Year', 'Month_Num', 'Month']).agg(agg_rules).reset_index()
+                            monthly_stats = monthly_stats.sort_values(['Year', 'Month_Num'])
+                            monthly_stats = monthly_stats.drop(columns=['Month_Num'])
+                            monthly_stats = monthly_stats.rename(columns=col_renames)
+                            
+                            st.dataframe(monthly_stats, hide_index=True, use_container_width=True)
+                    
                     st.markdown("---")
                     
                     # Resampling Controls
