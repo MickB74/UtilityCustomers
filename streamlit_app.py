@@ -482,7 +482,7 @@ elif view == "Market Resources":
         st.markdown("""
         ### 🟢 Real-Time Operations
         - [**Supply and Demand**](https://www.ercot.com/gridmktinfo/dashboards/supplyanddemand)
-        - [**System Frequency**](https://www.ercot.com/gridmktinfo/dashboards/systemfrequency)
+        - [**System Frequency**](https://www.ercot.com/content/cdr/html/real_time_system_conditions.html)
         - [**Generation Outages**](https://www.ercot.com/gridmktinfo/dashboards/generationoutages)
         
         ### 💰 Market Prices
