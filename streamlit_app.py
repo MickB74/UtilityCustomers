@@ -608,6 +608,12 @@ elif view == "Historical Analysis":
                     # Resample Data for Charts
                     chart_data = filtered_hist.set_index(time_col).resample(freq_map[selected_freq]).mean().reset_index()
                     
+                    # Performance Check: Smart Downsampling
+                    MAX_POINTS = 5000
+                    if len(chart_data) > MAX_POINTS and selected_freq == 'Hourly':
+                        st.warning(f"⚠️ High data volume ({len(chart_data):,} points). Displaying 6-hour averages to optimize performance.")
+                        chart_data = filtered_hist.set_index(time_col).resample('6h').mean().reset_index()
+                    
                     # 2. Price & Load Chart
                     st.write("### Price & Load")
                     
