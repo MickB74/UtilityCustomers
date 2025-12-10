@@ -6,7 +6,7 @@ import altair as alt
 import plotly.express as px
 
 # Set Page Layout to Wide
-st.set_page_config(layout="wide", page_title="ERCOT Large Loads")
+st.set_page_config(layout="wide", page_title="ERCOT Data")
 
 # Load Data
 # Load Data
@@ -39,7 +39,7 @@ df['Est. Annual MWh'] = df['Est. Annual MWh'].astype(int)
 df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 
 # Title
-st.title("⚡ ERCOT Large Load Analytics")
+st.title("⚡ ERCOT Data")
 
 # Navigation
 view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Projects", "Market Resources", "Historical Analysis"])
