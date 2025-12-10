@@ -275,190 +275,265 @@ if view == "Electricity Users":
 
 elif view == "Generation Fleet":
     # Load Generation Data
-    # @st.cache_data  <-- Commented out to ensure fresh load
-    def load_gen_data():
-        with open('webapp/public/generation_data.json', 'r') as f:
+    def load_operational_data():
+        with open('webapp/public/generation_operational.json', 'r') as f:
             data = json.load(f)
         return pd.DataFrame(data)
-
-    gen_df = load_gen_data()
     
-    # --- Sidebar Filters for Generation ---
-    st.sidebar.header("Generation Filters")
+    def load_queue_data():
+        with open('webapp/public/generation_queue.json', 'r') as f:
+            data = json.load(f)
+        return pd.DataFrame(data)
     
-    # Reset Button for Gen
-    if st.sidebar.button("Reset Gen Filters"):
-        st.session_state.gen_tech = []
-        st.session_state.gen_status = []
-        st.session_state.gen_county = []
-        st.session_state.gen_hub = []
-        st.session_state.gen_search = ""
-    
-    # Tech Filter
-    tech_opts = sorted(gen_df['technology'].unique())
-    sel_tech = st.sidebar.multiselect("Technology", tech_opts, key="gen_tech")
-    
-    # Status Filter
-    status_opts = sorted(gen_df['status'].unique())
-    sel_status = st.sidebar.multiselect("Status", status_opts, key="gen_status")
-    
-    # Hub Filter
-    hub_opts = sorted(gen_df['hub'].unique()) if 'hub' in gen_df.columns else []
-    sel_hub = st.sidebar.multiselect("ERCOT Hub", hub_opts, key="gen_hub")
-
-    # County Filter
-    county_opts = sorted(gen_df['county'].unique())
-    sel_county = st.sidebar.multiselect("County", county_opts, key="gen_county")
-
-    # Search Box
-    gen_search = st.sidebar.text_input("Search Project/Dev/Loc", key="gen_search")
-    
-    # Apply Filters
-    filtered_gen = gen_df.copy()
-    if sel_tech:
-        filtered_gen = filtered_gen[filtered_gen['technology'].isin(sel_tech)]
-    if sel_status:
-        filtered_gen = filtered_gen[filtered_gen['status'].isin(sel_status)]
-    if sel_hub:
-        filtered_gen = filtered_gen[filtered_gen['hub'].isin(sel_hub)]
-    if sel_county:
-        filtered_gen = filtered_gen[filtered_gen['county'].isin(sel_county)]
-    
-    if gen_search:
-        s = gen_search.lower()
-        filtered_gen = filtered_gen[
-            filtered_gen['project_name'].str.lower().str.contains(s) |
-            filtered_gen['developer'].str.lower().str.contains(s) |
-            filtered_gen['county'].str.lower().str.contains(s) |
-            filtered_gen['city'].str.lower().str.contains(s)
-        ]
-        
-    # --- Dashboard Content ---
+    # --- Dashboard Header ---
     st.header("⚡ Generation Fleet")
     
-    # Metrics
-    m1, m2, m3, m4 = st.columns(4)
+    # Create Tabs
+    tab1, tab2 = st.tabs(["🟢 Operational", "🔵 Interconnection Queue"])
     
-    total_mw = filtered_gen['capacity_mw'].sum()
-    op_mw = filtered_gen[filtered_gen['status'] == 'Operational']['capacity_mw'].sum()
-    queue_mw = filtered_gen[filtered_gen['status'] != 'Operational']['capacity_mw'].sum()
-    count = len(filtered_gen)
-    
-    m1.metric("Total Capacity", f"{total_mw:,.0f} MW")
-    m2.metric("Operational", f"{op_mw:,.0f} MW")
-    m3.metric("Queue / Planned", f"{queue_mw:,.0f} MW")
-    m4.metric("Project Count", f"{count}")
-    
-    st.markdown("---")
-    
-    # Main Table
-    st.subheader(f"Project List ({count})")
-    
-    # Display Config
-    st.dataframe(
-        filtered_gen[['project_name', 'technology', 'capacity_mw', 'hub', 'city', 'county', 'status', 'cod_year', 'developer', 'notes']],
-        use_container_width=True,
-        column_config={
-            "capacity_mw": st.column_config.NumberColumn("Capacity (MW)", format="%.0f MW"),
-            "cod_year": st.column_config.NumberColumn("COD Year", format="%d"),
-            "project_name": "Project Name",
-            "technology": "Technology",
-            "hub": "Hub",
-            "city": "City",
-            "county": "County",
-            "status": "Status",
-            "developer": "Developer",
-            "notes": "Notes"
-        },
-        height=600,
-        hide_index=True
-    )
-
-    # Generation Mix Section (Totals on Bottom)
-    st.markdown("---")
-    st.subheader("📊 Generation Context")
-    
-    # 1. Hub Breakdown (Requested focus for Renewables)
-    st.markdown("##### Capacity by ERCOT Hub")
-    if not filtered_gen.empty:
-        hub_stats = filtered_gen.groupby('hub')['capacity_mw'].sum().sort_values(ascending=False)
-        # Use a dynamic number of columns based on Hub count (usually 5-6)
-        h_cols = st.columns(min(len(hub_stats), 6))
+    # ==================== TAB 1: OPERATIONAL ====================
+    with tab1:
+        op_df = load_operational_data()
         
-        for idx, (hub, total_mw) in enumerate(hub_stats.items()):
-            if idx < len(h_cols):
-                # Breakdown op/queue for this hub
-                h_op = filtered_gen[(filtered_gen['hub'] == hub) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
-                h_queue = filtered_gen[(filtered_gen['hub'] == hub) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
-                
-                with h_cols[idx]:
+        # --- Sidebar Filters for Operational ---
+        st.sidebar.header("Operational Filters")
+        
+        # Reset Button
+        if st.sidebar.button("Reset Operational Filters"):
+            st.session_state.op_tech = []
+            st.session_state.op_county = []
+            st.session_state.op_hub = []
+            st.session_state.op_search = ""
+        
+        # Tech Filter
+        op_tech_opts = sorted(op_df['technology'].unique())
+        op_sel_tech = st.sidebar.multiselect("Technology", op_tech_opts, key="op_tech")
+        
+        # Hub Filter
+        op_hub_opts = sorted(op_df['hub'].unique()) if 'hub' in op_df.columns else []
+        op_sel_hub = st.sidebar.multiselect("ERCOT Hub", op_hub_opts, key="op_hub")
+
+        # County Filter
+        op_county_opts = sorted(op_df['county'].unique())
+        op_sel_county = st.sidebar.multiselect("County", op_county_opts, key="op_county")
+
+        # Search Box
+        op_search = st.sidebar.text_input("Search Project/Dev/Loc", key="op_search")
+        
+        # Apply Filters
+        filtered_op = op_df.copy()
+        if op_sel_tech:
+            filtered_op = filtered_op[filtered_op['technology'].isin(op_sel_tech)]
+        if op_sel_hub:
+            filtered_op = filtered_op[filtered_op['hub'].isin(op_sel_hub)]
+        if op_sel_county:
+            filtered_op = filtered_op[filtered_op['county'].isin(op_sel_county)]
+        
+        if op_search:
+            s = op_search.lower()
+            filtered_op = filtered_op[
+                filtered_op['project_name'].str.lower().str.contains(s) |
+                filtered_op['developer'].str.lower().str.contains(s) |
+                filtered_op['county'].str.lower().str.contains(s) |
+                filtered_op['city'].str.lower().str.contains(s)
+            ]
+        
+        # Metrics
+        m1, m2, m3 = st.columns(3)
+        total_op_mw = filtered_op['capacity_mw'].sum()
+        count_op = len(filtered_op)
+        
+        m1.metric("Total Operational Capacity", f"{total_op_mw:,.0f} MW")
+        m2.metric("Project Count", f"{count_op}")
+        m3.metric("Average Project Size", f"{total_op_mw/count_op:,.0f} MW" if count_op > 0 else "N/A")
+        
+        st.markdown("---")
+        
+        # Main Table
+        st.subheader(f"Operational Projects ({count_op})")
+        
+        st.dataframe(
+            filtered_op[['project_name', 'technology', 'capacity_mw', 'hub', 'city', 'county', 'cod_year', 'developer', 'notes']],
+            use_container_width=True,
+            column_config={
+                "capacity_mw": st.column_config.NumberColumn("Capacity (MW)", format="%.0f MW"),
+                "cod_year": st.column_config.NumberColumn("COD Year", format="%d"),
+                "project_name": "Project Name",
+                "technology": "Technology",
+                "hub": "Hub",
+                "city": "City",
+                "county": "County",
+                "developer": "Developer",
+                "notes": "Notes"
+            },
+            height=600,
+            hide_index=True
+        )
+
+        # Analysis Section
+        st.markdown("---")
+        st.subheader("📊 Operational Fleet Analysis")
+        
+        # Technology Breakdown
+        st.markdown("##### Technology Mix")
+        if not filtered_op.empty:
+            tech_stats = filtered_op.groupby('technology')['capacity_mw'].sum().sort_values(ascending=False)
+            cols = st.columns(len(tech_stats))
+            for idx, (tech, mw) in enumerate(tech_stats.items()):
+                with cols[idx]:
+                    pct = (mw / total_op_mw * 100) if total_op_mw > 0 else 0
                     st.metric(
-                        label=f"{hub}",
-                        value=f"{total_mw:,.0f} MW",
-                        delta=f"{h_op:,.0f} MW (Op) / {h_queue:,.0f} MW (Q)",
+                        label=f"{tech}",
+                        value=f"{mw:,.0f} MW",
+                        delta=f"{pct:.1f}%",
                         delta_color="off"
                     )
+        
+        # Hub Breakdown
+        st.markdown("##### Capacity by Hub")
+        if not filtered_op.empty:
+            hub_stats = filtered_op.groupby('hub')['capacity_mw'].sum().sort_values(ascending=False)
+            h_cols = st.columns(len(hub_stats))
+            for idx, (hub, mw) in enumerate(hub_stats.items()):
+                with h_cols[idx]:
+                    pct = (mw / total_op_mw * 100) if total_op_mw > 0 else 0
+                    st.metric(
+                        label=f"{hub}",
+                        value=f"{mw:,.0f} MW",
+                        delta=f"{pct:.1f}%",
+                        delta_color="off"
+                    )
+        
+        # Top Counties
+        st.markdown("##### Top 5 Counties")
+        if not filtered_op.empty:
+            county_stats = filtered_op.groupby('county')['capacity_mw'].sum().sort_values(ascending=False).head(5)
+            c_cols = st.columns(5)
+            for idx, (county, mw) in enumerate(county_stats.items()):
+                with c_cols[idx]:
+                    st.metric(label=f"{county} County", value=f"{mw:,.0f} MW")
+    
+    # ==================== TAB 2: QUEUE ====================
+    with tab2:
+        queue_df = load_queue_data()
+        
+        # --- Sidebar Filters for Queue ---
+        st.sidebar.header("Queue Filters")
+        
+        # Reset Button
+        if st.sidebar.button("Reset Queue Filters"):
+            st.session_state.queue_tech = []
+            st.session_state.queue_county = []
+            st.session_state.queue_hub = []
+            st.session_state.queue_search = ""
+        
+        # Tech Filter
+        queue_tech_opts = sorted(queue_df['technology'].unique())
+        queue_sel_tech = st.sidebar.multiselect("Technology", queue_tech_opts, key="queue_tech")
+        
+        # Hub Filter
+        queue_hub_opts = sorted(queue_df['hub'].unique()) if 'hub' in queue_df.columns else []
+        queue_sel_hub = st.sidebar.multiselect("ERCOT Hub", queue_hub_opts, key="queue_hub")
 
-    # 2. Technology Mix
-    st.markdown("##### Technology Breakdown")
-    tech_stats = filtered_gen.groupby(['technology', 'status'])['capacity_mw'].sum().unstack(fill_value=0)
-    for col in ['Operational', 'Queue']:
-        if col not in tech_stats.columns:
-            tech_stats[col] = 0
-            
-    active_techs = sorted(filtered_gen['technology'].unique())
-    if active_techs:
-        cols = st.columns(len(active_techs))
-        for idx, tech in enumerate(active_techs):
-            t_op = filtered_gen[(filtered_gen['technology'] == tech) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
-            t_queue = filtered_gen[(filtered_gen['technology'] == tech) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
-            t_total = t_op + t_queue
-            
-            with cols[idx]:
-                st.metric(
-                    label=f"{tech}",
-                    value=f"{t_total:,.0f} MW",
-                    delta=f"{t_op:,.0f} MW (Op) / {t_queue:,.0f} MW (Q)",
-                    delta_color="off"
-                )
-    
-    # 3. Top Counties
-    st.markdown("##### Top 5 Counties")
-    if not filtered_gen.empty:
-        county_stats = filtered_gen.groupby('county')['capacity_mw'].sum().sort_values(ascending=False).head(5)
-        c_cols = st.columns(5)
-        for idx, (county, total_mw) in enumerate(county_stats.items()):
-            # Breakdown op/queue for this county
-            c_op = filtered_gen[(filtered_gen['county'] == county) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
-            c_queue = filtered_gen[(filtered_gen['county'] == county) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
-            
-            with c_cols[idx]:
-                st.metric(
-                    label=f"{county} County",
-                    value=f"{total_mw:,.0f} MW",
-                    delta=f"{c_op:,.0f} MW (Op) / {c_queue:,.0f} MW (Q)",
-                    delta_color="off"
-                )
-    
-    # 4. Top Cities
-    st.markdown("##### Top 5 Cities")
-    if not filtered_gen.empty:
-        city_stats = filtered_gen.groupby('city')['capacity_mw'].sum().sort_values(ascending=False).head(5)
-        city_cols = st.columns(5)
-        for idx, (city, total_mw) in enumerate(city_stats.items()):
-            # Breakdown op/queue for this city
-            c_op = filtered_gen[(filtered_gen['city'] == city) & (filtered_gen['status'] == 'Operational')]['capacity_mw'].sum()
-            c_queue = filtered_gen[(filtered_gen['city'] == city) & (filtered_gen['status'] != 'Operational')]['capacity_mw'].sum()
-            
-            with city_cols[idx]:
-                st.metric(
-                    label=f"{city}",
-                    value=f"{total_mw:,.0f} MW",
-                    delta=f"{c_op:,.0f} MW (Op) / {c_queue:,.0f} MW (Q)",
-                    delta_color="off"
-                )
-    else:
-        st.info("No data selected.")
+        # County Filter
+        queue_county_opts = sorted(queue_df['county'].unique())
+        queue_sel_county = st.sidebar.multiselect("County", queue_county_opts, key="queue_county")
+
+        # Search Box
+        queue_search = st.sidebar.text_input("Search Project/Dev/Loc", key="queue_search")
+        
+        # Apply Filters
+        filtered_queue = queue_df.copy()
+        if queue_sel_tech:
+            filtered_queue = filtered_queue[filtered_queue['technology'].isin(queue_sel_tech)]
+        if queue_sel_hub:
+            filtered_queue = filtered_queue[filtered_queue['hub'].isin(queue_sel_hub)]
+        if queue_sel_county:
+            filtered_queue = filtered_queue[filtered_queue['county'].isin(queue_sel_county)]
+        
+        if queue_search:
+            s = queue_search.lower()
+            filtered_queue = filtered_queue[
+                filtered_queue['project_name'].str.lower().str.contains(s) |
+                filtered_queue['developer'].str.lower().str.contains(s) |
+                filtered_queue['county'].str.lower().str.contains(s) |
+                filtered_queue['city'].str.lower().str.contains(s)
+            ]
+        
+        # Metrics
+        m1, m2, m3 = st.columns(3)
+        total_queue_mw = filtered_queue['capacity_mw'].sum()
+        count_queue = len(filtered_queue)
+        
+        m1.metric("Total Queue Capacity", f"{total_queue_mw:,.0f} MW")
+        m2.metric("Project Count", f"{count_queue}")
+        m3.metric("Average Project Size", f"{total_queue_mw/count_queue:,.0f} MW" if count_queue > 0 else "N/A")
+        
+        st.markdown("---")
+        
+        # Main Table
+        st.subheader(f"Queue Projects ({count_queue})")
+        
+        st.dataframe(
+            filtered_queue[['project_name', 'technology', 'capacity_mw', 'hub', 'city', 'county', 'cod_year', 'developer', 'notes']],
+            use_container_width=True,
+            column_config={
+                "capacity_mw": st.column_config.NumberColumn("Capacity (MW)", format="%.0f MW"),
+                "cod_year": st.column_config.NumberColumn("COD Year", format="%d"),
+                "project_name": "Project Name",
+                "technology": "Technology",
+                "hub": "Hub",
+                "city": "City",
+                "county": "County",
+                "developer": "Developer",
+                "notes": "Notes"
+            },
+            height=600,
+            hide_index=True
+        )
+
+        # Analysis Section
+        st.markdown("---")
+        st.subheader("📊 Interconnection Queue Analysis")
+        
+        # Technology Breakdown
+        st.markdown("##### Technology Mix")
+        if not filtered_queue.empty:
+            tech_stats = filtered_queue.groupby('technology')['capacity_mw'].sum().sort_values(ascending=False)
+            cols = st.columns(len(tech_stats))
+            for idx, (tech, mw) in enumerate(tech_stats.items()):
+                with cols[idx]:
+                    pct = (mw / total_queue_mw * 100) if total_queue_mw > 0 else 0
+                    st.metric(
+                        label=f"{tech}",
+                        value=f"{mw:,.0f} MW",
+                        delta=f"{pct:.1f}%",
+                        delta_color="off"
+                    )
+        
+        # Hub Breakdown
+        st.markdown("##### Capacity by Hub")
+        if not filtered_queue.empty:
+            hub_stats = filtered_queue.groupby('hub')['capacity_mw'].sum().sort_values(ascending=False)
+            h_cols = st.columns(len(hub_stats))
+            for idx, (hub, mw) in enumerate(hub_stats.items()):
+                with h_cols[idx]:
+                    pct = (mw / total_queue_mw * 100) if total_queue_mw > 0 else 0
+                    st.metric(
+                        label=f"{hub}",
+                        value=f"{mw:,.0f} MW",
+                        delta=f"{pct:.1f}%",
+                        delta_color="off"
+                    )
+        
+        # Top Counties
+        st.markdown("##### Top 5 Counties")
+        if not filtered_queue.empty:
+            county_stats = filtered_queue.groupby('county')['capacity_mw'].sum().sort_values(ascending=False).head(5)
+            c_cols = st.columns(5)
+            for idx, (county, mw) in enumerate(county_stats.items()):
+                with c_cols[idx]:
+                    st.metric(label=f"{county} County", value=f"{mw:,.0f} MW")
 
 elif view == "External Dashboards":
     st.header("⚡ External Dashboards")
