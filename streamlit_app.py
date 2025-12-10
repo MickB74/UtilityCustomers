@@ -42,9 +42,9 @@ df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 st.title("⚡ ERCOT Large Load Analytics")
 
 # Navigation
-view = st.sidebar.radio("Navigation", ["Dashboard", "Generation Projects", "Market Resources", "Historical Analysis"])
+view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Projects", "Market Resources", "Historical Analysis"])
 
-if view == "Dashboard":
+if view == "Electricity Users":
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
 
