@@ -42,11 +42,15 @@ df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 st.title("⚡ ERCOT Data")
 
 # Navigation
-view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Projects", "Market Resources", "Historical Analysis"])
+view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Fleet", "External Dashboards", "Historical Trends"])
 
 if view == "Electricity Users":
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
+    load_filter = st.sidebar.slider("Min Load (MW)", 1, 500, 20)
+    
+    # Filter Data
+    filtered_df = df[df['mw'] >= load_filter]
 
     # Reset Button
     def reset_filters():
@@ -269,7 +273,7 @@ if view == "Electricity Users":
                 text=f"Active Load: {coverage:.0%}"
             )
 
-elif view == "Generation Projects":
+elif view == "Generation Fleet":
     # Load Generation Data
     # @st.cache_data  <-- Commented out to ensure fresh load
     def load_gen_data():
@@ -330,7 +334,7 @@ elif view == "Generation Projects":
         ]
         
     # --- Dashboard Content ---
-    st.header("⚡ Generation Projects")
+    st.header("⚡ Generation Fleet")
     
     # Metrics
     m1, m2, m3, m4 = st.columns(4)
@@ -456,8 +460,8 @@ elif view == "Generation Projects":
     else:
         st.info("No data selected.")
 
-elif view == "Market Resources":
-    st.header("⚡ Market Resources")
+elif view == "External Dashboards":
+    st.header("⚡ External Dashboards")
     
     # Requested Embed: ERCOT Dashboards
     st.subheader("ERCOT Grid Dashboards")
@@ -518,8 +522,8 @@ elif view == "Market Resources":
         
         st.warning("Note: External links open in a new tab.")
 
-elif view == "Historical Analysis":
-    st.header("📈 Historical Analysis (2020-2024)")
+elif view == "Historical Trends":
+    st.header("📈 Historical Trends (2020-2024)")
     
     # File Uploader (Hidden by default)
     with st.expander("Upload Custom CSV (Optional)"):
