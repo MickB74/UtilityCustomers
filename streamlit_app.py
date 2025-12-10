@@ -39,7 +39,7 @@ df['Est. Annual MWh'] = df['Est. Annual MWh'].astype(int)
 df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 
 # Title
-st.title("⚡ ERCOT Data")
+st.title("⭐ ERCOT Data")
 
 # Navigation
 view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Fleet", "External Dashboards", "Historical Trends"])
@@ -47,10 +47,6 @@ view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Fleet", 
 if view == "Electricity Users":
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
-    load_filter = st.sidebar.slider("Min Load (MW)", 1, 500, 20)
-    
-    # Filter Data
-    filtered_df = df[df['mw'] >= load_filter]
 
     # Reset Button
     def reset_filters():
@@ -540,7 +536,6 @@ elif view == "External Dashboards":
     
     # Requested Embed: ERCOT Dashboards
     st.subheader("ERCOT Grid Dashboards")
-    st.info("The official ERCOT dashboards cannot be embedded directly. Please view them here:")
     st.link_button("Open ERCOT Dashboards", "https://www.ercot.com/gridmktinfo/dashboards", type="primary")
     
     st.markdown("---")
@@ -641,61 +636,71 @@ elif view == "Historical Trends":
             
             # Filter by Year and Month
             if time_col and 'Year' in df_hist.columns:
-                # Year Selection
-                years = sorted(df_hist['Year'].unique())
-                st.write("**Select Years**")
+                # Get min and max dates
+                min_date = df_hist[time_col].min().date()
+                max_date = df_hist[time_col].max().date()
                 
-                # Year Actions
-                col_y_act1, col_y_act2, _ = st.columns([1,1,4])
-                if col_y_act1.button("Select All Years"):
-                    for y in years:
-                        st.session_state[f"year_{y}"] = True
-                if col_y_act2.button("Clear All Years"):
-                    for y in years:
-                        st.session_state[f"year_{y}"] = False
+                # Date Range Selector
+                st.write("**Select Date Range**")
+                col1, col2 = st.columns(2)
                 
-                cols_y = st.columns(len(years))
-                selected_years = []
-                for i, year in enumerate(years):
-                    with cols_y[i]:
-                        # Default True if not in state
-                        key = f"year_{year}"
-                        if key not in st.session_state:
-                            st.session_state[key] = True
-                        if st.checkbox(str(year), key=key):
-                            selected_years.append(year)
-
-                # Month Selection
-                st.write("**Select Months**")
-                import calendar
-                month_names = list(calendar.month_name)[1:] # ['January', 'February', ...]
+                with col1:
+                    start_date = st.date_input(
+                        "Start Date",
+                        value=min_date,
+                        min_value=min_date,
+                        max_value=max_date,
+                        key="hist_start_date"
+                    )
                 
-                # Month Actions
-                col_m_act1, col_m_act2, _ = st.columns([1,1,4])
-                if col_m_act1.button("Select All Months"):
-                    for i in range(1, 13):
-                        st.session_state[f"month_{i}"] = True
-                if col_m_act2.button("Clear All Months"):
-                    for i in range(1, 13):
-                        st.session_state[f"month_{i}"] = False
+                with col2:
+                    end_date = st.date_input(
+                        "End Date",
+                        value=max_date,
+                        min_value=min_date,
+                        max_value=max_date,
+                        key="hist_end_date"
+                    )
                 
-                cols_m = st.columns(6) # 2 rows of 6
-                selected_months = []
+                # Quick Selection Buttons
+                st.write("**Quick Select:**")
+                quick_cols = st.columns(5)
                 
-                for i, m_name in enumerate(month_names):
-                    month_num = i + 1
-                    col_idx = i % 6
-                    with cols_m[col_idx]:
-                        key = f"month_{month_num}"
-                        if key not in st.session_state:
-                            st.session_state[key] = True
-                        if st.checkbox(m_name, key=key):
-                            selected_months.append(month_num)
-
-                if selected_years and selected_months:
+                with quick_cols[0]:
+                    if st.button("Last Month"):
+                        st.session_state.hist_start_date = (max_date - pd.DateOffset(months=1)).date()
+                        st.session_state.hist_end_date = max_date
+                        st.rerun()
+                
+                with quick_cols[1]:
+                    if st.button("Last 3 Months"):
+                        st.session_state.hist_start_date = (max_date - pd.DateOffset(months=3)).date()
+                        st.session_state.hist_end_date = max_date
+                        st.rerun()
+                
+                with quick_cols[2]:
+                    if st.button("Last 6 Months"):
+                        st.session_state.hist_start_date = (max_date - pd.DateOffset(months=6)).date()
+                        st.session_state.hist_end_date = max_date
+                        st.rerun()
+                
+                with quick_cols[3]:
+                    if st.button("Last Year"):
+                        st.session_state.hist_start_date = (max_date - pd.DateOffset(years=1)).date()
+                        st.session_state.hist_end_date = max_date
+                        st.rerun()
+                
+                with quick_cols[4]:
+                    if st.button("All Time"):
+                        st.session_state.hist_start_date = min_date
+                        st.session_state.hist_end_date = max_date
+                        st.rerun()
+                
+                # Filter data by date range
+                if start_date and end_date:
                     filtered_hist = df_hist[
-                        (df_hist['Year'].isin(selected_years)) & 
-                        (df_hist['Month_Num'].isin(selected_months))
+                        (df_hist[time_col].dt.date >= start_date) & 
+                        (df_hist[time_col].dt.date <= end_date)
                     ]
                     
                     # 1. Key Metrics (Calculate on raw hourly data for accuracy)
@@ -774,8 +779,9 @@ elif view == "Historical Trends":
                     # Resampling Controls
                     st.subheader("Trends")
                     freq_map = {'Hourly': 'h', 'Daily': 'D', 'Weekly': 'W', 'Monthly': 'M'}
-                    # Default to Monthly if multiple years, else Weekly or Daily
-                    default_ix = 2 if len(selected_years) > 1 else 1 # Weekly vs Daily
+                    # Default to Monthly if date range > 1 year, else Weekly or Daily
+                    date_range_days = (end_date - start_date).days
+                    default_ix = 3 if date_range_days > 365 else (2 if date_range_days > 90 else 1)  # Monthly, Weekly, or Daily
                     selected_freq = st.radio("Resolution", list(freq_map.keys()), index=default_ix, horizontal=True)
                     
                     # Resample Data for Charts
