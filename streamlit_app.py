@@ -38,13 +38,37 @@ df['Est. Annual MWh'] = df['Est. Annual MWh'].astype(int)
 # Sort by Peak Load Descending (User requested Top 500)
 df = df.sort_values(by='mw', ascending=False).reset_index(drop=True)
 
-# Title
-st.title("⭐ ERCOT Data")
+# Title with Texas Map
+import base64
+from pathlib import Path
+
+# Load and encode the Texas map icon
+texas_icon_path = Path("webapp/public/texas_icon.png")
+if texas_icon_path.exists():
+    with open(texas_icon_path, "rb") as f:
+        texas_icon_data = base64.b64encode(f.read()).decode()
+    
+    st.markdown(
+        f"""
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="data:image/png;base64,{texas_icon_data}" width="40" style="margin-top: 10px;">
+            <h1 style="margin: 0;">ERCOT Data</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.title("ERCOT Data")
 
 # Navigation
 view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Fleet", "External Dashboards", "Historical Trends"])
 
+
 if view == "Electricity Users":
+    # Subtitle
+    st.header("🏭 Electricity Users")
+    st.markdown("---")
+    
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
 
@@ -640,14 +664,27 @@ elif view == "Historical Trends":
                 min_date = df_hist[time_col].min().date()
                 max_date = df_hist[time_col].max().date()
                 
+                # Initialize session state for dates if not present
+                if 'hist_start_date' not in st.session_state:
+                    st.session_state.hist_start_date = min_date
+                if 'hist_end_date' not in st.session_state:
+                    st.session_state.hist_end_date = max_date
+
+                # Validate and clamp dates to ensure they are within the current dataset's range
+                # This prevents widget errors if the dataset changes (e.g. new file upload)
+                if 'hist_start_date' in st.session_state:
+                    st.session_state.hist_start_date = max(min_date, min(st.session_state.hist_start_date, max_date))
+                
+                if 'hist_end_date' in st.session_state:
+                    st.session_state.hist_end_date = max(min_date, min(st.session_state.hist_end_date, max_date))
+
                 # Date Range Selector
-                st.write("**Select Date Range**")
+                st.write("**Custom Date Range:**")
                 col1, col2 = st.columns(2)
                 
                 with col1:
                     start_date = st.date_input(
                         "Start Date",
-                        value=min_date,
                         min_value=min_date,
                         max_value=max_date,
                         key="hist_start_date"
@@ -656,45 +693,10 @@ elif view == "Historical Trends":
                 with col2:
                     end_date = st.date_input(
                         "End Date",
-                        value=max_date,
                         min_value=min_date,
                         max_value=max_date,
                         key="hist_end_date"
                     )
-                
-                # Quick Selection Buttons
-                st.write("**Quick Select:**")
-                quick_cols = st.columns(5)
-                
-                with quick_cols[0]:
-                    if st.button("Last Month"):
-                        st.session_state.hist_start_date = (max_date - pd.DateOffset(months=1)).date()
-                        st.session_state.hist_end_date = max_date
-                        st.rerun()
-                
-                with quick_cols[1]:
-                    if st.button("Last 3 Months"):
-                        st.session_state.hist_start_date = (max_date - pd.DateOffset(months=3)).date()
-                        st.session_state.hist_end_date = max_date
-                        st.rerun()
-                
-                with quick_cols[2]:
-                    if st.button("Last 6 Months"):
-                        st.session_state.hist_start_date = (max_date - pd.DateOffset(months=6)).date()
-                        st.session_state.hist_end_date = max_date
-                        st.rerun()
-                
-                with quick_cols[3]:
-                    if st.button("Last Year"):
-                        st.session_state.hist_start_date = (max_date - pd.DateOffset(years=1)).date()
-                        st.session_state.hist_end_date = max_date
-                        st.rerun()
-                
-                with quick_cols[4]:
-                    if st.button("All Time"):
-                        st.session_state.hist_start_date = min_date
-                        st.session_state.hist_end_date = max_date
-                        st.rerun()
                 
                 # Filter data by date range
                 if start_date and end_date:
@@ -876,6 +878,75 @@ elif view == "Historical Trends":
                         st.plotly_chart(fig, use_container_width=True)
                     else:
                         st.info("Could not identify specific generation columns (Wind, Solar, Gas, etc.) automatically.")
+                    
+                    st.markdown("---")
+                    
+                    # 4. Emissions Chart
+                    st.write("### 🌫️ CO2 Emissions")
+                    if emis_col:
+                        # Create separate resampled data for emissions (need to sum emissions, not average)
+                        emis_resampled = filtered_hist.set_index(time_col)[[emis_col]].resample(freq_map[selected_freq]).sum().reset_index()
+                        load_resampled = filtered_hist.set_index(time_col)[[load_col]].resample(freq_map[selected_freq]).mean().reset_index() if load_col else None
+                        
+                        # Merge the data
+                        if load_resampled is not None:
+                            emis_chart_data = emis_resampled.merge(load_resampled, on=time_col)
+                        else:
+                            emis_chart_data = emis_resampled
+                        
+                        # Create emissions line chart with Altair for better formatting
+                        emis_chart = alt.Chart(emis_chart_data).mark_area(
+                            color='#ff4444',
+                            opacity=0.6,
+                            line={'color': '#990000'}
+                        ).encode(
+                            x=alt.X(time_col, title='Time', axis=alt.Axis(format='%b %Y', labelOverlap=True)),
+                            y=alt.Y(emis_col, title='CO2 Emissions (tons)'),
+                            tooltip=[
+                                alt.Tooltip(time_col, title='Time', format='%Y-%m-%d'),
+                                alt.Tooltip(emis_col, title='Emissions (tons)', format=',.0f')
+                            ]
+                        ).properties(
+                            height=300
+                        ).interactive()
+                        
+                        st.altair_chart(emis_chart, use_container_width=True)
+                        
+                        # Show emissions intensity if load data is available
+                        if load_col and load_col in emis_chart_data.columns:
+                            # Calculate hours in each period based on frequency
+                            freq_hours = {
+                                'h': 1,      # Hourly
+                                'D': 24,     # Daily
+                                'W': 168,    # Weekly (7 days × 24 hours)
+                                'M': 730     # Monthly (approximate: 30.4 days × 24 hours)
+                            }
+                            hours = freq_hours.get(freq_map[selected_freq], 1)
+                            
+                            # Calculate emissions intensity: tons CO2 per MWh
+                            # Energy (MWh) = Average Load (MW) × Hours
+                            # Emissions Intensity = Total Emissions (tons) / Energy (MWh)
+                            emis_chart_data['Energy_MWh'] = emis_chart_data[load_col] * hours
+                            emis_chart_data['Emissions Intensity'] = emis_chart_data[emis_col] / (emis_chart_data['Energy_MWh'] + 0.001)
+                            
+                            st.write("#### Emissions Intensity (tons CO2 per MWh)")
+                            intensity_chart = alt.Chart(emis_chart_data).mark_line(
+                                color='#ff8800',
+                                strokeWidth=2
+                            ).encode(
+                                x=alt.X(time_col, title='Time', axis=alt.Axis(format='%b %Y')),
+                                y=alt.Y('Emissions Intensity', title='Tons CO2 / MWh'),
+                                tooltip=[
+                                    alt.Tooltip(time_col, title='Time', format='%Y-%m-%d'),
+                                    alt.Tooltip('Emissions Intensity', title='Intensity (tons/MWh)', format='.4f')
+                                ]
+                            ).properties(
+                                height=250
+                            ).interactive()
+                            
+                            st.altair_chart(intensity_chart, use_container_width=True)
+                    else:
+                        st.info("No emissions data available in this dataset.")
                     
                     st.markdown("---")
                     
