@@ -645,7 +645,10 @@ elif view == "Historical Analysis":
                             st.warning("Price data appears to be missing (all zeros).")
                     if load_col:
                         max_load = filtered_hist[load_col].max()
+                        max_load_idx = filtered_hist[load_col].idxmax()
+                        max_load_time = filtered_hist.loc[max_load_idx, time_col]
                         cols[1].metric("Peak Load", f"{max_load:,.0f} MW")
+                        cols[1].caption(f"on {max_load_time.strftime('%b %d, %Y %H:%M')}")
                     if emis_col:
                         total_emis = filtered_hist[emis_col].sum()
                         cols[2].metric("Total Emissions", f"{total_emis:,.0f} tons")
