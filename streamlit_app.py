@@ -749,52 +749,52 @@ elif view == "Historical Trends":
                         agg_rules = {}
                         col_renames = {}
                         
-                            if price_col:
-                                agg_rules[price_col] = ['mean', 'max']
+                        if price_col:
+                            agg_rules[price_col] = ['mean', 'max']
 
-                            if load_col:
-                                agg_rules[load_col] = 'max'
-                                col_renames[load_col] = 'Peak Load (MW)'
-                            if emis_col:
-                                agg_rules[emis_col] = 'sum'
-                                col_renames[emis_col] = 'Total Emissions (tons)'
+                        if load_col:
+                            agg_rules[load_col] = 'max'
+                            col_renames[load_col] = 'Peak Load (MW)'
+                        if emis_col:
+                            agg_rules[emis_col] = 'sum'
+                            col_renames[emis_col] = 'Total Emissions (tons)'
+                            
+                        if agg_rules:
+                            monthly_stats = summary_df.groupby(['Year', 'Month_Num', 'Month']).agg(agg_rules)
+                            
+                            # Flatten MultiIndex columns if present (happens when list of funcs used)
+                            if isinstance(monthly_stats.columns, pd.MultiIndex):
+                                # Create new column names
+                                new_cols = []
+                                for col in monthly_stats.columns:
+                                    if col[0] == price_col:
+                                        if col[1] == 'mean':
+                                            new_cols.append('Avg Price ($/MWh)')
+                                        elif col[1] == 'max':
+                                            new_cols.append('High Price ($/MWh)')
+                                    else:
+                                        # Fallback for others (should match simple rename keys if they were top level)
+                                        # But here we need to map the original col to the rename map
+                                        new_cols.append(col_renames.get(col[0], col[0]))
+                                monthly_stats.columns = new_cols
+                            else:
+                                # Standard single level rename
+                                monthly_stats = monthly_stats.rename(columns=col_renames)
+                            
+                            monthly_stats = monthly_stats.reset_index()
+                            monthly_stats = monthly_stats.sort_values(['Year', 'Month_Num'])
+                            monthly_stats = monthly_stats.drop(columns=['Month_Num'])
+                            
+                            # Format columns
+                            format_dict = {}
+                            format_dict['Avg Price ($/MWh)'] = "${:,.2f}"
+                            format_dict['High Price ($/MWh)'] = "${:,.2f}"
+                            if 'Peak Load (MW)' in monthly_stats.columns:
+                                format_dict['Peak Load (MW)'] = "{:,.0f}"
+                            if 'Total Emissions (tons)' in monthly_stats.columns:
+                                format_dict['Total Emissions (tons)'] = "{:,.0f}"
                                 
-                            if agg_rules:
-                                monthly_stats = summary_df.groupby(['Year', 'Month_Num', 'Month']).agg(agg_rules)
-                                
-                                # Flatten MultiIndex columns if present (happens when list of funcs used)
-                                if isinstance(monthly_stats.columns, pd.MultiIndex):
-                                    # Create new column names
-                                    new_cols = []
-                                    for col in monthly_stats.columns:
-                                        if col[0] == price_col:
-                                            if col[1] == 'mean':
-                                                new_cols.append('Avg Price ($/MWh)')
-                                            elif col[1] == 'max':
-                                                new_cols.append('High Price ($/MWh)')
-                                        else:
-                                            # Fallback for others (should match simple rename keys if they were top level)
-                                            # But here we need to map the original col to the rename map
-                                            new_cols.append(col_renames.get(col[0], col[0]))
-                                    monthly_stats.columns = new_cols
-                                else:
-                                    # Standard single level rename
-                                    monthly_stats = monthly_stats.rename(columns=col_renames)
-                                
-                                monthly_stats = monthly_stats.reset_index()
-                                monthly_stats = monthly_stats.sort_values(['Year', 'Month_Num'])
-                                monthly_stats = monthly_stats.drop(columns=['Month_Num'])
-                                
-                                # Format columns
-                                format_dict = {}
-                                format_dict['Avg Price ($/MWh)'] = "${:,.2f}"
-                                format_dict['High Price ($/MWh)'] = "${:,.2f}"
-                                if 'Peak Load (MW)' in monthly_stats.columns:
-                                    format_dict['Peak Load (MW)'] = "{:,.0f}"
-                                if 'Total Emissions (tons)' in monthly_stats.columns:
-                                    format_dict['Total Emissions (tons)'] = "{:,.0f}"
-                                    
-                                st.dataframe(monthly_stats.style.format(format_dict), hide_index=True, use_container_width=True)
+                            st.dataframe(monthly_stats.style.format(format_dict), hide_index=True, use_container_width=True)
                     
                     st.markdown("---")
                     
