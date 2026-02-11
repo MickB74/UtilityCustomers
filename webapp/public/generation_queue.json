@@ -1,5 +1,17 @@
 [
   {
+    "project_name": "Prairie Ridge (Gas - CC)",
+    "technology": "Gas",
+    "capacity_mw": 1660.4,
+    "county": "Franklin",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2032,
+    "developer": "Tenaska Power Generation, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Hecate Energy Orem Wind",
     "technology": "Wind",
     "capacity_mw": 1542.0,
@@ -33,7 +45,7 @@
     "status": "Queue",
     "cod_year": 2031,
     "developer": "Longfellow Wind, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Caldwell County Energy Center",
@@ -55,9 +67,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2032,
+    "cod_year": 2031,
     "developer": "BOULEVARD ASSOCIATES, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "BasRanch (TEF - Due Diligence)",
@@ -70,6 +82,18 @@
     "cod_year": 2028,
     "developer": "CPV Basin Ranch, LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Moon Hammer",
+    "technology": "Gas",
+    "capacity_mw": 1300.0,
+    "county": "Wheeler",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "Moon Hammer LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Sandow Lakes Energy Station",
@@ -105,6 +129,18 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "NRG Tolar Power LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Permian I Natural Gas",
+    "technology": "Gas",
+    "capacity_mw": 1247.4,
+    "county": "Pecos",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "S&S Renewables, LLC",
     "notes": "SS Started, FIS Started, No IA"
   },
   {
@@ -117,7 +153,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Limitless Energy Hub I LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Limitless Energy Hub II",
@@ -129,7 +165,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Limitless Energy Hub II LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Southeast Oklahoma Pumped Storage",
@@ -153,6 +189,30 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "NRG Wolf Bone Energy Center LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Spectra Solar",
+    "technology": "Solar",
+    "capacity_mw": 1200.0,
+    "county": "Scurry",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "SE DC Devco",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
+    "project_name": "Cerulean Unit 1",
+    "technology": "Gas",
+    "capacity_mw": 1200.0,
+    "county": "Victoria",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Brother 1, LLC",
     "notes": "SS Started, FIS Started, No IA"
   },
   {
@@ -166,6 +226,18 @@
     "cod_year": 2028,
     "developer": "FGE Power",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Permian I Solar",
+    "technology": "Solar",
+    "capacity_mw": 1125.69,
+    "county": "Pecos",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "S&S Renewables, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Aurelius Solar",
@@ -189,7 +261,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "MPH Bastrop Peakers, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Zeus Armstrong BESS",
@@ -276,6 +348,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Kickstart Energy Storage VI",
+    "technology": "Other",
+    "capacity_mw": 1026.2,
+    "county": "Ellis",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Kickstart Infrastructure LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Ross Solar",
     "technology": "Solar",
     "capacity_mw": 1025.57,
@@ -286,6 +370,18 @@
     "cod_year": 2027,
     "developer": "S&S Renewables, LLC",
     "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Kickstart Energy Storage V",
+    "technology": "Other",
+    "capacity_mw": 999.0,
+    "county": "Ellis",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Kickstart Infrastructure LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Black Mountain Hale Gas",
@@ -345,7 +441,7 @@
     "status": "Queue",
     "cod_year": 2030,
     "developer": "BKV-BPP Power",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "EmberYork",
@@ -357,19 +453,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "EmberYork Energy Center",
-    "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
-    "project_name": "Fierce River Solar",
-    "technology": "Solar",
-    "capacity_mw": 895.67,
-    "county": "Starr",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Rio Grande Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "West Royal Natural Gas (TEF-Due Diligence)",
@@ -393,7 +477,7 @@
     "status": "Queue",
     "cod_year": 2030,
     "developer": "LCRA",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Lost Pines Power Park",
@@ -405,7 +489,7 @@
     "status": "Queue",
     "cod_year": 2030,
     "developer": "LCRA",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "SCHNEIDER COMBINED CYCLE",
@@ -417,6 +501,18 @@
     "status": "Queue",
     "cod_year": 2030,
     "developer": "LCRA",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "MilamStation Power Secured Gas Generation",
+    "technology": "Gas",
+    "capacity_mw": 846.0,
+    "county": "Milam",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Power Secured Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -495,25 +591,25 @@
     "project_name": "Nabla Energy Storage I",
     "technology": "Other",
     "capacity_mw": 750.0,
-    "county": "Tarrant",
+    "county": "Parker",
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Nabla Park LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Nabla Energy Storage II",
     "technology": "Other",
     "capacity_mw": 750.0,
-    "county": "Tarrant",
+    "county": "Parker",
     "city": "",
     "hub": "North",
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Nabla Park LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Buffalo Jump Wind",
@@ -525,7 +621,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "BOULEVARD ASSOCIATES, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Meitner 2 Wind",
@@ -696,6 +792,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Permian I Wind",
+    "technology": "Wind",
+    "capacity_mw": 636.52,
+    "county": "Pecos",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "S&S Renewables, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Short Creek Solar",
     "technology": "Solar",
     "capacity_mw": 628.33,
@@ -804,6 +912,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "White Oak King Wind",
+    "technology": "Wind",
+    "capacity_mw": 606.5,
+    "county": "King",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "KSK Wind Farm 1, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Kingsmill Wind SLF",
     "technology": "Wind",
     "capacity_mw": 606.3,
@@ -813,7 +933,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Kingsmill Wind, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Lavita BESS",
@@ -849,7 +969,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Swenson Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Operation Sunshine",
@@ -883,7 +1003,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Danish Fields Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -897,7 +1017,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Airport Storage II LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Rocking X Solar",
@@ -967,7 +1087,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Ben Milam Solar 4",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -1005,12 +1125,24 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Rayburn Energy Station LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Kilby1 Part 2 Tier1 BESS",
+    "technology": "Other",
+    "capacity_mw": 560.0,
+    "county": "Reeves",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Energy Forge One LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Big Rooter East Solar",
     "technology": "Solar",
-    "capacity_mw": 554.94,
+    "capacity_mw": 554.7,
     "county": "Robertson",
     "city": "",
     "hub": "North",
@@ -1030,6 +1162,30 @@
     "cod_year": 2028,
     "developer": "Rio Vista Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Miller Bend Energy BESS",
+    "technology": "Other",
+    "capacity_mw": 547.62,
+    "county": "Young",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Miller Bend Energy",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
+    "project_name": "Miller Bend Energy Solar",
+    "technology": "Solar",
+    "capacity_mw": 531.69,
+    "county": "Young",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Miller Bend Energy",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Mojo Solar",
@@ -1116,6 +1272,18 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
+    "project_name": "Glass Mountain Wind 2",
+    "technology": "Wind",
+    "capacity_mw": 519.2,
+    "county": "Reeves",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Glass Mountain Wind, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Elmax Power Station",
     "technology": "Gas",
     "capacity_mw": 518.83,
@@ -1185,7 +1353,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Seven Angels Infrastructure LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Seven Angels Energy Storage II",
@@ -1197,18 +1365,6 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Seven Angels Infrastructure LLC",
-    "notes": "SS Started, FIS Started, No IA"
-  },
-  {
-    "project_name": "Harley Hand Solar",
-    "technology": "Solar",
-    "capacity_mw": 513.7,
-    "county": "Nolan",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "HECTATE ENERGY HARLEY HAND SOLAR LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -1260,6 +1416,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Glass Mountain Wind 1",
+    "technology": "Wind",
+    "capacity_mw": 511.5,
+    "county": "Reeves",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Glass Mountain Wind, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Ross Storage",
     "technology": "Other",
     "capacity_mw": 510.99,
@@ -1284,16 +1452,16 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
-    "project_name": "Harley Hand Storage",
-    "technology": "Other",
-    "capacity_mw": 509.0,
-    "county": "Nolan",
+    "project_name": "Velveteen Solar I",
+    "technology": "Solar",
+    "capacity_mw": 509.38,
+    "county": "Baylor",
     "city": "",
-    "hub": "West",
+    "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Hecate Energy Harley Hand Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "cod_year": 2029,
+    "developer": "Velveteen Solar, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Dovetail Storage",
@@ -1353,7 +1521,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "LectricWind LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Tumbleweed Storage",
@@ -1404,6 +1572,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Harley Hand Solar",
+    "technology": "Solar",
+    "capacity_mw": 505.5,
+    "county": "Nolan",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "HECTATE ENERGY HARLEY HAND SOLAR LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Tehuacana Creek Solar",
     "technology": "Solar",
     "capacity_mw": 505.43,
@@ -1425,7 +1605,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Rolling Plains Solar",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Frye Storage",
@@ -1435,7 +1615,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Hecate Energy Frye Storage LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -1476,6 +1656,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Harley Hand Storage",
+    "technology": "Other",
+    "capacity_mw": 503.4,
+    "county": "Nolan",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Hecate Energy Harley Hand Solar LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Cielo Vista Solar",
     "technology": "Solar",
     "capacity_mw": 503.34,
@@ -1509,6 +1701,18 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "HyFuels Big Spring Solar LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Elk Ridge Solar",
+    "technology": "Solar",
+    "capacity_mw": 503.0,
+    "county": "Pecos",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "Boulevard Associates, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -1558,18 +1762,6 @@
     "cod_year": 2027,
     "developer": "Dog Star Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Austin Bayou Solar",
-    "technology": "Solar",
-    "capacity_mw": 502.48,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Austin Bayou Solar, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Duffy Solar",
@@ -1629,6 +1821,18 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "IP Cavell, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Falcon Solar",
+    "technology": "Solar",
+    "capacity_mw": 501.96,
+    "county": "Zapata",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Falcon Energy Project, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -1725,7 +1929,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "Ben Milam Solar 5",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Lyra Storage",
@@ -1774,18 +1978,6 @@
     "cod_year": 2027,
     "developer": "Antila Solar LLC",
     "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Elk Ridge Solar",
-    "technology": "Solar",
-    "capacity_mw": 500.0,
-    "county": "Pecos",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2030,
-    "developer": "Boulevard Associates, LLC",
-    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "MRR Solar",
@@ -1857,7 +2049,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "ACE DevCo NC LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Alkali Creek Wind",
@@ -1881,18 +2073,6 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Serenity Wind, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Denver City - Mustang - Gas",
-    "technology": "Gas",
-    "capacity_mw": 472.1,
-    "county": "Yoakum",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Golden Spread Electric Cooperative, Inc.",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -1944,18 +2124,6 @@
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
-    "project_name": "Zeissel Solar",
-    "technology": "Solar",
-    "capacity_mw": 457.5,
-    "county": "Knox",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "ZSS Power, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "NRG THW GT 345 (TEF)",
     "technology": "Gas",
     "capacity_mw": 456.0,
@@ -1976,7 +2144,7 @@
     "hub": "West",
     "status": "Queue",
     "cod_year": 2030,
-    "developer": "NET Power",
+    "developer": "NET Power Canaveral, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
@@ -2001,6 +2169,18 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Soleil Solar, LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Zeissel Solar",
+    "technology": "Solar",
+    "capacity_mw": 451.52,
+    "county": "Knox",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "ZSS Power, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
   {
@@ -2352,6 +2532,30 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Lightcycle Energy Storage",
+    "technology": "Other",
+    "capacity_mw": 409.69,
+    "county": "Fayette",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Lightcycle Energy Storage LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
+    "project_name": "McCamey's Castle Battery",
+    "technology": "Other",
+    "capacity_mw": 409.6,
+    "county": "Upton",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Castle Storage, LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
     "project_name": "Beacon Storage",
     "technology": "Other",
     "capacity_mw": 408.7,
@@ -2407,7 +2611,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Lund Storage Center 1, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -2455,14 +2659,14 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Hill Solar I, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Big Rooter West Solar",
     "technology": "Solar",
-    "capacity_mw": 403.42,
+    "capacity_mw": 403.2,
     "county": "Robertson",
     "city": "",
     "hub": "North",
@@ -2486,7 +2690,7 @@
   {
     "project_name": "Solarville Solar SLF",
     "technology": "Solar",
-    "capacity_mw": 402.8,
+    "capacity_mw": 402.86,
     "county": "Kaufman",
     "city": "",
     "hub": "North",
@@ -2532,6 +2736,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Two Step Solar",
+    "technology": "Solar",
+    "capacity_mw": 402.06,
+    "county": "Ellis",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Two Step Solar, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Smith Lake Solar DC",
     "technology": "Solar",
     "capacity_mw": 402.0,
@@ -2539,7 +2755,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Smith Lake Solar",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -2566,18 +2782,6 @@
     "cod_year": 2030,
     "developer": "Industrial November Project LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Bottom Grass Solar II",
-    "technology": "Solar",
-    "capacity_mw": 401.6,
-    "county": "Colorado",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Flint Rock Solar Project, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Infinium Solar",
@@ -2640,6 +2844,18 @@
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
+    "project_name": "Exergy Energy West Texas Natural Gas Reciprocating Power I",
+    "technology": "Gas",
+    "capacity_mw": 400.0,
+    "county": "Reeves",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "August Partners LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Biggs Solar",
     "technology": "Solar",
     "capacity_mw": 400.0,
@@ -2673,7 +2889,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "BOULEVARD ASSOCIATES, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Hanson Solar",
@@ -2757,7 +2973,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Energy Forge One LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Earthwise Solar",
@@ -2781,7 +2997,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "NextEra Energy Interconnection Holdings, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Viento Bravo Wind",
@@ -2793,7 +3009,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Webb Wind, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Space City Solar",
@@ -2901,7 +3117,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Longview Wind, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Max 4 Wind",
@@ -2940,6 +3156,18 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
+    "project_name": "West Munday Wind",
+    "technology": "Wind",
+    "capacity_mw": 351.91,
+    "county": "Knox",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Lake Creek Wind, LLC",
+    "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
     "project_name": "Sombrero Solar",
     "technology": "Solar",
     "capacity_mw": 351.85,
@@ -2971,32 +3199,20 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Cottonwood Bayou Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Funston Solar",
     "technology": "Solar",
-    "capacity_mw": 351.4,
+    "capacity_mw": 351.1,
     "county": "Jones",
     "city": "",
     "hub": "West",
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Funston Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Fighting Jays Solar",
-    "technology": "Solar",
-    "capacity_mw": 351.29,
-    "county": "Fort Bend",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "AP Solar Holdings, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
@@ -3014,7 +3230,7 @@
   {
     "project_name": "HyFuels Green Lake Solar",
     "technology": "Solar",
-    "capacity_mw": 346.0,
+    "capacity_mw": 347.0,
     "county": "Victoria",
     "city": "",
     "hub": "South",
@@ -3043,7 +3259,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "BMP Wind, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -3067,7 +3283,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "IP Quantum III, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -3151,7 +3367,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "IP Quantum III, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -3228,42 +3444,6 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Jade Flash Storage",
-    "technology": "Other",
-    "capacity_mw": 320.0,
-    "county": "Scurry",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "IP Lumina BESS, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Andromeda Storage II",
-    "technology": "Other",
-    "capacity_mw": 320.0,
-    "county": "Scurry",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "IP Lumina II BESS, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Radian Storage II",
-    "technology": "Other",
-    "capacity_mw": 320.0,
-    "county": "Brown",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "IP Radian BESS, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
     "project_name": "Delilah Solar 2",
     "technology": "Solar",
     "capacity_mw": 317.58,
@@ -3288,16 +3468,16 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Middlebrook Solar Limited Liability Company",
-    "technology": "Solar",
-    "capacity_mw": 316.19,
-    "county": "Nacogdoches",
+    "project_name": "White Bright BESS",
+    "technology": "Other",
+    "capacity_mw": 313.69,
+    "county": "Grayson",
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Middlebrook Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "cod_year": 2029,
+    "developer": "VLN, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Diablo Campo Storage",
@@ -3326,7 +3506,7 @@
   {
     "project_name": "Barkley Creek Solar",
     "technology": "Solar",
-    "capacity_mw": 312.34,
+    "capacity_mw": 312.37,
     "county": "Lampasas",
     "city": "",
     "hub": "North",
@@ -3358,6 +3538,18 @@
     "cod_year": 2027,
     "developer": "Bulldog Power LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Bulldog Power II",
+    "technology": "Gas",
+    "capacity_mw": 311.0,
+    "county": "Brazoria",
+    "city": "",
+    "hub": "Houston",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "Bulldog Power II LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Cielo Vista Storage",
@@ -3511,7 +3703,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Canyon Wind Energy, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -3619,9 +3811,9 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2029,
-    "developer": "NextEra Energy Interconnection Holdings, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "cod_year": 2031,
+    "developer": "Cattle Drive Solar, LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Cuchillas BESS",
@@ -3662,7 +3854,7 @@
   {
     "project_name": "Copperleaf Energy Storage",
     "technology": "Other",
-    "capacity_mw": 306.53,
+    "capacity_mw": 306.58,
     "county": "Wichita",
     "city": "",
     "hub": "North",
@@ -3693,7 +3885,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Gilleys Energy Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "O'Bannion Energy Storage",
@@ -3703,9 +3895,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "O'Bannion Energy Storage, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Wooderson Energy Storage",
@@ -3729,7 +3921,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "McCrae Energy Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Wolf Hollow III",
@@ -3816,6 +4008,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Velveteen Solar II",
+    "technology": "Solar",
+    "capacity_mw": 305.63,
+    "county": "Baylor",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Velveteen Solar II, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Cuchillas Solar",
     "technology": "Solar",
     "capacity_mw": 305.6,
@@ -3826,6 +4030,18 @@
     "cod_year": 2028,
     "developer": "Gransolar Texas Two, LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "PHOTON BESS REPOWERING",
+    "technology": "Other",
+    "capacity_mw": 305.48,
+    "county": "Wharton",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "GulfStar Power, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Glory Bee Solar",
@@ -3861,7 +4077,7 @@
     "status": "Queue",
     "cod_year": 2030,
     "developer": "Glass Mountain Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Glass Mountain Solar 1",
@@ -3873,7 +4089,19 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Glass Mountain Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "WOE Gyp King Wind",
+    "technology": "Wind",
+    "capacity_mw": 304.29,
+    "county": "King",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "KSK Wind Farm 1, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Furay Battery Energy Storage System",
@@ -3897,7 +4125,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Glass Mountain Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Bullring Wind 2",
@@ -3919,7 +4147,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Navboot BESS LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -3933,7 +4161,7 @@
     "status": "Queue",
     "cod_year": 2031,
     "developer": "Juanita Creek Energy Center, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "BRP Aras BESS",
@@ -3981,7 +4209,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Goat Wind LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Old Aqueduct Batt",
@@ -4027,7 +4255,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "ENGIE North America",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -4039,7 +4267,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2029,
     "developer": "Brantley Branch LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -4063,9 +4291,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2029,
+    "cod_year": 2028,
     "developer": "Spurland Solar I",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Outrider BESS",
@@ -4303,7 +4531,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Pine Forest Solar I, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -4315,7 +4543,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "El Sauz Ranch Wind, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -4389,7 +4617,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Renew Development Holdco, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Rubicon Power BESS",
@@ -4440,18 +4668,6 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
-    "project_name": "Cernan BESS",
-    "technology": "Other",
-    "capacity_mw": 301.15,
-    "county": "Wharton",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Scarlet BESS LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
     "project_name": "Prairie Branch Solar",
     "technology": "Solar",
     "capacity_mw": 301.14,
@@ -4498,18 +4714,6 @@
     "cod_year": 2028,
     "developer": "Ogallala BESS LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Apricot Sun Storage",
-    "technology": "Other",
-    "capacity_mw": 301.02,
-    "county": "Duval",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Apricot Sun Energy Center, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Blue Spring Solar",
@@ -4560,6 +4764,30 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Jaguar Solar",
+    "technology": "Solar",
+    "capacity_mw": 300.87,
+    "county": "Mclennan",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "PP Jaguar Solar LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "San Patricio Energy Center BESS",
+    "technology": "Other",
+    "capacity_mw": 300.84,
+    "county": "San Patricio",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Ferrovial Energy US 1",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Delilah Solar 1",
     "technology": "Solar",
     "capacity_mw": 300.0,
@@ -4584,18 +4812,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Jaguar Solar",
-    "technology": "Solar",
-    "capacity_mw": 300.0,
-    "county": "Mclennan",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "PP Jaguar Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Photo Solar 2",
     "technology": "Solar",
     "capacity_mw": 300.0,
@@ -4616,19 +4832,7 @@
     "hub": "South",
     "status": "Queue",
     "cod_year": 2029,
-    "developer": "Mandolin Solar Project, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "White Bright BESS",
-    "technology": "Other",
-    "capacity_mw": 300.0,
-    "county": "Grayson",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "VLN, LLC",
+    "developer": "Mandolin Energy Center I, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -4642,6 +4846,18 @@
     "cod_year": 2027,
     "developer": "RWE Clean Energy Development, LLC",
     "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Peach Creek Solar",
+    "technology": "Solar",
+    "capacity_mw": 300.0,
+    "county": "Wharton",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Acciona Energy USA Global LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Bendito Wind",
@@ -4665,7 +4881,31 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Selenite Springs Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Brazos Energy Center 1",
+    "technology": "Other",
+    "capacity_mw": 300.0,
+    "county": "Mclennan",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Ferrovial Energy US 1",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
+    "project_name": "Brazos Energy Center 2",
+    "technology": "Other",
+    "capacity_mw": 300.0,
+    "county": "Mclennan",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Ferrovial Energy US 1",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Wisdom Solar SLF",
@@ -4711,9 +4951,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Camino Solar Ranch, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Palo Verde Wind",
@@ -4725,7 +4965,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "RWE Clean Energy Development, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Aquilla Lake 3 Wind",
@@ -4759,9 +4999,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Camino Ranch Solar Project LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Fortuna Wind",
@@ -4809,7 +5049,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Windjammer Windpower, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Grapefruit Solar",
@@ -4833,7 +5073,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Vista Bluff Windpower, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Vista Bluff Wind II \"Alternate POI\"",
@@ -4845,7 +5085,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Vista Bluff Windpower, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Tres Rios Ranch BESS",
@@ -4857,7 +5097,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "LectricWind LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Baker Branch BESS",
@@ -4905,7 +5145,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Banita Creek Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Fierce River BESS",
@@ -5035,9 +5275,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Pease River Solar LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Roboman Solar",
@@ -5059,7 +5299,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Blevins Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -5071,7 +5311,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Lincoln Clean",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -5083,7 +5323,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Big Sampson Wind Project, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -5109,7 +5349,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Oxy Renewable Energy LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Leopard BESS",
@@ -5145,7 +5385,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Yellow Cat Wind LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Charolais Solar",
@@ -5287,7 +5527,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Jay Flat BESS LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -5316,16 +5556,16 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Maximino Road BESS",
+    "project_name": "Horsepower BESS",
     "technology": "Other",
-    "capacity_mw": 257.6,
-    "county": "Comal",
+    "capacity_mw": 257.5,
+    "county": "Bexar",
     "city": "",
     "hub": "South",
     "status": "Queue",
     "cod_year": 2028,
-    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "developer": "Horsepower BESS, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "First Capitol BESS",
@@ -5340,18 +5580,6 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
-    "project_name": "Dorsey Road BESS",
-    "technology": "Other",
-    "capacity_mw": 257.4,
-    "county": "Bexar",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Drake BESS",
     "technology": "Other",
     "capacity_mw": 257.3,
@@ -5362,18 +5590,6 @@
     "cod_year": 2026,
     "developer": "Mallard Energy Storage LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Tomahawk Road BESS",
-    "technology": "Other",
-    "capacity_mw": 257.25,
-    "county": "Ector",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Masava Storage",
@@ -5409,7 +5625,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Shepard Energy Storage LLC",
-    "notes": "SS Completed, FIS Completed, IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Van Zandt Energy Storage",
@@ -5515,7 +5731,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Ray Ranch Solar LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -5527,7 +5743,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Brush Storage, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -5564,7 +5780,7 @@
     "hub": "South",
     "status": "Queue",
     "cod_year": 2028,
-    "developer": "Ferrovial Energy US 1",
+    "developer": "Bayou Creek Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -5592,18 +5808,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Tiger Solar",
-    "technology": "Solar",
-    "capacity_mw": 255.0,
-    "county": "Jones",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Vaca Del Sol, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "San Gabriel Solar",
     "technology": "Solar",
     "capacity_mw": 255.0,
@@ -5623,7 +5827,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Brush Solar LLC",
     "notes": "SS Completed, FIS Not Started, IA"
   },
@@ -5635,20 +5839,8 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Brush Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Railway BESS",
-    "technology": "Other",
-    "capacity_mw": 254.8,
-    "county": "Rusk",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Grand Reserve Energy, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -5661,18 +5853,6 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "SMT Elm Mott BESS",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Berryman Road Storage",
-    "technology": "Other",
-    "capacity_mw": 254.49,
-    "county": "Archer",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -5815,9 +5995,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Clairemont Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Velociraptor Solar II",
@@ -5901,7 +6081,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Renew Development HoldCo LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Paint Brush PV2",
@@ -5913,7 +6093,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Renew Development HoldCo LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Paint Brush PV3",
@@ -5925,7 +6105,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Renew Development HoldCo LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Paint Brush PV4",
@@ -5937,7 +6117,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Renew Development HoldCo LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Buffalo Creek BESS",
@@ -5973,18 +6153,6 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "ACE DevCo NC, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Plant Road BESS",
-    "technology": "Other",
-    "capacity_mw": 251.32,
-    "county": "Ector",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -6084,18 +6252,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Rock Creek BESS",
-    "technology": "Other",
-    "capacity_mw": 251.05,
-    "county": "Kendall",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Flat Rock Energy Center, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Bluegill BESS",
     "technology": "Other",
     "capacity_mw": 251.0,
@@ -6115,9 +6271,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2029,
     "developer": "Senator Aggreko Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Skeeter Solar",
@@ -6129,7 +6285,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Mesquite Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Tanglewood Solar",
@@ -6139,7 +6295,7 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Brazoria Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -6156,16 +6312,40 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Tiger Solar",
+    "technology": "Solar",
+    "capacity_mw": 250.9,
+    "county": "Jones",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Vaca Del Sol, LLC",
+    "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
     "project_name": "Adamstown Solar",
     "technology": "Solar",
     "capacity_mw": 250.88,
-    "county": "Wichita",
+    "county": "Wilbarger",
     "city": "",
     "hub": "North",
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Adams Creek Solar Project, LLC",
     "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Alkali Creek Wind 2",
+    "technology": "Wind",
+    "capacity_mw": 250.3,
+    "county": "Fisher",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Alkali Creek Wind, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Samson Solar 1",
@@ -6192,30 +6372,6 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Iguala Solar",
-    "technology": "Solar",
-    "capacity_mw": 250.0,
-    "county": "Victoria",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Iguala Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Cascade Storage",
-    "technology": "Other",
-    "capacity_mw": 250.0,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Oyster Creek LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "August Draw Solar",
     "technology": "Solar",
     "capacity_mw": 250.0,
@@ -6228,16 +6384,28 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
-    "project_name": "Langer Solar",
-    "technology": "Solar",
-    "capacity_mw": 249.8,
-    "county": "Bosque",
+    "project_name": "La Morena Energy Center BESS",
+    "technology": "Other",
+    "capacity_mw": 250.0,
+    "county": "Zapata",
     "city": "",
-    "hub": "North",
+    "hub": "South",
     "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Langer Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "cod_year": 2029,
+    "developer": "Adapture Solar Development",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "La Morena Energy Center Solar",
+    "technology": "Solar",
+    "capacity_mw": 250.0,
+    "county": "Zapata",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Adapture Solar Development",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Straight Spur Wind",
@@ -6250,18 +6418,6 @@
     "cod_year": 2029,
     "developer": "ENGIE IR Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Brazos Bend Storage SLF",
-    "technology": "Other",
-    "capacity_mw": 247.2,
-    "county": "Milam",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Grenergy USA",
-    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Bluewind BESS",
@@ -6297,7 +6453,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Clear Fork BESS, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Mojo BESS",
@@ -6312,18 +6468,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Apricot Sun Solar",
-    "technology": "Solar",
-    "capacity_mw": 245.69,
-    "county": "Duval",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Apricot Sun Energy Center, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Dempsey Solar SLF",
     "technology": "Solar",
     "capacity_mw": 245.34,
@@ -6334,18 +6478,6 @@
     "cod_year": 2028,
     "developer": "Dempsey Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Brazos Bend Solar SLF",
-    "technology": "Solar",
-    "capacity_mw": 244.94,
-    "county": "Milam",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Grenergy USA",
-    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Eastbell Milam Solar",
@@ -6369,7 +6501,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Gail Mountain Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Lavaca Bay Solar",
@@ -6382,6 +6514,30 @@
     "cod_year": 2026,
     "developer": "Lavaca Bay Solar Project, LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Brazos Bend Solar SLF",
+    "technology": "Solar",
+    "capacity_mw": 243.0,
+    "county": "Milam",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Grenergy USA",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Brazos Bend Storage SLF",
+    "technology": "Other",
+    "capacity_mw": 243.0,
+    "county": "Milam",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Grenergy USA",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Coyote Wind",
@@ -6439,7 +6595,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "RWE Renewables Development, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -6454,6 +6610,18 @@
     "cod_year": 2027,
     "developer": "Easy Wind Energy Center, LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Duffy BESS",
+    "technology": "Other",
+    "capacity_mw": 241.05,
+    "county": "Matagorda",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2026,
+    "developer": "Duffy Energy Storage LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Jane Storage Energy Center",
@@ -6511,9 +6679,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Camino Ranch Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Campsey Wind",
@@ -6547,9 +6715,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Camino Ranch Solar Project LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "DeSpain Solar Project",
@@ -6562,18 +6730,6 @@
     "cod_year": 2027,
     "developer": "Gransolar Texas Thirteen LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Duffy BESS",
-    "technology": "Other",
-    "capacity_mw": 235.9,
-    "county": "Matagorda",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Duffy Energy Storage LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "PHOTON SOLAR 1 2 SLF",
@@ -6595,7 +6751,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Kuy Creek Solar 1 LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -6621,7 +6777,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Monte Cristo Windpower II, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Sbranch Solar",
@@ -6631,7 +6787,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Bernard Creek Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -6722,12 +6878,12 @@
   {
     "project_name": "Buffalo Gap 2 Wind Repower",
     "technology": "Wind",
-    "capacity_mw": 231.39,
+    "capacity_mw": 231.49,
     "county": "Nolan",
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Buffalo Gap Wind Farm 2, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -6859,7 +7015,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Diver Solar",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -6888,6 +7044,18 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
+    "project_name": "Old Fiddler Energy Storage",
+    "technology": "Other",
+    "capacity_mw": 224.55,
+    "county": "Henderson",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Old Fiddler Energy Storage LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Tolivar Power Plant (TEF- Due Diligence)",
     "technology": "Gas",
     "capacity_mw": 224.5,
@@ -6912,18 +7080,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Old Fiddler Energy Storage",
-    "technology": "Other",
-    "capacity_mw": 224.08,
-    "county": "Henderson",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Old Fiddler Energy Storage LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Olympic BESS",
     "technology": "Other",
     "capacity_mw": 222.81,
@@ -6936,18 +7092,6 @@
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
-    "project_name": "Oystercatcher Solar",
-    "technology": "Solar",
-    "capacity_mw": 222.2,
-    "county": "Ellis",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Oystercatcher Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Grayback Solar",
     "technology": "Solar",
     "capacity_mw": 221.81,
@@ -6957,7 +7101,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Grayback Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Utley Solar",
@@ -6967,9 +7111,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Palmera Solar Development LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "cod_year": 2028,
+    "developer": "Palmera Solar Development, LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Miracle Ranch Solar SLF",
@@ -7099,7 +7243,7 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Two Barbaras BESS",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -7207,7 +7351,7 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Rock Rose Energy Storage LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -7222,18 +7366,6 @@
     "cod_year": 2028,
     "developer": "Vazlon Energy LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Grimes County Solar",
-    "technology": "Solar",
-    "capacity_mw": 211.25,
-    "county": "Grimes",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Grimes County Solar Project, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Rockridge Solar",
@@ -7293,7 +7425,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Val Vista Grid, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Guadalupe Battery Storage Project",
@@ -7341,7 +7473,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Golden Spread Electric Cooperative, Inc.",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Val Vista Grid BESS 1",
@@ -7353,7 +7485,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Val Vista Grid, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Moonlit Bayou Storage",
@@ -7452,6 +7584,18 @@
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
+    "project_name": "Forts Trail BESS",
+    "technology": "Other",
+    "capacity_mw": 208.82,
+    "county": "Taylor",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "JC Central Bluff, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Zeus Rusk BESS",
     "technology": "Other",
     "capacity_mw": 208.8,
@@ -7533,7 +7677,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Gusty Windpower, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Pearl Crescent Solar",
@@ -7546,6 +7690,18 @@
     "cod_year": 2026,
     "developer": "RWE Solar Development, LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Erin Solar",
+    "technology": "Solar",
+    "capacity_mw": 208.34,
+    "county": "Wharton",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Erin Solar LLC",
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "New Minglewood Energy Center",
@@ -7581,30 +7737,6 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Coval Infrastructure DevCo LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Pearl Moon",
-    "technology": "Solar",
-    "capacity_mw": 208.0,
-    "county": "Colorado",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Pearl Moon Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Rippling Curve Peaking Power",
-    "technology": "Gas",
-    "capacity_mw": 208.0,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "OxyVinyls LP",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -7653,7 +7785,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Gulf Prairie Energy LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Cottonseed Energy Storage",
@@ -7711,7 +7843,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Erath County Solar, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -7848,6 +7980,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Oak Belt Storage",
+    "technology": "Other",
+    "capacity_mw": 207.0,
+    "county": "Victoria",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Oak Belt Storage, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "BRP Hemera BESS",
     "technology": "Other",
     "capacity_mw": 206.96,
@@ -7929,7 +8073,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Zunkerville Energy, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Sunlit Pines Solar SLF",
@@ -7941,6 +8085,18 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Sunlit Pines Energy Center LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Wolfram Storage",
+    "technology": "Other",
+    "capacity_mw": 206.6,
+    "county": "Calhoun",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Nova Clean Energy, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -7956,16 +8112,16 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "SOUTHERN SELECT ENERGY STORAGE",
+    "project_name": "Slash Pine Storage",
     "technology": "Other",
-    "capacity_mw": 206.36,
-    "county": "Galveston",
+    "capacity_mw": 206.38,
+    "county": "Kaufman",
     "city": "",
-    "hub": "Houston",
+    "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
-    "developer": "SOUTHERN SELECT ENERGY STORAGE LLC",
-    "notes": "SS Completed, FIS Completed, IA"
+    "cod_year": 2029,
+    "developer": "EG Slash Pine LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Solar Star Bay City Storage",
@@ -8004,6 +8160,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Plant Road BESS",
+    "technology": "Other",
+    "capacity_mw": 206.0,
+    "county": "Ector",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Varadero Solar",
     "technology": "Solar",
     "capacity_mw": 206.0,
@@ -8013,6 +8181,18 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "NextEra Energy Interconnection Holdings, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Maximino Road BESS",
+    "technology": "Other",
+    "capacity_mw": 206.0,
+    "county": "Comal",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -8049,7 +8229,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Roan Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Roan Solar Phase 2",
@@ -8061,7 +8241,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Roan Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Supra Wind",
@@ -8085,7 +8265,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Abilene GCE LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Shaula I BESS",
@@ -8112,6 +8292,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Alila BESS II",
+    "technology": "Other",
+    "capacity_mw": 205.71,
+    "county": "San Patricio",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Electra Energy Project, LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Sunflower Valley Storage",
     "technology": "Other",
     "capacity_mw": 205.7,
@@ -8134,6 +8326,18 @@
     "cod_year": 2026,
     "developer": "Destiny Storage, LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Forts Trail BESS 2",
+    "technology": "Other",
+    "capacity_mw": 205.54,
+    "county": "Taylor",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "JC Central Bluff, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Sisters Solar II",
@@ -8203,7 +8407,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Pleiades Storage, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -8254,18 +8458,6 @@
     "cod_year": 2026,
     "developer": "BRP Desna BESS LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Wolfram Storage",
-    "technology": "Other",
-    "capacity_mw": 205.4,
-    "county": "Calhoun",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Nova Clean Energy, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Castor BESS",
@@ -8371,7 +8563,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "TOCE BESS 1, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -8385,6 +8577,18 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "ALLTHORN SOLAR, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Champion Road BESS",
+    "technology": "Other",
+    "capacity_mw": 205.2,
+    "county": "Angelina",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -8424,6 +8628,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Tomahawk Road BESS",
+    "technology": "Other",
+    "capacity_mw": 205.0,
+    "county": "Ector",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Sepik BESS",
     "technology": "Other",
     "capacity_mw": 204.96,
@@ -8446,6 +8662,18 @@
     "cod_year": 2027,
     "developer": "Star Dairy Storage",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Vertus Energy Storage 2",
+    "technology": "Other",
+    "capacity_mw": 204.93,
+    "county": "Galveston",
+    "city": "",
+    "hub": "Houston",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Vertus Energy Storage 2 LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Energy City BESS",
@@ -8472,18 +8700,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Corazon Storage",
-    "technology": "Other",
-    "capacity_mw": 204.8,
-    "county": "Webb",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Guajillo Energy Storage LLC",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Guitar BESS",
     "technology": "Other",
     "capacity_mw": 204.79,
@@ -8494,6 +8710,18 @@
     "cod_year": 2027,
     "developer": "Guitar BESS LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "SOUTHERN SELECT ENERGY STORAGE",
+    "technology": "Other",
+    "capacity_mw": 204.76,
+    "county": "Galveston",
+    "city": "",
+    "hub": "Houston",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "SOUTHERN SELECT ENERGY STORAGE LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Running Iron Solar",
@@ -8515,9 +8743,9 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2029,
     "developer": "Stone Creek Peaker LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Carolina Storage Midland",
@@ -8575,7 +8803,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Paris Energy Storage, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -8688,30 +8916,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Hamlet Solar SLF",
-    "technology": "Solar",
-    "capacity_mw": 204.0,
-    "county": "Frio",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Hamlet Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Hamlet Storage SLF",
-    "technology": "Other",
-    "capacity_mw": 204.0,
-    "county": "Frio",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Hamlet Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Fermata BESS",
     "technology": "Other",
     "capacity_mw": 204.0,
@@ -8743,7 +8947,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Sowers Energy Storage LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -8767,7 +8971,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Mendoza Trail BESS, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -8803,7 +9007,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Diamondback Solar, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -8887,7 +9091,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Donegalsol",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -8983,21 +9187,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Hillsboro Solar Project LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Saint Charles Energy Storage",
-    "technology": "Other",
-    "capacity_mw": 203.1,
-    "county": "Houston",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "RSN STORAGE 001, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Brahman Renewables Storage",
@@ -9189,7 +9381,19 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Wolf Spring Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Saint Charles Energy Storage",
+    "technology": "Other",
+    "capacity_mw": 202.7,
+    "county": "Houston",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "RSN STORAGE 001, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Prost ESS",
@@ -9237,7 +9441,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Jones City Solar II, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Legato BESS",
@@ -9250,18 +9454,6 @@
     "cod_year": 2028,
     "developer": "Legato Storage, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
-    "project_name": "Staccato BESS",
-    "technology": "Other",
-    "capacity_mw": 202.65,
-    "county": "Fayette",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Staccato Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Fortissimo BESS",
@@ -9286,6 +9478,18 @@
     "cod_year": 2026,
     "developer": "Elan BESS, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
+  },
+  {
+    "project_name": "Velveteen Solar III",
+    "technology": "Solar",
+    "capacity_mw": 202.59,
+    "county": "Baylor",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Velveteen Solar III, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Bologna BESS",
@@ -9322,18 +9526,6 @@
     "cod_year": 2027,
     "developer": "BRP Perseus BESS LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Erin Solar",
-    "technology": "Solar",
-    "capacity_mw": 202.5,
-    "county": "Wharton",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Erin Solar LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Old Victory Energy Center",
@@ -9420,6 +9612,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Willow Beach Wind",
+    "technology": "Wind",
+    "capacity_mw": 202.33,
+    "county": "Brazoria",
+    "city": "",
+    "hub": "Houston",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Capital Wind, LLC",
+    "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
     "project_name": "Bottom Grass BESS",
     "technology": "Other",
     "capacity_mw": 202.21,
@@ -9499,7 +9703,7 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Galveston Energy Storage LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -9511,7 +9715,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "FRESH AIR ENERGY II, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -9538,6 +9742,18 @@
     "cod_year": 2028,
     "developer": "Forest Grove Solar LLC",
     "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Staccato BESS",
+    "technology": "Other",
+    "capacity_mw": 201.8,
+    "county": "Fayette",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2026,
+    "developer": "Staccato Storage, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Bluefox Solar 3",
@@ -9588,16 +9804,16 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Mesteno Wind",
-    "technology": "Wind",
-    "capacity_mw": 201.6,
-    "county": "Starr",
+    "project_name": "Donegal Solar",
+    "technology": "Solar",
+    "capacity_mw": 201.68,
+    "county": "Dickens",
     "city": "",
-    "hub": "South",
+    "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Mesteno Windpower, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
+    "cod_year": 2028,
+    "developer": "HE-Cottonwood Solar LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Stoneridge Solar",
@@ -9607,7 +9823,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Stoneridge Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -9631,7 +9847,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Hillsboro Solar Project LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -9655,20 +9871,8 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Spurland Solar II",
-    "notes": "SS Started, FIS Started, No IA"
-  },
-  {
-    "project_name": "Forts Trail BESS 2",
-    "technology": "Other",
-    "capacity_mw": 201.54,
-    "county": "Taylor",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
     "cod_year": 2028,
-    "developer": "JC Central Bluff, LLC",
+    "developer": "Spurland Solar II",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -9729,7 +9933,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Tex-Bar ESS LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Corvus Solar",
@@ -9789,7 +9993,7 @@
     "status": "Queue",
     "cod_year": 2030,
     "developer": "Sawtooth Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Padua Grid BESS Unit 3",
@@ -9828,6 +10032,18 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
+    "project_name": "Paint Brush BESS1",
+    "technology": "Other",
+    "capacity_mw": 201.31,
+    "county": "Coleman",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Renew Development HoldCo LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Tucana BESS",
     "technology": "Other",
     "capacity_mw": 201.3,
@@ -9860,7 +10076,7 @@
     "hub": "North",
     "status": "Queue",
     "cod_year": 2028,
-    "developer": "Snowshoe Falls, LLC",
+    "developer": "Finch Storage, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -9922,6 +10138,30 @@
     "cod_year": 2028,
     "developer": "Spinosa Energy Center, LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Savannah Oaks Solar",
+    "technology": "Solar",
+    "capacity_mw": 201.19,
+    "county": "Madison",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Savannah Oaks Solar Project LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Pathfinder Energy Storage, LLC",
+    "technology": "Other",
+    "capacity_mw": 201.16,
+    "county": "San Patricio",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Pathfinder Energy Storage, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Nockenut Springs Solar 4",
@@ -10044,18 +10284,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Morrow Lake Solar",
-    "technology": "Solar",
-    "capacity_mw": 201.1,
-    "county": "Frio",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Morrow Lake Solar, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Ramsey Storage",
     "technology": "Other",
     "capacity_mw": 201.1,
@@ -10140,7 +10368,7 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Smokey Willie Solar SLF",
+    "project_name": "Lumen Farm Solar SLF",
     "technology": "Solar",
     "capacity_mw": 201.04,
     "county": "Anderson",
@@ -10224,6 +10452,30 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Hamlet Solar SLF",
+    "technology": "Solar",
+    "capacity_mw": 201.0,
+    "county": "Frio",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Hamlet Solar, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Hamlet Storage SLF",
+    "technology": "Other",
+    "capacity_mw": 201.0,
+    "county": "Frio",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Hamlet Solar, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Elbus BESS",
     "technology": "Other",
     "capacity_mw": 200.99,
@@ -10255,7 +10507,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Crescent Solar, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -10284,18 +10536,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Savannah Oaks Solar",
-    "technology": "Solar",
-    "capacity_mw": 200.97,
-    "county": "Madison",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Savannah Oaks Solar Project LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Oakley BESS",
     "technology": "Other",
     "capacity_mw": 200.96,
@@ -10308,6 +10548,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Copper Canyon BESS",
+    "technology": "Other",
+    "capacity_mw": 200.95,
+    "county": "Tom Green",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Lightsource Renewable Energy US LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Felix West Solar",
     "technology": "Solar",
     "capacity_mw": 200.95,
@@ -10315,9 +10567,33 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Felix 1, LLC",
     "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "TOLSTA BESS",
+    "technology": "Other",
+    "capacity_mw": 200.95,
+    "county": "San Patricio",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Tolsta BESS LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
+    "project_name": "Copper Canyon Solar",
+    "technology": "Solar",
+    "capacity_mw": 200.95,
+    "county": "Tom Green",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Lightsource Renewable Energy US LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Eldora Solar",
@@ -10339,7 +10615,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Felix 1, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -10485,6 +10761,30 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Abeja Solar Farm LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Apricot Sun Solar",
+    "technology": "Solar",
+    "capacity_mw": 200.84,
+    "county": "Duval",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Apricot Sun Energy Center, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Apricot Sun Storage",
+    "technology": "Other",
+    "capacity_mw": 200.84,
+    "county": "Duval",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Apricot Sun Energy Center, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -10512,20 +10812,20 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Forts Trail Solar",
-    "technology": "Solar",
-    "capacity_mw": 200.81,
-    "county": "Taylor",
+    "project_name": "Ouroboros Grid BESS 1",
+    "technology": "Other",
+    "capacity_mw": 200.82,
+    "county": "Cameron",
     "city": "",
-    "hub": "West",
+    "hub": "South",
     "status": "Queue",
     "cod_year": 2028,
-    "developer": "JC Central Bluff, LLC",
+    "developer": "Ouroboros Grid BESS Unit 1",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Forts Trail BESS",
-    "technology": "Other",
+    "project_name": "Forts Trail Solar",
+    "technology": "Solar",
     "capacity_mw": 200.81,
     "county": "Taylor",
     "city": "",
@@ -10546,6 +10846,18 @@
     "cod_year": 2027,
     "developer": "BRP Blue Topaz 5, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
+  },
+  {
+    "project_name": "Ouroboros Grid BESS 2",
+    "technology": "Other",
+    "capacity_mw": 200.81,
+    "county": "Cameron",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Ouroboros Grid BESS Unit 2",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Kota Battery",
@@ -10608,7 +10920,7 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Laurel Storage Energy Center",
+    "project_name": "Pecos Storage Center",
     "technology": "Other",
     "capacity_mw": 200.8,
     "county": "Pecos",
@@ -10618,6 +10930,18 @@
     "cod_year": 2027,
     "developer": "Laurel Energy Center, LLC",
     "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Moon Stone BESS",
+    "technology": "Other",
+    "capacity_mw": 200.8,
+    "county": "Wilson",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Moon Stone Battery Facility LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Falcon Zapata Storage 138",
@@ -10699,9 +11023,21 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Pine Forest Hybrid I, LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Ouroboros Grid BESS 3",
+    "technology": "Other",
+    "capacity_mw": 200.72,
+    "county": "Cameron",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Ouroboros Grid BESS Unit 3",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Obbligato BESS",
@@ -10738,6 +11074,30 @@
     "cod_year": 2027,
     "developer": "Resaca Oasis Storage, LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Dilley Solar",
+    "technology": "Solar",
+    "capacity_mw": 200.7,
+    "county": "Frio",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "AETS Development Holdings LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
+    "project_name": "Zunkerville Solar",
+    "technology": "Solar",
+    "capacity_mw": 200.67,
+    "county": "Karnes",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Zunkerville Energy, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Cash Mills Storage Center",
@@ -10797,7 +11157,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Vaughn Battery Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "BremRaek BESS",
@@ -10821,7 +11181,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Cat Red Top Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "JackGard BESS",
@@ -10893,7 +11253,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Comal BESS LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Barbara BESS",
@@ -10905,7 +11265,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Barbara BESS LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Erika Solar",
@@ -11016,18 +11376,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Millers Branch Solar I",
-    "technology": "Solar",
-    "capacity_mw": 200.0,
-    "county": "Haskell",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Miller's Branch Solar, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Stem Solar",
     "technology": "Solar",
     "capacity_mw": 200.0,
@@ -11083,7 +11431,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "FRESH AIR ENERGY II, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -11095,9 +11443,9 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2029,
     "developer": "RWE Solar Development, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "SunShiner ESS",
@@ -11109,18 +11457,6 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "SunShiner ESS LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Cumbia Energy Center",
-    "technology": "Other",
-    "capacity_mw": 200.0,
-    "county": "Nueces",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Cumbia Energy Center, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -11172,18 +11508,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Champion Road BESS",
-    "technology": "Other",
-    "capacity_mw": 200.0,
-    "county": "Angelina",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Rattlesnake Gap Wind SLF",
     "technology": "Wind",
     "capacity_mw": 200.0,
@@ -11193,7 +11517,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "ET Fuels US Inc.",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Monte Alto 2 Wind",
@@ -11242,6 +11566,18 @@
     "cod_year": 2029,
     "developer": "Percy Farm Solar 1, LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Oystercatcher Solar",
+    "technology": "Solar",
+    "capacity_mw": 198.43,
+    "county": "Ellis",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2026,
+    "developer": "Oystercatcher Solar, LLC",
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Cascabel Wind 2",
@@ -11361,7 +11697,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Wolf Spring Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Johnson Grass Solar",
@@ -11407,7 +11743,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Tres Bahias Solar Power LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -11455,9 +11791,9 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2029,
+    "cod_year": 2032,
     "developer": "Malachite Storage LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Pecos Wind",
@@ -11556,16 +11892,16 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Fagus Solar Park 3 SLF",
-    "technology": "Solar",
-    "capacity_mw": 186.36,
-    "county": "Childress",
+    "project_name": "Timmerman Power Plant Phase 2",
+    "technology": "Gas",
+    "capacity_mw": 188.4,
+    "county": "Caldwell",
     "city": "",
-    "hub": "North",
+    "hub": "South",
     "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Greenalia Solar Power Misae III, LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "cod_year": 2026,
+    "developer": "Lower Colorado River Authority",
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Serrano Storage",
@@ -11587,7 +11923,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Brown ESS, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -11601,7 +11937,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Montezuma Storage LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Los Vientos IB Repower",
@@ -11623,9 +11959,9 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2029,
+    "cod_year": 2032,
     "developer": "Malachite Solar LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Maldives Solar",
@@ -11748,6 +12084,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Nanulak BESS",
+    "technology": "Other",
+    "capacity_mw": 181.54,
+    "county": "Reeves",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Nanulak BESS, L.L.C.",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Azalea Springs Solar",
     "technology": "Solar",
     "capacity_mw": 181.0,
@@ -11760,16 +12108,16 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Oriana Solar",
+    "project_name": "Oak Belt Solar",
     "technology": "Solar",
     "capacity_mw": 181.0,
     "county": "Victoria",
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Oriana Solar LLC",
-    "notes": "SS Completed, FIS Completed, IA"
+    "cod_year": 2029,
+    "developer": "Oak Belt Solar, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Turkey Creek Solar SLF",
@@ -11779,8 +12127,20 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Greenray Solar Corporation",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Frizzle BESS",
+    "technology": "Other",
+    "capacity_mw": 180.9,
+    "county": "Ward",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Frizzle BESS, L.L.C.",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -11793,7 +12153,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "BDPU SOLAR NIGHTFALL, LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Hofbrau BESS",
@@ -11892,18 +12252,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Nanulak BESS",
-    "technology": "Other",
-    "capacity_mw": 180.0,
-    "county": "Reeves",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Nanulak BESS, L.L.C.",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Whitetail BESS",
     "technology": "Other",
     "capacity_mw": 180.0,
@@ -11928,15 +12276,15 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Frizzle BESS",
-    "technology": "Other",
+    "project_name": "Infrakey Waco Data Park Gas 1",
+    "technology": "Gas",
     "capacity_mw": 180.0,
-    "county": "Ward",
+    "county": "Mclennan",
     "city": "",
-    "hub": "West",
+    "hub": "North",
     "status": "Queue",
     "cod_year": 2027,
-    "developer": "Frizzle BESS, L.L.C.",
+    "developer": "Infrakey Capital LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -11985,6 +12333,18 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Saddle Horn Station BESS LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Galaxy Solar",
+    "technology": "Solar",
+    "capacity_mw": 177.32,
+    "county": "Ellis",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Galaxy Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -12056,8 +12416,8 @@
     "hub": "West",
     "status": "Queue",
     "cod_year": 2027,
-    "developer": "Nextera",
-    "notes": "SS Completed, FIS Started, No IA"
+    "developer": "King Mountain Solar, LLC",
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Hackberry Creek Solar",
@@ -12069,7 +12429,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Hackberry Creek Solar LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Sol Marina Energy Center",
@@ -12106,18 +12466,6 @@
     "cod_year": 2028,
     "developer": "Saddle Horn Station LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Coastal Bayou Storage",
-    "technology": "Other",
-    "capacity_mw": 174.59,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "TOCE TX BESS 5, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Cold Creek Storage 2",
@@ -12190,18 +12538,6 @@
     "cod_year": 2027,
     "developer": "Concho Pearl Solar, LLC",
     "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Cascade Solar",
-    "technology": "Solar",
-    "capacity_mw": 171.0,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Cascade Solar Energy, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Yellow Viking Solar",
@@ -12288,26 +12624,26 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Flag City Storage SLF",
-    "technology": "Other",
-    "capacity_mw": 169.06,
-    "county": "Jackson",
+    "project_name": "Fagus Solar Park 3 SLF",
+    "technology": "Solar",
+    "capacity_mw": 169.59,
+    "county": "Childress",
     "city": "",
-    "hub": "South",
+    "hub": "North",
     "status": "Queue",
     "cod_year": 2027,
-    "developer": "Flag City Solar Project, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "developer": "Greenalia Solar Power Misae III, LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Buffalo Gap 3 Wind Repower",
     "technology": "Wind",
-    "capacity_mw": 168.55,
+    "capacity_mw": 168.45,
     "county": "Taylor",
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Buffalo Gap Wind Farm 3, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -12408,30 +12744,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Flag City Solar",
-    "technology": "Solar",
-    "capacity_mw": 165.87,
-    "county": "Jackson",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Flag City Solar Project, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Lupinus Solar 1",
-    "technology": "Solar",
-    "capacity_mw": 164.86,
-    "county": "Franklin",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Lupinus Solar, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Houston IV BESS",
     "technology": "Other",
     "capacity_mw": 164.6,
@@ -12516,6 +12828,18 @@
     "notes": "SS Completed, FIS Started, IA"
   },
   {
+    "project_name": "Lupinus Solar 1",
+    "technology": "Solar",
+    "capacity_mw": 162.31,
+    "county": "Franklin",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Lupinus Solar, LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
     "project_name": "Harald (BearKat Wind B)",
     "technology": "Wind",
     "capacity_mw": 162.1,
@@ -12523,7 +12847,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "McCrae Wind Energy II, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -12548,7 +12872,7 @@
     "hub": "North",
     "status": "Queue",
     "cod_year": 2029,
-    "developer": "Lampasas Hybrid Energy",
+    "developer": "Lampasas Hybrid Energy LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -12562,18 +12886,6 @@
     "cod_year": 2028,
     "developer": "Albatross Solar, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
-    "project_name": "Middlebrook BESS",
-    "technology": "Other",
-    "capacity_mw": 158.63,
-    "county": "Nacogdoches",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Middlebrook Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "High Plains Storage",
@@ -12607,9 +12919,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Gransolar Texas Three LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Otter BESS",
@@ -12622,18 +12934,6 @@
     "cod_year": 2027,
     "developer": "GRS BESS TEXAS TEN, LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Jaguar BESS_1",
-    "technology": "Other",
-    "capacity_mw": 157.1,
-    "county": "Mclennan",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "PP Jaguar BESS LLC",
-    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Cartwheel BESS 2",
@@ -12670,30 +12970,6 @@
     "cod_year": 2029,
     "developer": "Coyote Den Energy Center, LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Austin Bayou Storage II",
-    "technology": "Other",
-    "capacity_mw": 156.6,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Austin Bayou Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Austin Bayou Storage III",
-    "technology": "Other",
-    "capacity_mw": 156.6,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Austin Bayou Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Firefly Fields Storage",
@@ -12780,6 +13056,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "SOSA Storage",
+    "technology": "Other",
+    "capacity_mw": 155.3,
+    "county": "Madison",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Sosa Energy Center, LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
     "project_name": "Salt-Lick Storage",
     "technology": "Other",
     "capacity_mw": 155.3,
@@ -12840,6 +13128,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Dorsey Road BESS",
+    "technology": "Other",
+    "capacity_mw": 155.0,
+    "county": "Bexar",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Gunnar BESS",
     "technology": "Other",
     "capacity_mw": 154.75,
@@ -12850,6 +13150,18 @@
     "cod_year": 2026,
     "developer": "Gunnar Reliability Project LLC",
     "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "Two Brothers ESS",
+    "technology": "Other",
+    "capacity_mw": 154.65,
+    "county": "Victoria",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "BRP Blue Topaz 2, LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "SunWave Solar",
@@ -12886,6 +13198,18 @@
     "cod_year": 2028,
     "developer": "BESS BASTION LLC",
     "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Valcrest BESS",
+    "technology": "Other",
+    "capacity_mw": 154.25,
+    "county": "Galveston",
+    "city": "",
+    "hub": "Houston",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Flexen USA LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Cartwheel BESS 1",
@@ -12957,6 +13281,18 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Greasewood BESS, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Berryman Road Storage",
+    "technology": "Other",
+    "capacity_mw": 154.09,
+    "county": "Archer",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "Horizon Energy Storage Greenfield Project Holdings LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -13101,7 +13437,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Flexen USA LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "GRIMES SOLAR",
@@ -13137,7 +13473,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Boxcar Energy Storage, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Dionysus Solar",
@@ -13183,9 +13519,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2029,
     "developer": "Senator Aggreko Storage LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Silver Dollar Storage",
@@ -13210,18 +13546,6 @@
     "cod_year": 2026,
     "developer": "Weser Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Cottonwood Bayou Storage",
-    "technology": "Other",
-    "capacity_mw": 153.03,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Cottonwood Bayou Storage, LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Damia Storage",
@@ -13296,18 +13620,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "High Chap Solar",
-    "technology": "Solar",
-    "capacity_mw": 152.25,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "HIGH CHAPARRAL SOLAR PROJECT LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Jaguarundi Energy Storage",
     "technology": "Other",
     "capacity_mw": 152.02,
@@ -13332,18 +13644,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Two Brothers ESS",
-    "technology": "Other",
-    "capacity_mw": 152.0,
-    "county": "Victoria",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "BRP Blue Topaz 2, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Rock N' Roll Solar SLF",
     "technology": "Solar",
     "capacity_mw": 151.97,
@@ -13354,18 +13654,6 @@
     "cod_year": 2027,
     "developer": "Rock N\u2019 Roll Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Pink Solar",
-    "technology": "Solar",
-    "capacity_mw": 151.9,
-    "county": "Hunt",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Pink Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Eliza Solar",
@@ -13387,7 +13675,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Kuy Creek Storage 1 LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -13437,7 +13725,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "BNB Tennyson Solar LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "GOTHAM BESS",
@@ -13507,7 +13795,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Brush Storage, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -13519,7 +13807,7 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Wizard Energy Storage, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -13560,6 +13848,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Pecan Ridge",
+    "technology": "Other",
+    "capacity_mw": 150.79,
+    "county": "Mcculloch",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Luminous Energy Renewables LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Amerada Storage",
     "technology": "Other",
     "capacity_mw": 150.78,
@@ -13579,7 +13879,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "BT DJ4M Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -13620,18 +13920,6 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Austin Bayou Storage I",
-    "technology": "Other",
-    "capacity_mw": 150.68,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Austin Bayou Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Claxton Solar",
     "technology": "Solar",
     "capacity_mw": 150.64,
@@ -13666,18 +13954,6 @@
     "cod_year": 2025,
     "developer": "Cattlemen Solar Park II LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Bottom Grass BESS II",
-    "technology": "Other",
-    "capacity_mw": 150.6,
-    "county": "Colorado",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Flint Rock Solar Project, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Skipjack Energy Storage",
@@ -13725,7 +14001,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Driet BESS LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Cape Rich BESS",
@@ -13795,7 +14071,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Mesquite Creek LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -13807,7 +14083,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Navitas Energy LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -13869,7 +14145,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Rolling Plains Solar",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Solgen Storage",
@@ -13880,7 +14156,7 @@
     "hub": "North",
     "status": "Queue",
     "cod_year": 2029,
-    "developer": "Lampasas Hybrid Energy",
+    "developer": "Lampasas Hybrid Energy LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -14073,7 +14349,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "Marshall Springs Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Marshall Spring Storage",
@@ -14085,7 +14361,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "Marshall Springs Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Ranchero BESS",
@@ -14133,7 +14409,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Choate Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Star Grass Renewable Energy Solar SLF",
@@ -14208,18 +14484,6 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Galaxy Solar",
-    "technology": "Solar",
-    "capacity_mw": 147.77,
-    "county": "Ellis",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Galaxy Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Rain Lily Solar 1",
     "technology": "Solar",
     "capacity_mw": 147.76,
@@ -14289,7 +14553,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Greenalia Solar Power Wensowitch LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Chisme Storage",
@@ -14311,7 +14575,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2030,
+    "cod_year": 2029,
     "developer": "Moon Stone Solar Farm, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -14395,7 +14659,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Rio Star Energy Storage, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -14457,7 +14721,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Banita Creek Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Cherry Sage Solar 1 SLF",
@@ -14539,7 +14803,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "J&J Solar Ranch LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -14700,6 +14964,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Maratua Solar",
+    "technology": "Solar",
+    "capacity_mw": 130.84,
+    "county": "Grimes",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "BDPU Solar Maratua, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Starlight Solar",
     "technology": "Solar",
     "capacity_mw": 130.72,
@@ -14707,9 +14983,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2030,
     "developer": "Mills Tx Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Pecan Prairie South",
@@ -14731,7 +15007,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Anagram Solar",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -14889,7 +15165,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "H4 Solar Project LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Solar Star North Herty Storage",
@@ -14949,7 +15225,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "GCI Wolf Energy Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Becerra Creek Storage 1",
@@ -15055,7 +15331,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Double Mountain Fork LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -15139,7 +15415,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "BT Smith Storage, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -15156,7 +15432,7 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Project Lynx BESS",
+    "project_name": "Lynx Energy Storage",
     "technology": "Other",
     "capacity_mw": 125.3,
     "county": "Nueces",
@@ -15175,7 +15451,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Forest Creek Wind Farm, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -15235,7 +15511,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "EMPOWER USA, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -15360,6 +15636,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Project Alpha Solar",
+    "technology": "Solar",
+    "capacity_mw": 121.95,
+    "county": "Hopkins",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "SGE Alpha Energy LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Grandslam Solar",
     "technology": "Solar",
     "capacity_mw": 121.89,
@@ -15432,6 +15720,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Pepper Solar Farm",
+    "technology": "Solar",
+    "capacity_mw": 120.9,
+    "county": "Mclennan",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Pepper Solar Farm LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
     "project_name": "Dove Run Solar",
     "technology": "Solar",
     "capacity_mw": 120.86,
@@ -15456,18 +15756,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Pepper Solar Farm",
-    "technology": "Solar",
-    "capacity_mw": 120.72,
-    "county": "Mclennan",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Pepper Solar Farm LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Long Point Solar",
     "technology": "Solar",
     "capacity_mw": 120.7,
@@ -15490,18 +15778,6 @@
     "cod_year": 2028,
     "developer": "Vaquero II Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Black Springs BESS",
-    "technology": "Other",
-    "capacity_mw": 120.68,
-    "county": "Palo Pinto",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Black Springs BESS LLC",
-    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Sun Cactus Solar",
@@ -15537,7 +15813,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "CH Neal Battery LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Borden Dino Solar",
@@ -15552,18 +15828,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Buffalo Gap 1 Wind Repower",
-    "technology": "Wind",
-    "capacity_mw": 120.31,
-    "county": "Nolan",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Buffalo Gap Wind Farm, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Fairway Storage",
     "technology": "Other",
     "capacity_mw": 120.3,
@@ -15573,6 +15837,18 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Fairway Storage LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Buffalo Gap 1 Wind Repower",
+    "technology": "Wind",
+    "capacity_mw": 120.23,
+    "county": "Nolan",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Buffalo Gap Wind Farm, LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
   {
@@ -15633,7 +15909,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Rosharon BESS LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Buckaroo BESS",
@@ -15705,7 +15981,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Butcherbird Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Pioneer Hutt Solar (Alternative POI)",
@@ -15777,7 +16053,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Gransolar Texas Five LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Neptune Gas Generation Plant",
@@ -15801,7 +16077,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "LCRA",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "SCHNEIDER GAS RICE",
@@ -15813,7 +16089,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "LCRA",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "LOST PINES GAS RECIP PHASE 2",
@@ -15825,7 +16101,7 @@
     "status": "Queue",
     "cod_year": 2031,
     "developer": "LCRA",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "SCHNEIDER GAS RICE PHASE 2",
@@ -15837,7 +16113,7 @@
     "status": "Queue",
     "cod_year": 2031,
     "developer": "LCRA",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Alpujarra Solar",
@@ -15850,18 +16126,6 @@
     "cod_year": 2028,
     "developer": "Greening USA Corp.",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Atria Solar",
-    "technology": "Solar",
-    "capacity_mw": 112.4,
-    "county": "Chambers",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Atria Energy Project, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Coyote Ridge BESS",
@@ -15991,7 +16255,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "PPM THR Solar",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -16065,7 +16329,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "CENTURY GAS PROCESSING, LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "McClure Solar",
@@ -16135,8 +16399,20 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "CSE Storage, LLC",
+    "notes": "SS Completed, FIS Completed, No IA"
+  },
+  {
+    "project_name": "Flying Kite Bess",
+    "technology": "Other",
+    "capacity_mw": 104.93,
+    "county": "Zavala",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Flying Kite BESS, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -16164,18 +16440,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Flying Kite Bess",
-    "technology": "Other",
-    "capacity_mw": 104.8,
-    "county": "Zavala",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Flying Kite BESS, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Starlight Storage",
     "technology": "Other",
     "capacity_mw": 104.66,
@@ -16183,8 +16447,20 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2030,
     "developer": "Mills Tx Solar LLC",
+    "notes": "SS Completed, FIS Started, IA"
+  },
+  {
+    "project_name": "Kalina Storage",
+    "technology": "Other",
+    "capacity_mw": 104.56,
+    "county": "San Patricio",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Aurora Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -16221,7 +16497,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Elawan Neutron Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Carolina Storage Young County",
@@ -16233,18 +16509,6 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "CSE Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Yellow Leaf Solar",
-    "technology": "Solar",
-    "capacity_mw": 104.5,
-    "county": "Kaufman",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Lightsource Renewable Energy Development LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -16332,18 +16596,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Yellow Leaf BESS",
-    "technology": "Other",
-    "capacity_mw": 103.8,
-    "county": "Kaufman",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Lightsource Renewable Energy Development LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Aggie Solar Project SLF",
     "technology": "Solar",
     "capacity_mw": 103.7,
@@ -16351,7 +16603,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "reNRG TX 8 LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -16364,7 +16616,7 @@
     "hub": "South",
     "status": "Queue",
     "cod_year": 2027,
-    "developer": "EIA Properties, Ltd.",
+    "developer": "Anawa La Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -16476,6 +16728,30 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Yellow Leaf Solar",
+    "technology": "Solar",
+    "capacity_mw": 103.19,
+    "county": "Kaufman",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Lightsource Renewable Energy Development LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Yellow Leaf BESS",
+    "technology": "Other",
+    "capacity_mw": 103.1,
+    "county": "Kaufman",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Lightsource Renewable Energy Development LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Hyacinth Storage",
     "technology": "Other",
     "capacity_mw": 103.05,
@@ -16557,7 +16833,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Massey Storage, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Third Coast BESS",
@@ -16627,7 +16903,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Bexar ESS LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -16675,7 +16951,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "TX BESS 3 LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -16987,7 +17263,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Stoneridge Solar, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -17011,7 +17287,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Pisgah Ridge Solar 2, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -17131,7 +17407,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Pisgah Ridge 3, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -17191,9 +17467,9 @@
     "city": "",
     "hub": "Houston",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "PowerPulse LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Blue Sky Sol",
@@ -17436,18 +17712,6 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Lucky Bluff BESS SLF",
-    "technology": "Other",
-    "capacity_mw": 100.8,
-    "county": "Erath",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Lucky Bluff BESS LLC",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Lupinus Solar 3",
     "technology": "Solar",
     "capacity_mw": 100.8,
@@ -17517,7 +17781,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Coyote Ridge Storage, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Hondo Arroyo Storage",
@@ -17784,6 +18048,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Main Horn Solar",
+    "technology": "Solar",
+    "capacity_mw": 100.43,
+    "county": "Navarro",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Main Horn Solar LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Hermes Storage",
     "technology": "Other",
     "capacity_mw": 100.42,
@@ -17976,30 +18252,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Bordertown BESS",
-    "technology": "Other",
-    "capacity_mw": 100.0,
-    "county": "Starr",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Bordertown BESS LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Backwater Storage",
-    "technology": "Other",
-    "capacity_mw": 100.0,
-    "county": "Cooke",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Backwater Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "Ardesia Storage",
     "technology": "Other",
     "capacity_mw": 100.0,
@@ -18034,18 +18286,6 @@
     "cod_year": 2027,
     "developer": "PureSky Development Inc.",
     "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
-    "project_name": "Palmvalley Storage",
-    "technology": "Other",
-    "capacity_mw": 100.0,
-    "county": "Hidalgo",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Palmvalley Energy Storage LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "IEP Blackhawk",
@@ -18096,6 +18336,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Elysium Energy Center BESS",
+    "technology": "Other",
+    "capacity_mw": 100.0,
+    "county": "Fort Bend",
+    "city": "",
+    "hub": "Houston",
+    "status": "Queue",
+    "cod_year": 2030,
+    "developer": "Adapture Solar Development",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Radiant Plains Energy Center BESS",
     "technology": "Other",
     "capacity_mw": 100.0,
@@ -18129,6 +18381,18 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Adam Bryant BESS LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Galaxy I Solar",
+    "technology": "Solar",
+    "capacity_mw": 99.42,
+    "county": "Ellis",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Galaxy Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -18168,6 +18432,18 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
+    "project_name": "Penelope Solar",
+    "technology": "Solar",
+    "capacity_mw": 97.5,
+    "county": "Hill",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Ash Creek Project LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Rocinante Solar",
     "technology": "Solar",
     "capacity_mw": 95.29,
@@ -18190,30 +18466,6 @@
     "cod_year": 2028,
     "developer": "VISOL 1 SOLAR, LLC",
     "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "Timmerman Power Plant Phase 2",
-    "technology": "Gas",
-    "capacity_mw": 94.2,
-    "county": "Caldwell",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Lower Colorado River Authority",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Timmerman Power Plant Phase 2B",
-    "technology": "Gas",
-    "capacity_mw": 94.2,
-    "county": "Caldwell",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Lower Colorado River Authority",
-    "notes": "SS Started, FIS Started, IA"
   },
   {
     "project_name": "High Noon Storage",
@@ -18260,7 +18512,7 @@
     "hub": "South",
     "status": "Queue",
     "cod_year": 2027,
-    "developer": "EIA Properties, Ltd.",
+    "developer": "Anawa La Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -18273,7 +18525,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "ET Fuels US Inc.",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Basketflower Storage",
@@ -18405,6 +18657,18 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Gransolar Texas Twenty Two",
+    "notes": "SS Completed, FIS Completed, No IA"
+  },
+  {
+    "project_name": "Lupinus Storage 1",
+    "technology": "Other",
+    "capacity_mw": 84.01,
+    "county": "Franklin",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Lupinus Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -18432,30 +18696,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Lupinus Storage 1",
-    "technology": "Other",
-    "capacity_mw": 82.97,
-    "county": "Franklin",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Lupinus Solar, LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
-    "project_name": "Galaxy I Solar",
-    "technology": "Solar",
-    "capacity_mw": 82.85,
-    "county": "Ellis",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Galaxy Solar, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
     "project_name": "RedSun Solar",
     "technology": "Solar",
     "capacity_mw": 82.55,
@@ -18465,7 +18705,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Gransolar Texas Twenty Two",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Harper Energy Storage",
@@ -18523,7 +18763,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "BT Martin Solar, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -18598,18 +18838,6 @@
     "cod_year": 2026,
     "developer": "RWE Solar Development, LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Backwater Solar",
-    "technology": "Solar",
-    "capacity_mw": 80.0,
-    "county": "Cooke",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Backwater Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Gaia Storage",
@@ -18720,6 +18948,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Lytton Springs BESS",
+    "technology": "Other",
+    "capacity_mw": 76.4,
+    "county": "Caldwell",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "SMT Lytton Springs LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "SERENGETI SOLAR",
     "technology": "Solar",
     "capacity_mw": 76.18,
@@ -18768,6 +19008,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Lytton Springs Solar",
+    "technology": "Solar",
+    "capacity_mw": 75.3,
+    "county": "Caldwell",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2029,
+    "developer": "SMT Lytton Springs LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "PHOTO BESS 1",
     "technology": "Other",
     "capacity_mw": 75.0,
@@ -18811,7 +19063,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2028,
+    "cod_year": 2029,
     "developer": "Vernon Solar and Storage LLC (a Delaware LLC)",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -18840,6 +19092,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Mutz Solar",
+    "technology": "Solar",
+    "capacity_mw": 72.82,
+    "county": "Atascosa",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "AETS Development Holdings LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "Sullivan BESS",
     "technology": "Other",
     "capacity_mw": 72.19,
@@ -18849,18 +19113,6 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Sullivan Solar LLC",
-    "notes": "SS Completed, FIS Started, No IA"
-  },
-  {
-    "project_name": "High Chap Storage",
-    "technology": "Other",
-    "capacity_mw": 71.78,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "HIGH CHAPARRAL SOLAR PROJECT LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -18885,7 +19137,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "7L Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Pato Blanco Storage",
@@ -18919,9 +19171,9 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Hill PV, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Kildare",
@@ -18979,7 +19231,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Smith Lake Solar",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -19044,18 +19296,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Langer Storage",
-    "technology": "Other",
-    "capacity_mw": 61.53,
-    "county": "Bosque",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Langer Solar, LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
     "project_name": "Beaverhead Solar SLF",
     "technology": "Solar",
     "capacity_mw": 61.5,
@@ -19063,7 +19303,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Beaverhead Solar, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -19102,18 +19342,6 @@
     "cod_year": 2027,
     "developer": "Talitha Energy Project, LLC",
     "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Centennial Solar",
-    "technology": "Solar",
-    "capacity_mw": 61.36,
-    "county": "Menard",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2029,
-    "developer": "Centennial AD 8 LLC",
-    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Nymphaea Storage",
@@ -19224,18 +19452,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "XE Murat [Adlong] Storage",
-    "technology": "Other",
-    "capacity_mw": 60.14,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Liberty 1 Solar LLC",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Indigo Storage",
     "technology": "Other",
     "capacity_mw": 60.0,
@@ -19243,7 +19459,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Innovative Solar 245, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -19255,7 +19471,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Innovative Solar 245, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -19267,7 +19483,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Innovative Solar 245, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -19279,8 +19495,20 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Innovative Solar 245, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Falls County Storage",
+    "technology": "Other",
+    "capacity_mw": 60.0,
+    "county": "Falls",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2028,
+    "developer": "Aurora Solar LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -19329,7 +19557,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "CENTURY GAS PROCESSING, LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "LUBIO SOLAR",
@@ -19339,7 +19567,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "BDPU Solar Lubio LLC",
     "notes": "SS Completed, FIS Started, IA"
   },
@@ -19461,7 +19689,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Gransolar Texas Sixteen, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Ryan Energy Storage",
@@ -19605,7 +19833,7 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "Industrial Bravo Project LLC",
-    "notes": "SS Completed, FIS Started, IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Volunteer Storage",
@@ -19639,7 +19867,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "BT Martin Solar, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -19896,18 +20124,6 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Jack Barton BESS",
-    "technology": "Other",
-    "capacity_mw": 47.34,
-    "county": "Jack",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Jack Barton BESS",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
     "project_name": "Apogee Wind II",
     "technology": "Wind",
     "capacity_mw": 47.25,
@@ -20119,7 +20335,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
+    "cod_year": 2028,
     "developer": "Innovative Solar 75",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -20136,19 +20352,7 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "TRAVIS KIMBRO BESS",
-    "technology": "Other",
-    "capacity_mw": 36.84,
-    "county": "Travis",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2028,
-    "developer": "Travis Kimbro BESS LLC",
-    "notes": "SS Completed, FIS Started, IA"
-  },
-  {
-    "project_name": "Delaware Ranch Solar",
+    "project_name": "Wallace Solar",
     "technology": "Solar",
     "capacity_mw": 36.0,
     "county": "Culberson",
@@ -20192,7 +20396,7 @@
     "hub": "North",
     "status": "Queue",
     "cod_year": 2026,
-    "developer": "Eagle Springs Solar, LLC",
+    "developer": "Eagle Springs BESS LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
@@ -20472,6 +20676,30 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Hays Energy Unit 1 Repower",
+    "technology": "Gas",
+    "capacity_mw": 18.0,
+    "county": "Hays",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2026,
+    "developer": "HAYS ENERGY, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Hays Energy Unit 4 Repower",
+    "technology": "Gas",
+    "capacity_mw": 18.0,
+    "county": "Hays",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2026,
+    "developer": "HAYS ENERGY, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
     "project_name": "Buzzi Maryneal Wind Project",
     "technology": "Wind",
     "capacity_mw": 18.0,
@@ -20484,7 +20712,7 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Greater Bryant G Solar",
+    "project_name": "Holzer Solar",
     "technology": "Solar",
     "capacity_mw": 17.7,
     "county": "Midland",
@@ -20493,6 +20721,18 @@
     "status": "Queue",
     "cod_year": 2026,
     "developer": "Greater Bryant G Solar, LLC",
+    "notes": "SS Completed, FIS Completed, IA"
+  },
+  {
+    "project_name": "TEXAS GULF SULPHUR REPOWER",
+    "technology": "Gas",
+    "capacity_mw": 16.1,
+    "county": "Wharton",
+    "city": "",
+    "hub": "South",
+    "status": "Queue",
+    "cod_year": 2025,
+    "developer": "Wharton County Generation, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
@@ -20556,340 +20796,16 @@
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
-    "project_name": "IEP Orchard BESS",
+    "project_name": "Cernan BESS",
     "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Fort Bend",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "IEP Tejas Verde LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Damon BESS 2",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "PR DAMON, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Carrizo Springs BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Dimmit",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Regis Carrizo Springs LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Escondido BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Maverick",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Regis Escondido LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Goodwin BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Hidalgo",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Regis Goodwin LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Lantana BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Nueces",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Aggreko MSR Grid PC2",
-    "notes": ""
-  },
-  {
-    "project_name": "East Harrison BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Cameron",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Aggreko MSR Grid PC5",
-    "notes": ""
-  },
-  {
-    "project_name": "Olmito BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Cameron",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Aggreko MSR Grid PC7",
-    "notes": ""
-  },
-  {
-    "project_name": "Beck_Road BESS1",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Bexar",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Bexar Corrilla LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Alamo Street BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Pecos",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Alamo Clean Energy Center, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Downtown BESS",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Pecos",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Fort Stockton Clean Energy Center, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Elm Street BESS2",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Reeves",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "North Pecos Clean Energy Center, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Mesquite BESS2",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Cameron",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Mesquite Clean Energy Center, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "North Edinburg BESS 1",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Hidalgo",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Edinburg ESS Assets LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Harlingen #1 BESS 1",
-    "technology": "Other",
-    "capacity_mw": 9.99,
-    "county": "Cameron",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Harlingen ESS Assets LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Staghorn Gas",
-    "technology": "Gas",
-    "capacity_mw": 9.99,
-    "county": "Ward",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "RPC Merchant LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Wharton BESS",
-    "technology": "Other",
-    "capacity_mw": 9.96,
+    "capacity_mw": 10.04,
     "county": "Wharton",
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
-    "developer": "I-eye Storage LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "DAMON BESS3",
-    "technology": "Other",
-    "capacity_mw": 9.96,
-    "county": "Brazoria",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "BarBar Storage LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Little York BESS",
-    "technology": "Other",
-    "capacity_mw": 9.96,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "ESTX-PLD-HOUSTON5, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "COYOTE SPRINGS AGR1",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Reeves",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "HEN INFRASTRUCTURE, LLC 1",
-    "notes": ""
-  },
-  {
-    "project_name": "SADDLEBACK AGR1",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Reeves",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "HEN INFRASTRUCTURE, LLC 1",
-    "notes": ""
-  },
-  {
-    "project_name": "OLNEY AGR1",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Young",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "HEN INFRASTRUCTURE, LLC 1",
-    "notes": ""
-  },
-  {
-    "project_name": "Empire Central BESS",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Dallas",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "SMT Dallas III LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Poteet BESS",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Atascosa",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "HEN INFRASTRUCTURE, LLC 1",
-    "notes": ""
-  },
-  {
-    "project_name": "Gears BESS2",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "ESTX-PLD-HOUSTON7, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "BERRY BESS1",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "ESTX-PLD-HOUSTON8, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Knapp BESS",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Scurry",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Knapp ESS Assets, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Meadow Park BESS",
-    "technology": "Other",
-    "capacity_mw": 9.95,
-    "county": "Tarrant",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Meadow Park ESS Assets, LLC",
-    "notes": ""
+    "cod_year": 2027,
+    "developer": "Scarlet BESS LLC",
+    "notes": "SS Completed, FIS Completed, No IA"
   },
   {
     "project_name": "Cedro Hill Wind Repower",
@@ -20904,294 +20820,6 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Laureles BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Cameron",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Regis Laureles LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Torrecillas BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Webb",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Torrecillas Interconnect, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Milton BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Karnes",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Regis Milton LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Hidden Lakes BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Galveston",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "SBESS TX 6 LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Hidden Valley BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Regis Hidden Valley, LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Gears BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Harris",
-    "city": "",
-    "hub": "Houston",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Regis Gears-Harris LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Palmview BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Hidalgo",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "SBESS TX14 LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Cotulla BESS 1",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "La Salle",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "SBESS TX19 LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "SE Edinburg BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Hidalgo",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "SBESS TX16 LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Lyssy BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Wilson",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Regis Lyssy LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Buda BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Hays",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Buda Infra LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Elm Street BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Reeves",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Elm St Infra LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "BESS Stadium",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Jim Wells",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Grenergy USA",
-    "notes": ""
-  },
-  {
-    "project_name": "MESQUITE BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Cameron",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Grenergy USA",
-    "notes": ""
-  },
-  {
-    "project_name": "Abilene Elmcreek BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Taylor",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "DGSP2 LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Abilene Industrial Park BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Taylor",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Distributed Generation Solutions LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Cedarvale Gas",
-    "technology": "Gas",
-    "capacity_mw": 9.9,
-    "county": "Ward",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "RPC Merchant LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Pyote Gas",
-    "technology": "Gas",
-    "capacity_mw": 9.9,
-    "county": "Ward",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "RPC Merchant LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Hollywood Solar Repower",
-    "technology": "Solar",
-    "capacity_mw": 9.9,
-    "county": "Wharton",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "RED TAILED HAWK SOLAR LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "County Road BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Reeves",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "County Rd Infra LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Highway 6 BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Brazos",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Hwy 6 Infra LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Apple BESS",
-    "technology": "Other",
-    "capacity_mw": 9.9,
-    "county": "Ector",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Apple Infra LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Medina Lake BESS",
-    "technology": "Other",
-    "capacity_mw": 9.8,
-    "county": "Bandera",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "Regis Medina Lake LLC",
-    "notes": ""
-  },
-  {
-    "project_name": "Utopia BESS",
-    "technology": "Other",
-    "capacity_mw": 9.8,
-    "county": "Bandera",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Regis Utopia, LLC",
-    "notes": ""
-  },
-  {
     "project_name": "Indian Mesa repower",
     "technology": "Wind",
     "capacity_mw": 9.3,
@@ -21200,18 +20828,6 @@
     "hub": "West",
     "status": "Queue",
     "cod_year": 2026,
-    "developer": "Nextera",
-    "notes": "SS Completed, FIS Completed, IA"
-  },
-  {
-    "project_name": "Capricorn IV repower",
-    "technology": "Wind",
-    "capacity_mw": 9.0,
-    "county": "Sterling",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2025,
     "developer": "Nextera",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -21226,18 +20842,6 @@
     "cod_year": 2026,
     "developer": "Panther Creek Wind Farm I&II, LLC",
     "notes": "SS Completed, FIS Completed, No IA"
-  },
-  {
-    "project_name": "HOVEY (Barilla Solar 1B)",
-    "technology": "Solar",
-    "capacity_mw": 7.4,
-    "county": "Pecos",
-    "city": "",
-    "hub": "West",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "First Solar",
-    "notes": ""
   },
   {
     "project_name": "Sweetwater 2 repower",
@@ -21276,40 +20880,16 @@
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
-    "project_name": "Rio Nogales CT1 Rotor Replacement",
-    "technology": "Gas",
-    "capacity_mw": 3.1,
-    "county": "Guadalupe",
+    "project_name": "Roadrunner Crossing Wind (Uprate)",
+    "technology": "Wind",
+    "capacity_mw": 3.3,
+    "county": "Eastland",
     "city": "",
-    "hub": "South",
+    "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
-    "developer": "CPS Energy",
-    "notes": ""
-  },
-  {
-    "project_name": "CPS Rio Nogales CT301 Rotor Replacement",
-    "technology": "Gas",
-    "capacity_mw": 3.1,
-    "county": "Guadalupe",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "CPS Energy",
-    "notes": ""
-  },
-  {
-    "project_name": "CPS Rio Nogales CT201 Rotor Replacement",
-    "technology": "Gas",
-    "capacity_mw": 3.1,
-    "county": "Guadalupe",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2025,
-    "developer": "CPS Energy",
-    "notes": ""
+    "cod_year": 2026,
+    "developer": "Roadrunner Wind, LLC",
+    "notes": "SS Started, FIS Started, No IA"
   },
   {
     "project_name": "Sweetwater 1 repower",
@@ -21428,7 +21008,7 @@
     "hub": "West",
     "status": "Queue",
     "cod_year": 2026,
-    "developer": "NRG",
+    "developer": "Elbow Creek Wind Project, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
   {
@@ -21456,16 +21036,16 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
-    "project_name": "Lunis Creek Storage SLF",
-    "technology": "Other",
+    "project_name": "Pink Solar SLF",
+    "technology": "Solar",
     "capacity_mw": 0.0,
-    "county": "Jackson",
+    "county": "Hunt",
     "city": "",
-    "hub": "South",
+    "hub": "North",
     "status": "Queue",
-    "cod_year": 2027,
-    "developer": "Lunis Creek Solar Project, LLC",
-    "notes": "SS Completed, FIS Started, No IA"
+    "cod_year": 2028,
+    "developer": "Pink Solar, LLC",
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "Wang Storage SLF",
@@ -21672,7 +21252,7 @@
     "notes": "SS Completed, FIS Completed, No IA"
   },
   {
-    "project_name": "Smokey Willie BESS SLF",
+    "project_name": "Lumen Farm BESS SLF",
     "technology": "Other",
     "capacity_mw": 0.0,
     "county": "Anderson",
@@ -21691,7 +21271,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "IP Radian BESS, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -21703,7 +21283,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2028,
     "developer": "UKA North America, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -21787,7 +21367,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2029,
     "developer": "Vernon Solar and Storage LLC (a Delaware LLC)",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -21873,7 +21453,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "Cub Storage LLC",
-    "notes": "SS Completed, FIS Completed, No IA"
+    "notes": "SS Completed, FIS Completed, IA"
   },
   {
     "project_name": "Turkey Creek Battery Energy Storage System SLF",
@@ -21883,7 +21463,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2027,
     "developer": "Greenray Solar Corporation",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -21967,7 +21547,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Double Mountain Fork LLC",
     "notes": "SS Completed, FIS Completed, No IA"
   },
@@ -21979,7 +21559,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2026,
+    "cod_year": 2028,
     "developer": "Mesquite Creek LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
@@ -22028,7 +21608,7 @@
     "hub": "South",
     "status": "Queue",
     "cod_year": 2029,
-    "developer": "Mandolin Solar Project, LLC",
+    "developer": "Mandolin Energy Center I, LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -22044,6 +21624,18 @@
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
+    "project_name": "Tierra Bonita BESS SLF",
+    "technology": "Other",
+    "capacity_mw": 0.0,
+    "county": "Pecos",
+    "city": "",
+    "hub": "West",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Greasewood II BESS LLC",
+    "notes": "SS Started, FIS Started, No IA"
+  },
+  {
     "project_name": "PHOTON SOLAR REPOWERING",
     "technology": "Solar",
     "capacity_mw": 0.0,
@@ -22053,19 +21645,7 @@
     "status": "Queue",
     "cod_year": 2027,
     "developer": "GulfStar Power, LLC",
-    "notes": "SS Started, FIS Started, No IA"
-  },
-  {
-    "project_name": "PHOTON BESS REPOWERING",
-    "technology": "Other",
-    "capacity_mw": 0.0,
-    "county": "Wharton",
-    "city": "",
-    "hub": "South",
-    "status": "Queue",
-    "cod_year": 2027,
-    "developer": "GulfStar Power, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, IA"
   },
   {
     "project_name": "SCOTT CROSSING STORAGE SLF",
@@ -22149,6 +21729,18 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "Kurtz Storage, LLC",
+    "notes": "SS Completed, FIS Started, No IA"
+  },
+  {
+    "project_name": "Infrakey Waco Data Park Gas 2",
+    "technology": "Gas",
+    "capacity_mw": 0.0,
+    "county": "Mclennan",
+    "city": "",
+    "hub": "North",
+    "status": "Queue",
+    "cod_year": 2027,
+    "developer": "Infrakey Capital LLC",
     "notes": "SS Completed, FIS Started, No IA"
   },
   {
@@ -22269,7 +21861,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Ville Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Solarville BESS SLF",
@@ -22281,7 +21873,7 @@
     "status": "Queue",
     "cod_year": 2028,
     "developer": "Ville Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Buzios BESS SLF",
@@ -22305,7 +21897,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "7L Solar, LLC",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Rattlesnake Gap Storage SLF",
@@ -22317,7 +21909,7 @@
     "status": "Queue",
     "cod_year": 2029,
     "developer": "ET Fuels US Inc.",
-    "notes": "SS Started, FIS Started, No IA"
+    "notes": "SS Completed, FIS Started, No IA"
   },
   {
     "project_name": "Mandolin Load",
@@ -22332,18 +21924,6 @@
     "notes": "SS Started, FIS Started, No IA"
   },
   {
-    "project_name": "Grizzly Ridge BESS SLF",
-    "technology": "Other",
-    "capacity_mw": 0.0,
-    "county": "Hamilton",
-    "city": "",
-    "hub": "North",
-    "status": "Queue",
-    "cod_year": 2026,
-    "developer": "Grizzly Ridge Solar LLC",
-    "notes": ""
-  },
-  {
     "project_name": "Silver Star repower",
     "technology": "Wind",
     "capacity_mw": -7.2,
@@ -22351,7 +21931,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Silver Star I Power Partners, LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -22363,7 +21943,7 @@
     "city": "",
     "hub": "West",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Sherbino II Wind Farm LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -22375,7 +21955,7 @@
     "city": "",
     "hub": "North",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2026,
     "developer": "Trinity Hills Wind Farm LLC",
     "notes": "SS Completed, FIS Completed, IA"
   },
@@ -22387,7 +21967,7 @@
     "city": "",
     "hub": "South",
     "status": "Queue",
-    "cod_year": 2025,
+    "cod_year": 2027,
     "developer": "GIGA TEXAS ENERGY LLC",
     "notes": "SS Completed, FIS Started, No IA"
   }

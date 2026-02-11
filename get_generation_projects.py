@@ -235,115 +235,57 @@ def load_queue_from_csv(file_path):
     return projects
 
 def get_existing_fleet():
-    # Aggregate entries to represent the wider ERCOT fleet (Matching User Targets)
-    # Target: Gas ~56GW, Wind ~41GW, Solar ~37GW, Coal ~13GW, Battery ~14GW, Nuclear ~5GW
-    fleet = [
-        # Nuclear (~5.1 GW)
-        GenerationProject("Comanche Peak Nuclear", "Nuclear", 2400, "Somervell", "Glen Rose", "Operational", 1990, "Vistra", "Base Load"),
-        GenerationProject("South Texas Project", "Nuclear", 2700, "Matagorda", "Bay City", "Operational", 1988, "NRG/CPS/Austin", "Base Load"),
+    # Use absolute path or relative to script dir
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    eia_file = os.path.join(script_dir, "webapp/public/generation_operational_eia.json")
+    
+    if os.path.exists(eia_file):
+        print(f"Loading existing fleet from {eia_file}...")
+        with open(eia_file, 'r') as f:
+            data = json.load(f)
         
-        # Major Gas Fleet (Replaces Aggregates with Real Plants)
-        GenerationProject("Midlothian Energy Center", "Gas", 1650, "Ellis", "Midlothian", "Operational", 2000, "Vistra", "Combined Cycle"),
-        GenerationProject("Handley Gen Station", "Gas", 1265, "Tarrant", "Fort Worth", "Operational", 2000, "Excelon", "Urban Plant"),
-        GenerationProject("Wolf Hollow I & II", "Gas", 1115, "Hood", "Granbury", "Operational", 2003, "Excelon", "Combined Cycle"),
-        GenerationProject("Hays Energy", "Gas", 1100, "Hays", "San Marcos", "Operational", 2000, "Vistra", "Combined Cycle"),
-        GenerationProject("Magic Valley Gen", "Gas", 1068, "Hidalgo", "Edinburg", "Operational", 2000, "Calpine", "Combined Cycle"),
-        GenerationProject("Freestone Energy", "Gas", 1000, "Freestone", "Fairfield", "Operational", 2002, "Calpine", "Combined Cycle"),
-        GenerationProject("Lamar Power", "Gas", 1000, "Lamar", "Paris", "Operational", 2000, "Vistra", "Combined Cycle"),
-        GenerationProject("Montgomery County Power", "Gas", 993, "Montgomery", "Willis", "Operational", 2021, "Entergy", "Modern CCGT"),
-        GenerationProject("Rio Nogales", "Gas", 800, "Guadalupe", "Seguin", "Operational", 2002, "Vistra", "Combined Cycle"),
-        GenerationProject("Johnson County Gen", "Gas", 800, "Johnson", "Cleburne", "Operational", 2000, "Constellation", "Combined Cycle"),
-        GenerationProject("Bosque Energy Ctr", "Gas", 800, "Bosque", "Laguna Park", "Operational", 2000, "Vistra", "Combined Cycle"),
-        GenerationProject("Wise County Power", "Gas", 750, "Wise", "Poolville", "Operational", 2000, "Vistra", "Combined Cycle"),
-        GenerationProject("Temple 1", "Gas", 750, "Bell", "Temple", "Operational", 2000, "Temple Gen", "Combined Cycle"),
-        GenerationProject("Temple 2", "Gas", 750, "Bell", "Temple", "Operational", 2000, "Temple Gen", "Combined Cycle"),
-        GenerationProject("Altura Cogen", "Gas", 600, "Harris", "Channelview", "Operational", 1985, "Calpine", "Cogen"),
-        GenerationProject("Bastrop Energy Ctr", "Gas", 550, "Bastrop", "Bastrop", "Operational", 2000, "WattBridge", "Peaker"),
-        GenerationProject("Frontera", "Gas", 500, "Hidalgo", "Mission", "Operational", 2000, "Invenergy", "Combined Cycle"),
-        GenerationProject("Los Fresnos", "Gas", 500, "Cameron", "Los Fresnos", "Operational", 2000, "Calpine", "Peaker"),
-        GenerationProject("Mountain Creek", "Gas", 800, "Dallas", "Dallas", "Operational", 2000, "Excelon", "Urban Peaker"),
-        GenerationProject("Lake Creek", "Gas", 500, "McLennan", "Riesel", "Operational", 2000, "Luminant", "Peaker"),
+        projects = []
+        for d in data:
+            projects.append(GenerationProject(
+                name=d.get('name'),
+                technology=d.get('technology'),
+                mw=d.get('mw'),
+                county=d.get('county'),
+                city="",
+                status="Operational",
+                cod_year=d.get('cod_year'),
+                developer=d.get('developer'),
+                notes=d.get('notes')
+            ))
+        return projects
         
-        # Aggregate Gas Remainder (Peakers/Small Units to reach ~56GW)
-        GenerationProject("Aggregate Gas Peakers (Distributed)", "Gas", 20000, "Various", "System Wide", "Operational", 1990, "Various", "Distributed Peaker Fleet"),
-
-        # Major Wind Fleet (Replaces Aggregates with Real Plants)
-        GenerationProject("Javelina Wind", "Wind", 748, "Webb", "Laredo", "Operational", 2015, "NextEra", "South Texas Giant"),
-        GenerationProject("Buffalo Gap Wind", "Wind", 523, "Taylor", "Abilene", "Operational", 2006, "AES", "West Texas"),
-        GenerationProject("Lone Star Wind", "Wind", 400, "Shackelford", "Albany", "Operational", 2008, "EDP", "West Texas"),
-        GenerationProject("Papalote Creek", "Wind", 380, "San Patricio", "Odem", "Operational", 2010, "E.ON", "Coastal"),
-        GenerationProject("Panther Creek", "Wind", 458, "Howard", "Big Spring", "Operational", 2009, "E.ON", "West Texas"),
-        GenerationProject("Penascal Wind", "Wind", 605, "Kenedy", "Sarita", "Operational", 2010, "Avangrid", "Coastal"),
-        GenerationProject("Sherbino Wind", "Wind", 300, "Pecos", "Fort Stockton", "Operational", 2008, "BP Wind", "West Texas"),
-        GenerationProject("King Mountain", "Wind", 280, "Upton", "McCamey", "Operational", 2001, "NextEra", "Mesa"),
-        GenerationProject("Gulf Wind", "Wind", 283, "Kenedy", "Armstrong", "Operational", 2009, "Pattern", "Coastal"),
-        GenerationProject("Wildcat Wind", "Wind", 200, "Clay", "Henrietta", "Operational", 2010, "Enel", "North Texas"),
-        GenerationProject("Bull Creek", "Wind", 180, "Borden", "Gail", "Operational", 2008, "E.ON", "West Texas"),
-        GenerationProject("Hackberry Wind", "Wind", 166, "Shackelford", "Albany", "Operational", 2008, "RES", "West Texas"),
-        GenerationProject("Goat Mountain", "Wind", 150, "Sterling", "Sterling City", "Operational", 2009, "NextEra", "Mesa"),
-        GenerationProject("Camp Springs", "Wind", 130, "Scurry", "Snyder", "Operational", 2007, "Invenergy", "West Texas"),
-        GenerationProject("Brazos Wind", "Wind", 160, "Scurry", "Snyder", "Operational", 2003, "Shell", "West Texas"),
-        GenerationProject("South Trent", "Wind", 100, "Nolan", "Sweetwater", "Operational", 2009, "AEP", "West Texas"),
-        GenerationProject("Wharton Wind", "Wind", 120, "Wharton", "El Campo", "Operational", 2010, "Invenergy", "Coastal"),
-        GenerationProject("Keechi Wind", "Wind", 110, "Jack", "Jacksboro", "Operational", 2015, "Enbridge", "North Texas"),
-        GenerationProject("Santa Rita", "Wind", 300, "Reagan", "Big Lake", "Operational", 2018, "Invenergy", "West Texas"),
-        GenerationProject("Tahoka Wind", "Wind", 300, "Lynn", "Tahoka", "Operational", 2018, "Xcel", "West Texas"),
-        GenerationProject("Torrecillas", "Wind", 150, "Webb", "Laredo", "Operational", 2019, "Avangrid", "South Texas"),
-        GenerationProject("Karankawa", "Wind", 300, "San Patricio", "Mathis", "Operational", 2020, "Avangrid", "Coastal"),
-        GenerationProject("Stella Wind", "Wind", 201, "Kenedy", "Sarita", "Operational", 2018, "Orsted", "Coastal"),
-        GenerationProject("Elbow Creek", "Wind", 120, "Howard", "Big Spring", "Operational", 2008, "NRG", "West Texas"),
-        
-        # Aggregate Wind Remainder (Smaller legacy farms to reach ~41GW)
-        GenerationProject("Aggregate Wind Fleet (West)", "Wind", 15000, "Various", "West Hub", "Operational", 2015, "Various", "Small Legacy Wind Farms"),
-        GenerationProject("Aggregate Wind Fleet (South)", "Wind", 5000, "Various", "South Hub", "Operational", 2015, "Various", "Small Coastal Wind Farms"),
-
-        # Major Solar Fleet (Real Projects)
-        GenerationProject("Prospero Solar I & II", "Solar", 679, "Andrews", "Andrews", "Operational", 2020, "Longroad", "West Texas Giant"),
-        GenerationProject("Taygete Energy", "Solar", 255, "Pecos", "Fort Stockton", "Operational", 2021, "7X Energy", "West Texas"),
-        GenerationProject("Phoebe Solar", "Solar", 250, "Winkler", "Wink", "Operational", 2019, "Innergex", "West Texas"),
-        GenerationProject("Misae Solar", "Solar", 240, "Childress", "Childress", "Operational", 2020, "CIP", "Panhandle/North"),
-        GenerationProject("Titan Solar", "Solar", 260, "Culberson", "Van Horn", "Operational", 2020, "Idemitsu", "West Texas"),
-        GenerationProject("Holstein Solar", "Solar", 200, "Nolan", "Sweetwater", "Operational", 2020, "Duke Energy", "West Texas"),
-        GenerationProject("Rambler Solar", "Solar", 200, "Tom Green", "San Angelo", "Operational", 2020, "Duke Energy", "West Texas"),
-        GenerationProject("Buckthorn West", "Solar", 200, "Pecos", "Fort Stockton", "Operational", 2018, "Clearway", "West Texas"),
-        GenerationProject("Midway Solar", "Solar", 163, "Pecos", "McCamey", "Operational", 2018, "174 Power", "West Texas"),
-        GenerationProject("Oberon Solar", "Solar", 150, "Ector", "Odessa", "Operational", 2020, "174 Power", "Permian"),
-        GenerationProject("Upton 2", "Solar", 150, "Upton", "McCamey", "Operational", 2018, "Vistra", "Solar+Storage"),
-        GenerationProject("Bluebell Solar", "Solar", 140, "Sterling", "Sterling City", "Operational", 2021, "NextEra", "West Texas"),
-        GenerationProject("East Pecos Solar", "Solar", 100, "Pecos", "Fort Stockton", "Operational", 2017, "Southern Power", "West Texas"),
-        GenerationProject("Lapetus Energy", "Solar", 100, "Andrews", "Andrews", "Operational", 2019, "Duke Energy", "West Texas"),
-        GenerationProject("RE Pearl", "Solar", 100, "Pecos", "Fort Stockton", "Operational", 2018, "Recurrent", "West Texas"),
-        
-        # Aggregate Solar Remainder (To reach ~37GW)
-        GenerationProject("Aggregate Solar Fleet (West)", "Solar", 15000, "Various", "West Hub", "Operational", 2022, "Various", "Aggregated Solar Farms"),
-        GenerationProject("Aggregate Solar Fleet (South)", "Solar", 10000, "Various", "South Hub", "Operational", 2022, "Various", "Aggregated Solar Farms"),
-        GenerationProject("Aggregate Solar Fleet (North)", "Solar", 3000, "Various", "North Hub", "Operational", 2022, "Various", "Aggregated Solar Farms"),
-        GenerationProject("Aggregate Solar Fleet (Distributed)", "Solar", 4000, "Various", "System Wide", "Operational", 2022, "Various", "Aggregated Distributed/Rooftop"),
-
-        # Major Battery Fleet (Real Projects)
-        GenerationProject("Jupiter Power Fleet", "Battery", 600, "Various", "System Wide", "Operational", 2023, "Jupiter Power", "Distributed Storage"),
-        GenerationProject("Key Capture Fleet", "Battery", 500, "Various", "System Wide", "Operational", 2023, "KCE", "Distributed Storage"),
-        GenerationProject("Hunt Energy Fleet", "Battery", 400, "Various", "System Wide", "Operational", 2023, "Hunt", "Distributed Storage"),
-        GenerationProject("Enel Storage Fleet", "Battery", 300, "Various", "System Wide", "Operational", 2023, "Enel", "Distributed Storage"),
-        
-        # Aggregate Battery Remainder (To reach ~14GW)
-        GenerationProject("Aggregate Battery Fleet (West)", "Battery", 5000, "Various", "West Hub", "Operational", 2023, "Various", "Aggregated BESS"),
-        GenerationProject("Aggregate Battery Fleet (South)", "Battery", 4000, "Various", "South Hub", "Operational", 2023, "Various", "Aggregated BESS"),
-        GenerationProject("Aggregate Battery Fleet (North)", "Battery", 2500, "Various", "North Hub", "Operational", 2023, "Various", "Aggregated BESS"),
-        GenerationProject("Aggregate Battery Fleet (Houston)", "Battery", 1000, "Various", "Houston Hub", "Operational", 2023, "Various", "Aggregated BESS"),
-    ]
+    return [
+        GenerationProject("Existing Nuclear Fleet", "Nuclear", 4960, "Matagorda/Somervell", "Bay City/Glen Rose", "Operational", 1988, "Vistra/NRG"),
+        GenerationProject("Existing Coal Fleet", "Coal", 13600, "Various", "", "Operational", 1980, "Various"),
+        GenerationProject("Existing Gas Fleet", "Gas", 54000, "Various", "", "Operational", 1995, "Various"),
+     ]
     return fleet
 
 def generate_all_projects():
     all_projects = []
     
     # Existing / Operational
-    all_projects.extend(get_solar_projects())
-    all_projects.extend(get_wind_projects())
-    all_projects.extend(get_battery_projects())
-    all_projects.extend(get_gas_projects())
-    all_projects.extend(get_coal_projects())
-    all_projects.extend(get_existing_fleet())
+    # Try to load from EIA JSON first
+    existing_fleet = get_existing_fleet()
+    
+    if len(existing_fleet) > 100:
+        # High confidence we have a full dataset
+        print(f"Using {len(existing_fleet)} operational projects from EIA data.")
+        all_projects.extend(existing_fleet)
+    else:
+        # Fallback to hardcoded lists if EIA data is missing or too small
+        print("EIA data missing or incomplete. Using hardcoded fleet data.")
+        all_projects.extend(get_solar_projects())
+        all_projects.extend(get_wind_projects())
+        all_projects.extend(get_battery_projects())
+        all_projects.extend(get_gas_projects())
+        all_projects.extend(get_coal_projects())
+        all_projects.extend(get_existing_fleet()) # This returns the small hardcoded list in fallback mode
     
     # New Queue Data from CSV
     csv_path = "projects_in_queue_all_generators.csv"
