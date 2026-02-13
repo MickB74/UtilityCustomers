@@ -53,13 +53,13 @@ if texas_icon_path.exists():
         f"""
         <div style="display: flex; align-items: center; gap: 15px;">
             <img src="data:image/png;base64,{texas_icon_data}" width="40" style="margin-top: 10px;">
-            <h1 style="margin: 0;">ERCOT Data</h1>
+            <h1 style="margin: 0;">ERCOT Data <span style='font-size: 0.5em; color: gray;'>v1.1</span></h1>
         </div>
         """,
         unsafe_allow_html=True
     )
 else:
-    st.title("ERCOT Data")
+    st.title("ERCOT Data v1.1")
 
 # Navigation
 view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Fleet", "External Dashboards", "Historical Trends", "Methodology"])
