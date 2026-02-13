@@ -70,68 +70,60 @@ if view == "Electricity Users":
     st.header("🏭 Electricity Users")
     st.markdown("---")
     
-    # --- Sidebar Filters ---
-    st.sidebar.header("Filters")
+    # --- Filters in Expander ---
+    with st.expander("🔍 Filter Facilities", expanded=False):
+        f_col1, f_col2, f_col3 = st.columns(3)
+        
+        # Capture Current Selections from Session State
+        current_selection = {
+            'hub': st.session_state.get('filter_hub', []),
+            'type': st.session_state.get('filter_type', []),
+            'county': st.session_state.get('filter_county', []),
+            'city': st.session_state.get('filter_city', []),
+            'status': st.session_state.get('filter_status', [])
+        }
 
-    # Reset Button
-    def reset_filters():
-        st.session_state.filter_hub = []
-        st.session_state.filter_type = []
-        st.session_state.filter_county = []
-        st.session_state.filter_city = []
-        st.session_state.filter_status = ["Operational", "Development / Queue", "Aggregate Estimate"]
-        st.session_state.filter_mw = (int(df['mw'].min()), int(df['mw'].max()))
-        st.session_state.filter_search = ''
+        with f_col1:
+            # Hub Filter
+            valid_hubs = get_valid_options('hub', current_selection)
+            selected_hub = st.multiselect("ERCOT Hub", valid_hubs, key="filter_hub")
 
-    st.sidebar.button("Reset Filters", on_click=reset_filters, type="primary")
+            # Type Filter
+            valid_types = get_valid_options('type', current_selection)
+            selected_type = st.multiselect("Facility Type", valid_types, key="filter_type")
 
-    # Helper: Get valid options based on other filters
-    def get_valid_options(target_col, filters):
-        temp_df = df.copy()
-        # Apply all filters EXCEPT the one we are generating options for
-        for col, values in filters.items():
-            if col != target_col and values:
-                 temp_df = temp_df[temp_df[col].isin(values)]
-        return sorted(list(temp_df[target_col].unique()))
+        with f_col2:
+            # County Filter
+            valid_counties = get_valid_options('county', current_selection)
+            selected_counties = st.multiselect("County", valid_counties, key="filter_county")
 
-    # Capture Current Selections from Session State
-    current_selection = {
-        'hub': st.session_state.get('filter_hub', []),
-        'type': st.session_state.get('filter_type', []),
-        'county': st.session_state.get('filter_county', []),
-        'city': st.session_state.get('filter_city', []),
-        'status': st.session_state.get('filter_status', [])
-    }
+            # City Filter
+            valid_cities = get_valid_options('city', current_selection)
+            selected_cities = st.multiselect("City", valid_cities, key="filter_city")
 
-    # Hub Filter
-    valid_hubs = get_valid_options('hub', current_selection)
-    selected_hub = st.sidebar.multiselect("ERCOT Hub", valid_hubs, key="filter_hub")
+        with f_col3:
+            # Status Filter
+            valid_statuses = get_valid_options('status', current_selection)
+            if 'filter_status' not in st.session_state:
+                st.session_state.filter_status = ["Operational", "Development / Queue", "Aggregate Estimate"]
+            selected_status = st.multiselect("Status", valid_statuses, key="filter_status")
 
-    # Type Filter
-    valid_types = get_valid_options('type', current_selection)
-    selected_type = st.sidebar.multiselect("Facility Type", valid_types, key="filter_type")
+            # Search
+            search_term = st.text_input("Search Name/Notes/Source", key="filter_search")
 
-    # County Filter
-    valid_counties = get_valid_options('county', current_selection)
-    selected_counties = st.sidebar.multiselect("County", valid_counties, key="filter_county")
+        st.markdown("---")
+        # Bottom row for Slider and Reset
+        f_bot1, f_bot2 = st.columns([3, 1])
+        with f_bot1:
+            # MW Range
+            min_mw, max_mw = int(df['mw'].min()), int(df['mw'].max())
+            selected_mw = st.slider("Peak Load (MW)", min_mw, max_mw, (min_mw, max_mw), key="filter_mw")
+        with f_bot2:
+            st.markdown("<br>", unsafe_allow_html=True)
+            if st.button("Reset All Filters", type="primary", use_container_width=True):
+                reset_filters()
+                st.rerun()
 
-    # City Filter
-    valid_cities = get_valid_options('city', current_selection)
-    selected_cities = st.sidebar.multiselect("City", valid_cities, key="filter_city")
-
-    # Status Filter
-    valid_statuses = get_valid_options('status', current_selection)
-    if 'filter_status' not in st.session_state:
-        st.session_state.filter_status = ["Operational", "Development / Queue", "Aggregate Estimate"]
-    
-    selected_status = st.sidebar.multiselect("Status", valid_statuses, key="filter_status")
-
-    # MW Range
-    min_mw, max_mw = int(df['mw'].min()), int(df['mw'].max())
-    selected_mw = st.sidebar.slider("Peak Load (MW)", min_mw, max_mw, (min_mw, max_mw), key="filter_mw")
-
-    # Search
-    search_term = st.sidebar.text_input("Search Name/Notes/Source", key="filter_search")
 
     # --- Apply Filters ---
     filtered_df = df.copy()
@@ -316,30 +308,34 @@ elif view == "Generation Fleet":
     with tab1:
         op_df = load_operational_data()
         
-        # --- Sidebar Filters for Operational ---
-        st.sidebar.header("Operational Filters")
-        
-        # Reset Button
-        if st.sidebar.button("Reset Operational Filters"):
-            st.session_state.op_tech = []
-            st.session_state.op_county = []
-            st.session_state.op_hub = []
-            st.session_state.op_search = ""
-        
-        # Tech Filter
-        op_tech_opts = sorted(op_df['technology'].unique())
-        op_sel_tech = st.sidebar.multiselect("Technology", op_tech_opts, key="op_tech")
-        
-        # Hub Filter
-        op_hub_opts = sorted(op_df['hub'].unique()) if 'hub' in op_df.columns else []
-        op_sel_hub = st.sidebar.multiselect("ERCOT Hub", op_hub_opts, key="op_hub")
+        # --- Filters in Expander ---
+        with st.expander("🔍 Filter Operational Fleet", expanded=False):
+            f_col1, f_col2, f_col3, f_col4 = st.columns([2, 2, 2, 1])
+            
+            with f_col1:
+                # Tech Filter
+                op_tech_opts = sorted(op_df['technology'].unique())
+                op_sel_tech = st.multiselect("Technology", op_tech_opts, key="op_tech")
+            
+            with f_col2:
+                # Hub Filter
+                op_hub_opts = sorted(op_df['hub'].unique()) if 'hub' in op_df.columns else []
+                op_sel_hub = st.multiselect("ERCOT Hub", op_hub_opts, key="op_hub")
 
-        # County Filter
-        op_county_opts = sorted(op_df['county'].unique())
-        op_sel_county = st.sidebar.multiselect("County", op_county_opts, key="op_county")
+            with f_col3:
+                # County Filter
+                op_county_opts = sorted(op_df['county'].unique())
+                op_sel_county = st.multiselect("County", op_county_opts, key="op_county")
 
-        # Search Box
-        op_search = st.sidebar.text_input("Search Project/Dev/Loc", key="op_search")
+            with f_col4:
+                # Search Box
+                op_search = st.text_input("Search", key="op_search")
+                if st.button("Reset Filters", key="reset_op", use_container_width=True):
+                    st.session_state.op_tech = []
+                    st.session_state.op_county = []
+                    st.session_state.op_hub = []
+                    st.session_state.op_search = ""
+                    st.rerun()
         
         # Apply Filters
         filtered_op = op_df.copy()
@@ -438,30 +434,34 @@ elif view == "Generation Fleet":
     with tab2:
         queue_df = load_queue_data()
         
-        # --- Sidebar Filters for Queue ---
-        st.sidebar.header("Queue Filters")
-        
-        # Reset Button
-        if st.sidebar.button("Reset Queue Filters"):
-            st.session_state.queue_tech = []
-            st.session_state.queue_county = []
-            st.session_state.queue_hub = []
-            st.session_state.queue_search = ""
-        
-        # Tech Filter
-        queue_tech_opts = sorted(queue_df['technology'].unique())
-        queue_sel_tech = st.sidebar.multiselect("Technology", queue_tech_opts, key="queue_tech")
-        
-        # Hub Filter
-        queue_hub_opts = sorted(queue_df['hub'].unique()) if 'hub' in queue_df.columns else []
-        queue_sel_hub = st.sidebar.multiselect("ERCOT Hub", queue_hub_opts, key="queue_hub")
+        # --- Filters in Expander ---
+        with st.expander("🔍 Filter Queue", expanded=False):
+            f_col1, f_col2, f_col3, f_col4 = st.columns([2, 2, 2, 1])
+            
+            with f_col1:
+                # Tech Filter
+                queue_tech_opts = sorted(queue_df['technology'].unique())
+                queue_sel_tech = st.multiselect("Technology", queue_tech_opts, key="queue_tech")
+            
+            with f_col2:
+                # Hub Filter
+                queue_hub_opts = sorted(queue_df['hub'].unique()) if 'hub' in queue_df.columns else []
+                queue_sel_hub = st.multiselect("ERCOT Hub", queue_hub_opts, key="queue_hub")
 
-        # County Filter
-        queue_county_opts = sorted(queue_df['county'].unique())
-        queue_sel_county = st.sidebar.multiselect("County", queue_county_opts, key="queue_county")
+            with f_col3:
+                # County Filter
+                queue_county_opts = sorted(queue_df['county'].unique())
+                queue_sel_county = st.multiselect("County", queue_county_opts, key="queue_county")
 
-        # Search Box
-        queue_search = st.sidebar.text_input("Search Project/Dev/Loc", key="queue_search")
+            with f_col4:
+                # Search Box
+                queue_search = st.text_input("Search", key="queue_search")
+                if st.button("Reset Filters", key="reset_queue", use_container_width=True):
+                    st.session_state.queue_tech = []
+                    st.session_state.queue_county = []
+                    st.session_state.queue_hub = []
+                    st.session_state.queue_search = ""
+                    st.rerun()
         
         # Apply Filters
         filtered_queue = queue_df.copy()
