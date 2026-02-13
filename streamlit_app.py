@@ -994,58 +994,64 @@ elif view == "Historical Trends":
 
 elif view == "Methodology":
     st.header("📚 Methodology & Data Sources")
-    st.markdown("---")
+    
+    # Create Tabs for cleaner layout
+    tab_sources, tab_assumptions, tab_calculations = st.tabs(["Data Sources", "Assumptions", "Calculations"])
 
-    st.subheader("1. Data Sources")
-    st.markdown("""
-    The data presented in this dashboard is aggregated from multiple public sources:
-    
-    *   **ERCOT Fuel Mix Reports (IntGenByFuel):** 
-        *   Used for historical generation mix and emission inputs.
-        *   Source: [ERCOT Fuel Mix Reports](https://www.ercot.com/gridinfo/generation/fuelmix)
-    
-    *   **EIA-860M (Monthly Generator Report):**
-        *   Used for the "Generation Fleet" tab to track operational and planned generators.
-        *   Source: [EIA Form 860M](https://www.eia.gov/electricity/data/eia860m/)
-    
-    *   **Public Facility Lists:**
-        *   Large electricity users are identified through public records, news articles, and corporate announcements.
-        *   *Note: Specific load data for individual facilities is estimated based on typical industry patterns.*
-    """)
+    # --- Tab 1: Data Sources ---
+    with tab_sources:
+        st.subheader("Data Sources")
+        st.markdown("""
+        The data presented in this dashboard is aggregated from multiple public sources:
+        
+        *   **ERCOT Fuel Mix Reports (IntGenByFuel):** 
+            *   Used for historical generation mix and emission inputs.
+            *   Source: [ERCOT Fuel Mix Reports](https://www.ercot.com/gridinfo/generation/fuelmix)
+        
+        *   **EIA-860M (Monthly Generator Report):**
+            *   Used for the "Generation Fleet" tab to track operational and planned generators.
+            *   Source: [EIA Form 860M](https://www.eia.gov/electricity/data/eia860m/)
+        
+        *   **Public Facility Lists:**
+            *   Large electricity users are identified through public records, news articles, and corporate announcements.
+            *   *Note: Specific load data for individual facilities is estimated based on typical industry patterns.*
+        """)
 
-    st.markdown("---")
-    st.subheader("2. Assumptions")
-    
-    st.markdown("#### Load Factors")
-    st.markdown("""
-    To estimate annual energy consumption (MWh) from peak demand (MW), we apply the following load factors based on facility type:
-    
-    | Facility Type | Load Factor | Notes |
-    | :--- | :--- | :--- |
-    | **Crypto / Data Centers** | **90%** | highly constant load, 24/7 operations |
-    | **Industrial / Mfg / LNG** | **80%** | continuous industrial processes |
-    | **Health / Hospitals** | **65%** | constant base load with HVAC var |
-    | **Retail / Education / Other** | **40%** | commercial business hours |
-    """)
+    # --- Tab 2: Assumptions ---
+    with tab_assumptions:
+        st.subheader("Assumptions")
+        
+        st.markdown("#### Load Factors")
+        st.markdown("""
+        To estimate annual energy consumption (MWh) from peak demand (MW), we apply the following load factors based on facility type:
+        
+        | Facility Type | Load Factor | Notes |
+        | :--- | :--- | :--- |
+        | **Crypto / Data Centers** | **90%** | highly constant load, 24/7 operations |
+        | **Industrial / Mfg / LNG** | **80%** | continuous industrial processes |
+        | **Health / Hospitals** | **65%** | constant base load with HVAC var |
+        | **Retail / Education / Other** | **40%** | commercial business hours |
+        """)
 
-    st.markdown("#### Emission Factors")
-    st.markdown("""
-    Carbon emissions are estimated using the following factors (approximate tons CO2 per MWh):
-    
-    *   **Coal:** 1.0 tons/MWh
-    *   **Natural Gas (Simple Cycle):** 0.43 tons/MWh
-    *   **Natural Gas (Combined Cycle):** 0.40 tons/MWh
-    *   **Wind / Solar / Nuclear / Hydro:** 0.0 tons/MWh
-    """)
+        st.markdown("#### Emission Factors")
+        st.markdown("""
+        Carbon emissions are estimated using the following factors (approximate tons CO2 per MWh):
+        
+        *   **Coal:** 1.0 tons/MWh
+        *   **Natural Gas (Simple Cycle):** 0.43 tons/MWh
+        *   **Natural Gas (Combined Cycle):** 0.40 tons/MWh
+        *   **Wind / Solar / Nuclear / Hydro:** 0.0 tons/MWh
+        """)
 
-    st.markdown("---")
-    st.subheader("3. Calculations")
-    st.markdown("""
-    ##### Estimated Annual MWh
-    
-    $$
-    \\text{Est. Annual MWh} = \\text{Peak MW} \\times 8,760 \\text{ hours} \\times \\text{Load Factor}
-    $$
-    
-    *Where 8,760 is the number of hours in a standard year.*
-    """)
+    # --- Tab 3: Calculations ---
+    with tab_calculations:
+        st.subheader("Calculations")
+        st.markdown("""
+        ##### Estimated Annual MWh
+        
+        $$
+        \\text{Est. Annual MWh} = \\text{Peak MW} \\times 8,760 \\text{ hours} \\times \\text{Load Factor}
+        $$
+        
+        *Where 8,760 is the number of hours in a standard year.*
+        """)
