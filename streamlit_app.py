@@ -61,6 +61,30 @@ if texas_icon_path.exists():
 else:
     st.title("ERCOT Data v1.1")
 
+# Helper: Dynamic Filter Options
+def get_valid_options(target_field, current_selection):
+    """
+    Returns valid options for target_field based on selections in other fields.
+    current_selection: dict of {field: [selected_values]}
+    """
+    if 'df' not in globals():
+        return []
+        
+    temp_df = df.copy()
+    
+    for field, selected_values in current_selection.items():
+        # Apply filters from OTHER fields to narrow down options for the target field
+        # We don't filter by the target field itself, so users can select multiple options
+        if field != target_field and selected_values:
+            if field in temp_df.columns:
+                temp_df = temp_df[temp_df[field].isin(selected_values)]
+            
+    # Return unique values, dropping NaNs, and sorting
+    if target_field in temp_df.columns:
+        options = temp_df[target_field].dropna().unique().tolist()
+        return sorted(options)
+    return []
+
 # Navigation
 view = st.sidebar.radio("Navigation", ["Electricity Users", "Generation Fleet", "External Dashboards", "Historical Trends", "Methodology"])
 
